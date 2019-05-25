@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/vue-source/',
+  base: '/front-end/',
   dest: 'dist',
   title: '前端面试',
   description: 'front-end interview',
@@ -34,7 +34,14 @@ module.exports = {
           children: [
               ['prepare/', 'Introduction']
           ]
-       }
+       },
+       {
+        title: '关于html',
+        collapsable: false,
+        children: [
+            ['html/', '开始']
+        ]
+     }
     ]
   }
 }
