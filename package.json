@@ -1,0 +1,28 @@
+{
+  "name": "interview-highlignts",
+  "version": "1.0.0",
+  "description": "interview",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "deploy": "sh build.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berlinen/Interview-highlights.git"
+  },
+  "keywords": [
+    "front-end",
+    "interview"
+  ],
+  "author": "berlin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berlinen/Interview-highlights/issues"
+  },
+  "homepage": "https://github.com/berlinen/Interview-highlights#readme",
+  "devDependencies": {
+    "vuepress": "^0.10.0"
+  }
+}
