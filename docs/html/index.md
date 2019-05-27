@@ -170,8 +170,7 @@ CSRF（Cross-site request forgery），中文名称：跨站请求伪造。攻�
 
 Cross-site request forgery 跨站请求伪造，也被称为 “one click attack” 或者 session riding，通常缩写为 CSRF 或者 XSRF，是一种对网站的恶意利用；可以这么理解CSRF攻击：攻击者盗用你的身份，以你的名义向第三方网站发送恶意请求。CRSF能做的事情包括利用你的身份发邮件，发短信，进行交易转账，甚至盗取账号信息
 
-![avatar](/img/csrf.png)
-
+<img :src="$withBase('/img/csrf.png')" />
 
 #### 如何防止？
 
