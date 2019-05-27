@@ -9,6 +9,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:berlinen/Interview-highlights.git master:gh-pages
+git push -f git@github.com:berlinen/interview-highlights.git master:gh-pages
 
 cd -

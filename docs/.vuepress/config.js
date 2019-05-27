@@ -16,7 +16,7 @@ module.exports = {
   ],
   serviceWorker: false,
   themeConfig: {
-      repo: 'berlinen/Interview-highlights',
+      repo: 'berlinen/interview-highlights',
       editLinks: true,
       docsDir: 'docs',
       editLinkText: '在 GitHub 上编辑此页',
