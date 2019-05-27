@@ -39,15 +39,23 @@ module.exports = {
         title: '关于html',
         collapsable: false,
         children: [
-                ['html/', '开始']
+                ['html/', 'html']
             ]
         },
         {
-            title: '其他',
+            title: 'cs相关',
             collapsable: false,
             children: [
-                    ['others/', '开始']
+                   'css/',
+                   'css/selector'
                 ]
+        },
+        {
+        title: '其他',
+        collapsable: false,
+        children: [
+                ['others/', '其他']
+            ]
         }
     ]
   }
