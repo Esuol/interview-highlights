@@ -1,10 +1,10 @@
 # 选择器
 
-### 伪类选择器？
+## 伪类选择器？
 
 一个 CSS  伪类（pseudo-class） 是一个以冒号(:)作为前缀，被添加到一个选择器末尾的关键字，当你希望样式在特定状态下才被呈现到指定的元素时，你可以往元素的选择器后面加上对应的伪类（pseudo-class）。你可能希望某个元素在处于某种状态下呈现另一种样式，例如当鼠标悬停在元素上面时，或者当一个复选框被禁用或被勾选时，又或者当一个元素是它在 DOM 树中父元素的第一个子元素时。
 
-###  伪元素和伪类的区别？
+##  伪元素和伪类的区别？
 
 1. CSS 伪类用于向某些选择器添加特殊的效果。
 
@@ -17,7 +17,7 @@
 ::Pseudo-elements
 ```
 
-### 选择器的优先级是如何计算的？
+## 选择器的优先级是如何计算的？
 
 1.!important：在属性后面使用 !important 会覆盖页面内任何位置定义的元素样式
 
@@ -37,9 +37,9 @@
 
 9.浏览器自定义
 
-###  什么是 CSS 继承？哪些属性能继承，哪些不能？
+##  什么是 CSS 继承？哪些属性能继承，哪些不能？
 
-#### 一、无继承性的属性
+### 一、无继承性的属性
 1、display：规定元素应该生成的框的类型
 
 2、文本属性：
@@ -68,7 +68,7 @@ width、height、margin 、margin-top、margin-right、margin-bottom、margin-le
 
 9、声音样式属性：pause-before、pause-after、pause、cue-before、cue-after、cue、play-during
 
-####  二、有继承性的属性
+###  二、有继承性的属性
 
 1、字体系列属性
 
@@ -120,13 +120,13 @@ color：文本颜色
 
 9、声音样式属性：speak、speak-punctuation、speak-numeral、speak-header、speech-rate、volume、voice-family、pitch、pitch-range、stress、richness、、azimuth、elevation
 
-#### 三、所有元素可以继承的属性
+### 三、所有元素可以继承的属性
 
 1、元素可见性：visibility
 
 2、光标属性：cursor
 
-#### 四、内联元素可以继承的属性
+### 四、内联元素可以继承的属性
 
 1、字体系列属性
 
