@@ -1,5 +1,5 @@
 module.exports = {
-  base: '//interview-highlights/',
+  base: '/interview-highlights/',
   dest: 'dist',
   title: '前端面试',
   description: 'front-end interview',
