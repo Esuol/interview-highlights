@@ -39,9 +39,16 @@ module.exports = {
         title: '关于html',
         collapsable: false,
         children: [
-            ['html/', '开始']
-        ]
-     }
+                ['html/', '开始']
+            ]
+        },
+        {
+            title: '其他',
+            collapsable: false,
+            children: [
+                    ['others/', '开始']
+                ]
+        }
     ]
   }
 }
