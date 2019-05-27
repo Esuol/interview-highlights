@@ -103,6 +103,95 @@ translate 规定是否应该翻译元素内容。
 无CSS样子时也容易阅读，便于阅读维护和理解
 便于浏览器、搜索引擎解析。 利于爬虫标记、利于SEO
 
+###  在 input 里，name 有什么作用？
+
+用途1： 作为可与服务器交互数据的HTML元素的服务器端的标示，比如input、select、textarea、和button等。我们可以在服务器端根据其Name通过Request.Params取得元素提交的值。
+
+用途2： HTML元素Input type='radio'分组，我们知道radio button控件在同一个分组类，check操作是mutex的，同一时间只能选中一个radio，这个分组就是根据相同的Name属性来实现的。
+
+用途3： 建立页面中的锚点，我们知道a href="URL"是获得一个页面超级链接，如果不用href属性，而改用Name，如：a name="PageBottom" 我们就获得了一个页面锚点。
+
+用途4： 作为对象的Identity，如Applet、Object、Embed等元素。比如在Applet对象实例中，我们将使用其Name来引用该对象。
+
+用途5： 在IMG元素和MAP元素之间关联的时候，如果要定义IMG的热点区域，需要使用其属性usemap，使usemap="#name"(被关联的MAP元素的Name)。
+
+用途6：  某些特定元素的属性，如attribute，meta和param。例如为Object定义参数 PARAM NAME = "appletParameter" VALUE = "value" 或Meta中 META NAME = "Author" CONTENT = "Dave Raggett"
+
+### label 有什么作用？如何使用？
+
+Label标签有两个属性，一个是for，一个是 accesskey。
+
+for功能：表示这个Lable是为哪个控件服务的，Label标签要绑定了for指定HTML元素的ID或name属性，你点击这个标签的时候，所绑定的元素将获取焦点 ，点击label所包裹内容，自动指向for指定的id或name
+
+accesskey则定义了访问这个控件的热键( 所设置的快捷键不能与浏览器的快捷键冲突，否则将优先激活浏览器的快捷键)
+
+### radio如何分组
+
+```html
+ <form>
+    <input type="radio" name="sex" value="male"> 男 <br>
+    <input type="radio" name="sex" value="female"> 女<br>
+    <input type="radio" name="age" value="adult"> 已成年<br>
+    <input type="radio" name="age" value="child"> 未成年
+  </form>
+```
+
+### placeholder 属性有什么作用?
+placeholder 属性提供可描述输入字段预期值的提示信息（hint）。
+
+该提示会在输入字段为空时显示，并会在字段获得焦点时消失。
+
+注释：placeholder 属性适用于以下的 <input> 类型：text, search, url, telephone, email 以及 password。
+
+```html
+  <form action="demo_form.asp" method="get">
+    <input type="search" name="user_search" placeholder="Search W3School" />
+    <input type="submit" />
+  </form>
+```
+
+###  type=hidden 隐藏域有什么作用？举例说明。
+
+1. 隐藏域的作用是帮助表单收集和发送信息，便于后端处理数据。用户点击提交数据的时候，隐藏域的信息也被一起发送到了后端。
+
+2. 后端接收前端传来的数据，需要确认前端的身份，是本公司的网页传来的数据，而不是其他黑客知道后端地址后传来的假数据。那么就加一个隐藏域，验证value里的值和数据库里name的值是不是对应的，类似于“天王盖地虎，宝塔镇河妖”，暗号对的上，才能证明是自己人，O(∩_∩)O~。
+
+3. 有时候一个表单里有多个提交按钮，后端怎么知道用户是点击哪个按钮提交过来的呢？这时候我们只要加隐藏域，对每一个按钮起个名字(value值)，后端接收到数据后，检查value值，就能知道是哪个按钮提交的了。
+
+4. 有时候一个网页中有多个form，我们知道多个form是不能同时提交的，但有时这些form确实相互作用，我们就可以在form中添加隐藏域来使它们联系起来。
+
+5. JavaScript不支持全局变量，但有时我们必须用全局变量，我们就可以把值先存在隐藏域里，它的值就不会丢失了。
+
+6. 还有个例子，比如按一个按钮弹出四个小窗口，当点击其中的一个小窗口时其他三个自动关闭．可是IE不支持小窗口相互调用，所以只有在父窗口写个隐藏域，当小窗口看到那个隐藏域的值是close时就自己关掉。
+
+###  CSRF 攻击是什么？如何防范？
+
+CSRF（Cross-site request forgery），中文名称：跨站请求伪造。攻击者盗用了你的身份，以你的名义发送恶意请求。
+
+Cross-site request forgery 跨站请求伪造，也被称为 “one click attack” 或者 session riding，通常缩写为 CSRF 或者 XSRF，是一种对网站的恶意利用；可以这么理解CSRF攻击：攻击者盗用你的身份，以你的名义向第三方网站发送恶意请求。CRSF能做的事情包括利用你的身份发邮件，发短信，进行交易转账，甚至盗取账号信息
+
+![avatar](/img/csrf.png)
+
+
+#### 如何防止？
+
+1. 验证 HTTP Referer 字段
+
+HTTP头中的Referer字段记录了该 HTTP 请求的来源地址。在通常情况下，访问一个安全受限页面的请求来自于同一个网站，而如果黑客要对其实施 CSRF 攻击，他一般只能在他自己的网站构造请求。因此，可以通过验证Referer值来防御CSRF 攻击。
+
+2. 使用验证码
+
+关键操作页面加上验证码，后台收到请求后通过判断验证码可以防御CSRF。但这种方法对用户不太友好。
+
+3. 在请求地址中添加token并验证
+
+CSRF 攻击之所以能够成功，是因为黑客可以完全伪造用户的请求，该请求中所有的用户验证信息都是存在于cookie中，因此黑客可以在不知道这些验证信息的情况下直接利用用户自己的cookie 来通过安全验证。要抵御 CSRF，关键在于在请求中放入黑客所不能伪造的信息，并且该信息不存在于 cookie 之中。可以在 HTTP 请求中以参数的形式加入一个随机产生的 token，并在服务器端建立一个拦截器来验证这个 token，如果请求中没有token或者 token 内容不正确，则认为可能是 CSRF 攻击而拒绝该请求。这种方法要比检查 Referer 要安全一些，token 可以在用户登陆后产生并放于session之中，然后在每次请求时把token 从 session 中拿出，与请求中的 token 进行比对，但这种方法的难点在于如何把 token 以参数的形式加入请求。
+
+4. 在HTTP 头中自定义属性并验证
+
+这种方法也是使用 token 并进行验证，和上一种方法不同的是，这里并不是把 token 以参数的形式置于 HTTP 请求之中，而是把它放到 HTTP 头中自定义的属性里。通过 XMLHttpRequest 这个类，可以一次性给所有该类请求加上 csrftoken 这个 HTTP 头属性，并把 token 值放入其中。这样解决了上种方法在请求中加入 token 的不便，同时，通过 XMLHttpRequest 请求的地址不会被记录到浏览器的地址栏，也不用担心 token 会透过 Referer 泄露到其他网站中去。
+
+
 ## 关于meta
 
 ### meta 有哪些常见的值？
@@ -227,5 +316,28 @@ user-scalable表示用户缩放能力, no表示不允许.
 initial-scale表示设备与视口的缩放比率
 maximum和minimum分别表示缩放的最大最小值, 要注意的是, maximum必须必minimum大.
 
-###
+##  post 和 get 方式提交数据有什么区别？
+
+1. GET使用URL或Cookie传参，而POST将数据放在BODY中”，这个是因为HTTP协议用法的约定。并非它们的本身区别。
+
+2. GET方式提交的数据有长度限制，则POST的数据则可以非常大”，这个是因为它们使用的操作系统和浏览器设置的不同引起的区别。也不是GET和POST本身的区别。
+
+3. POST比GET安全，因为数据在地址栏上不可见”，这个说法没毛病，但依然不是GET和POST本身的区别。
+
+4. 内置区别
+
+GET和POST最大的区别主要是GET请求是幂等性的，POST请求不是。这个是它们本质区别，上面的只是在使用上的区别。
+
+```text
+什么是幂等性？幂等性是指一次和多次请求某一个资源应该具有同样的副作用。
+
+简单来说意味着对同一URL的多个请求应该返回同样的结果。
+```
+正因为它们有这样的区别，所以不应该且不能用get请求做数据的增删改这些有副作用的操作。因为get请求是幂等的，在网络不好的隧道中会尝试重试。如果用get请求增数据，会有重复操作的风险，而这种重复操作可能会导致副作用（浏览器和操作系统并不知道你会用get请求去做增操作）。
+
+
+
+
+
+
 
