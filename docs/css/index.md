@@ -396,7 +396,200 @@ BFC可以清除内部浮动；BFC可以包含浮动，让父容器生成新的BF
 形成BFC 可以阻止外边柜合并，对于垂直相邻的元素可以设置浮动或设置其中一个元素为display:inline-block;对于父子元素外边距，可为父元素设置padding或border。
 ]
 
+ ## 列举你了解的 HTML5、CSS3 新特性？
 
+标签：
+
+articl  定义页面独立的内容区域。
+
+aside 定义页面的侧边栏内容。
+
+bdi 允许您设置一段文本，使其脱离其父元素的文本方向设置。
+
+command 定义命令按钮，比如单选按钮、复选框或按钮
+
+details 用于描述文档或文档某个部分的细节
+
+dialog 定义对话框，比如提示框
+
+summary 标签包含 details 元素的标题
+
+figure 规定独立的流内容（图像、图表、照片、代码等等）。
+
+figcaption 定义 figure 元素的标题
+
+footer 定义 section 或 document 的页脚。
+
+header 定义了文档的头部区域
+
+mark 定义带有记号的文本
+
+meter 定义度量衡。仅用于已知最大和最小值的度量。
+
+nav 定义导航链接的部分。
+
+progress 定义任何类型的任务的进度。
+
+ruby  定义 ruby 注释（中文注音或字符）。
+
+rt 定义字符（中文注音或字符）的解释或发音。
+
+rp 在 ruby 注释中使用，定义不支持 ruby 元素的浏览器所显示的内容。
+
+section 定义文档中的节（section、区段）。
+
+time 定义日期或时间。
+
+wbr 规定在文本中的何处适合添加换行符。
+
+### HTML5 Canvas
+
+HTML5 canvas 元素用于图形的绘制，通过脚本 (通常是JavaScript)来完成.
+
+canvas 标签只是图形容器，您必须使用脚本来绘制图形。
+
+### HTML5 拖放
+
+### HTML5 地理定位
+
+ HTML5 Geolocation API 用于获得用户的地理位置。
+
+鉴于该特性可能侵犯用户的隐私，除非用户同意，否则用户位置信息是不可用的。
+
+```js
+
+var x=document.getElementById("demo");
+function getLocation()
+{
+if(navigator.geolocation)
+{
+navigator.geolocation.getCurrentPosition(showPosition);
+}
+else{x.innerHTML="该浏览器不支持获取地理位置。";}
+}
+function showPosition(position)
+{
+x.innerHTML="Latitude: "+ position.coords.latitude +
+"<br>Longitude: "+ position.coords.longitude;
+}
+
+```
+
+### HTML5  Audio(音频)、Video(视频)
+
+HTML5 规定了在网页上嵌入音频元素的标准，即使用 audio 元素。
+
+``` html
+<audiocontrols>
+<sourcesrc="horse.ogg"type="audio/ogg">
+<sourcesrc="horse.mp3"type="audio/mpeg">
+```
+
+### HTML5 Input 类型
+
+### HTML5 表单属性
+
+### HTML5 语义元素
+
+### HTML5 Web 存储
+
+### Manifest 文件
+
+manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。
+
+manifest 文件可分为三个部分：
+
+```txt
+CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存
+NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存
+FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面
+```
+
+```txt
+CACHE MANIFEST
+# 2012-02-21 v1.0.0
+/theme.css
+/logo.gif
+/main.js
+NETWORK:
+login.php
+FALLBACK:
+/html/ /offline.html
+```
+
+### HTML5 Web Workers
+
+当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。
+
+web worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。（相当于实现多线程并发）
+
+### HTML5 SSE
+
+Server-Sent 事件指的是网页自动获取来自服务器的更新。
+
+以前也可能做到这一点，前提是网页不得不询问是否有可用的更新。通过服务器发送事件，更新能够自动到达。
+
+例子：Facebook/Twitter 更新、估价更新、新的博文、赛事结果等。
+
+EventSource 对象用于接收服务器发送事件通知：
+
+```js
+var source=newEventSource("demo_sse.php");
+source.onmessage=function(event)
+{
+document.getElementById("result").innerHTML+=event.data +"<br>";
+};
+```
+### HTML5 WebSocket
+
+ebSocket是HTML5开始提供的一种在单个 TCP 连接上进行全双工通讯的协议。在WebSocket API中，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。浏览器通过 JavaScript 向服务器发出建立 WebSocket 连接的请求，连接建立以后，客户端和服务器端就可以通过 TCP 连接直接交换数据。当你获取 Web Socket 连接后，你可以通过 send() 方法来向服务器发送数据，并通过 onmessage 事件来接收服务器返回的数据。以下 API 用于创建 WebSocket 对象。
+
+## CSS3选择器
+
+### CSS3选择器
+
+### CSS3 边框（Borders）
+
+```css
+border-image	设置所有边框图像的速记属性。
+border-radius	一个用于设置所有四个边框- *-半径属性的速记属性
+box-shadow	附加一个或多个下拉框的阴影
+```
+### CSS3 背景
+
+```css
+background-clip	规定背景的绘制区域。
+background-origin	规定背景图片的定位区域。
+background-size	规定背景图片的尺寸。
+```
+
+### CSS3 渐变
+
+CSS3 定义了两种类型的渐变（gradients）：
+
+#### 线性渐变（Linear Gradients）- 向下/向上/向左/向右/对角方向
+
+```css
+background: linear-gradient(direction, color-stop1, color-stop2,...);
+```
+
+#### 径向渐变（Radial Gradients）- 由它们的中心定义
+
+```css
+background: radial-gradient(center, shape size, start-color,...,last-color);
+```
+
+### CSS3 字体
+
+以前CSS3的版本，网页设计师不得不使用用户计算机上已经安装的字体。使用CSS3，网页设计师可以使用他/她喜欢的任何字体。当你发现您要使用的字体文件时，只需简单的将字体文件包含在网站中，它会自动下载给需要的用户。您所选择的字体在新的CSS3版本有关于@font-face规则描述。您"自己的"的字体是在 CSS3 @font-face 规则中定义的。
+
+### CSS3 转换和变形
+
+```css
+transform	适用于2D或3D转换的元素
+
+transform-origin	允许您更改转化元素位置
+```
 
 
 
