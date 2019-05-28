@@ -48,7 +48,8 @@ module.exports = {
             children: [
                    'css/',
                    'css/selector',
-                   'css/unit'
+                   'css/unit',
+                   'css/advanced'
                 ]
         },
         {
