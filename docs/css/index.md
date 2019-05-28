@@ -591,6 +591,83 @@ transform	适用于2D或3D转换的元素
 transform-origin	允许您更改转化元素位置
 ```
 
+### CSS3 过渡
+```css
+transition	简写属性，用于在一个属性中设置四个过渡属性。	3
+transition-property	规定应用过渡的 CSS 属性的名称。	3
+transition-duration	定义过渡效果花费的时间。默认是 0。	3
+transition-timing-function	规定过渡效果的时间曲线。默认是 "ease"。	3
+transition-delay	规定过渡效果何时开始。默认是 0。	3
+```
+
+### CSS3 动画
+
+要创建CSS3动画，你需要了解@keyframes规则。@keyframes规则是创建动画。 @keyframes规则内指定一个CSS样式和动画将逐步从目前的样式更改为新的样式。
+
+```css
+@keyframes myfirst
+{
+0%{background: red;}
+25%{background: yellow;}
+50%{background: blue;}
+100%{background: green;}
+}
+
+@keyframes	规定动画。	3
+animation	所有动画属性的简写属性，除了 animation-play-state 属性。	3
+animation-name	规定 @keyframes 动画的名称。	3
+animation-duration	规定动画完成一个周期所花费的秒或毫秒。默认是 0。	3
+animation-timing-function	规定动画的速度曲线。默认是 "ease"。	3
+animation-delay	规定动画何时开始。默认是 0。	3
+animation-iteration-count	规定动画被播放的次数。默认是 1。	3
+animation-direction	规定动画是否在下一周期逆向地播放。默认是 "normal"。	3
+animation-play-state	规定动画是否正在运行或暂停。默认是 "running"。	3
+
+```
+
+### CSS3 多列
+
+```css
+column-count	指定元素应该被分割的列数。
+column-fill	指定如何填充列
+column-gap	指定列与列之间的间隙
+column-rule	所有 column-rule-* 属性的简写
+column-rule-color	指定两列间边框的颜色
+column-rule-style	指定两列间边框的样式
+column-rule-width	指定两列间边框的厚度
+column-span	指定元素要跨越多少列
+column-width	指定列的宽度
+columns	设置 column-width 和 column-count 的简写
+```
+
+### CSS3 盒模型
+ 在 CSS3 中, 增加了一些新的用户界面特性来调整元素尺寸，框尺寸和外边框，主要包括以下用户界面属性：
+
+```css
+resize：none | both | horizontal | vertical | inherit
+box-sizing: content-box | border-box | inherit
+outline:outline-color outline-style outline-width outine-offset
+```
+resize属性指定一个元素是否应该由用户去调整大小。
+
+box-sizing 属性允许您以确切的方式定义适应某个区域的具体内容。
+
+outline-offset 属性对轮廓进行偏移，并在超出边框边缘的位置绘制轮廓。
+
+### CSS3伸缩布局盒模型(弹性盒)
+
+``` css
+display	指定 HTML 元素盒子类型。
+flex-direction	指定了弹性容器中子元素的排列方式
+justify-content	设置弹性盒子元素在主轴（横轴）方向上的对齐方式。
+align-items	设置弹性盒子元素在侧轴（纵轴）方向上的对齐方式。
+flex-wrap	设置弹性盒子的子元素超出父容器时是否换行。
+align-content	修改 flex-wrap 属性的行为，类似 align-items, 但不是设置子元素对齐，而是设置行对齐
+flex-flow	flex-direction 和 flex-wrap 的简写
+order	设置弹性盒子的子元素排列顺序。
+align-self	在弹性子元素上使用。覆盖容器的 align-items 属性。
+flex	设置弹性盒子的子元素如何分配空间。
+```
 
 
 
