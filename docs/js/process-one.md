@@ -319,6 +319,38 @@ console.log('1', a) // -> '1' 1
 上述解释中提到了 await 内部实现了 generator，其实 await 就是 generator 加上 Promise的语法糖，且内部实现了自动执行 generator。如果你熟悉 co 的话，其实自己就可以实现这样的语法糖。
 
 
+### 如何实现一个 new
+```js
+function new (fn, ...arg) {
+  const obj = Object.create(fn.prototype)
+  const ret = fn.apply(obj, arg)
+  return ret instanceOf Object ? ret : obj
+}
+```
+
+### Object.create
+
+```js
+if (typeof Object.create !== "function") {
+    Object.create = function (proto, propertiesObject) {
+        if (typeof proto !== 'object' && typeof proto !== 'function') {
+            throw new TypeError('Object prototype may only be an Object: ' + proto);
+        } else if (proto === null) {
+            throw new Error("This browser's implementation of Object.create is a shim and doesn't support 'null' as the first argument.");
+        }
+
+        if (typeof propertiesObject != 'undefined') throw new Error("This browser's implementation of Object.create is a shim and doesn't support a second argument.");
+
+        function F() {}
+        F.prototype = proto;
+
+        return new F();
+    };
+}
+
+```
+
+
 
 
 
