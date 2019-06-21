@@ -57,6 +57,7 @@ module.exports = {
             collapsable: false,
             children: [
                 'js/process-one',
+                'js/process-two',
                 'js/es678',
                 'js/react',
                 'js/vue'
