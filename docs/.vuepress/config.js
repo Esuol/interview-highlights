@@ -53,6 +53,16 @@ module.exports = {
                 ]
         },
         {
+            title: 'javaCript',
+            collapsable: false,
+            children: [
+                'js/process-one',
+                'js/es678',
+                'js/react',
+                'js/vue'
+                ]
+        },
+        {
         title: '其他',
         collapsable: false,
         children: [
