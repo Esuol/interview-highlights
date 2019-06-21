@@ -36,14 +36,14 @@ module.exports = {
           ]
        },
        {
-        title: '关于html',
+        title: 'Html',
         collapsable: false,
         children: [
                 ['html/', 'html']
             ]
         },
         {
-            title: 'css相关',
+            title: 'Css',
             collapsable: false,
             children: [
                    'css/',
@@ -63,7 +63,7 @@ module.exports = {
                 ]
         },
         {
-        title: '其他',
+        title: 'others',
         collapsable: false,
         children: [
                 ['others/', '其他']
