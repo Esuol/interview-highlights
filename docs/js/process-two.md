@@ -72,3 +72,53 @@ token
 举例：直接给服务员看自己身份证
 
 1、首先token不是防止XSS的，而是为了防止CSRF的； 2、CSRF攻击的原因是浏览器会自动带上cookie，而浏览器不会自动带上token
+
+### 请把俩个数组 [A1, A2, B1, B2, C1, C2, D1, D2] 和 [A, B, C, D]，合并为 [A1, A2, A, B1, B2, B, C1, C2, C, D1, D2, D]。
+
+```js
+let a2 =  [A, B, C, D].map(item => {
+  return item + 3
+})
+let a3 = [...a1, ...a2].sort().map(item => {
+  if(item.includes('3')) {
+    return item.split('')[0]
+  }
+  return item
+})
+```
+
+### 改造下面的代码，使之输出0 - 9，写出你能想到的所有解法。
+
+```js
+for (var i = 0; i< 10; i++){
+	setTimeout(() => {
+		console.log(i);
+    }, 1000)
+}
+```
+
+```js
+for(let i =0; i < 10; i++) {
+  setTimeout(() => {
+    console.log(i)
+  },1000)
+}
+```
+
+```js
+for (var i = 0; i< 10; i++){
+	setTimeout((i) => {
+		console.log(i);
+    }, 1000, i)
+}
+```
+
+```js
+for(let i =0; i < 10; i++) {
+  ((i) => {
+    setTimeout(() => {
+      console.log(i)
+    },1000)
+  })(i)
+}
+```
