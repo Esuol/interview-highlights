@@ -122,3 +122,44 @@ for(let i =0; i < 10; i++) {
   })(i)
 }
 ```
+
+### 下面的代码打印什么内容，为什么？
+
+```js
+var b = 10;
+(function b(){
+    b = 20;
+    console.log(b);
+})();
+
+```
+解答
+
+函数表达式与函数声明不同，函数名只在该函数内部有效，并且此绑定是常量绑定。
+
+对于一个常量进行赋值，在 strict 模式下会报错，非 strict 模式下静默失败。
+
+IIFE中的函数是函数表达式，而不是函数声明。
+
+
+实际上，有点类似于以下代码，但不完全相同，因为使用const不管在什么模式下，都会TypeError类型的错误
+```js
+const foo = function () {
+  foo = 10;
+  console.log(foo)
+}
+(foo)() // Uncaught TypeError: Assignment to constant variable.
+```
+
+b 函数是一个相当于用const定义的常量，内部无法进行重新赋值，如果在严格模式下，会报错"Uncaught TypeError: Assignment to constant variable." 例如下面的：
+
+```javascript
+var b = 10;
+(function b() {
+  'use strict'
+  b = 20;
+  console.log(b)
+})() // "Uncaught TypeError: Assignment to constant variable."
+```
+
+### 浏览器缓存读取规则
