@@ -63,3 +63,12 @@ console.log(aa); // 1
 console.log(bb); // 2
 ```
 
+### cookie 和 token 都存放在 header 中，为什么不会劫持 token？ #31
+
+cookie
+举例：服务员看你的身份证，给你一个编号，以后，进行任何操作，都出示编号后服务员去看查你是谁。
+
+token
+举例：直接给服务员看自己身份证
+
+1、首先token不是防止XSS的，而是为了防止CSRF的； 2、CSRF攻击的原因是浏览器会自动带上cookie，而浏览器不会自动带上token
