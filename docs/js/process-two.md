@@ -163,3 +163,31 @@ var b = 10;
 ```
 
 ### 浏览器缓存读取规则
+
+可以分成 Service Worker、Memory Cache、Disk Cache 和 Push Cache，那请求的时候 from memory cache 和 from disk cache 的依据是什么，哪些数据什么时候存放在 Memory Cache 和 Disk Cache中？
+
+ 如果开启了Service Worker首先会从Service Worker中拿
+
+如果新开一个以前打开过的页面缓存会从Disk Cache中拿（前提是命中强缓存）
+
+刷新当前页面时浏览器会根据当前运行环境内存来决定是从 Memory Cache 还是 从Disk Cache中拿(可以看到下图最后几个文件有时候是从 Memory Cache中拿有时候是从Disk Cache中拿)
+
+### 使用迭代的方式实现 flatten 函数。
+
+```js
+let arr = [1, 2, [3, 4, 5, [6, 7], 8], 9, 10, [11, [12, 13]]]
+
+const flatten = function (arr) {
+    while (arr.some(item => Array.isArray(item))) {
+        arr = [].concat(...arr)
+    }
+    return arr
+}
+
+console.log(flatten(arr))
+```
+
+```js
+// es6  递归的实现(ES6简写):
+const flatten = array => array.reduce((acc, cur) => (Array.isArray(cur) ? [...acc, ...flatten(cur)] : [...acc, cur]), [])
+```
