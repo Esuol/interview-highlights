@@ -191,3 +191,60 @@ console.log(flatten(arr))
 // es6  递归的实现(ES6简写):
 const flatten = array => array.reduce((acc, cur) => (Array.isArray(cur) ? [...acc, ...flatten(cur)] : [...acc, cur]), [])
 ```
+
+### 下面代码中 a 在什么情况下会打印 1？
+#### 1
+```js
+let a = {
+  i: 1,
+  toString () {
+    return a.i++
+  }
+}
+
+if(a == 1 && a == 2 && a == 3) {
+  console.log(1);
+}
+```
+####2
+```js
+let a = {
+  i: 1,
+  valueOf () {
+    return a.i++
+  }
+}
+
+if(a == 1 && a == 2 && a == 3) {
+  console.log(1);
+}
+```
+####3
+```js
+var a = [1,2,3];
+a.join = a.shift;
+if(a == 1 && a == 2 && a == 3) {
+  console.log(1);
+}
+```
+
+#### 4
+```js
+let a = {
+    [Symbol.toPrimitive]: (i => () => ++i) (0)
+};
+if(a == 1 && a == 2 && a == 3) {
+  console.log(1);
+}
+```
+#### 5
+```js
+Object.defineProperty(window, 'a', {
+    get: function() {
+          return this.value = this.value ? (this.value += 1) : 1;
+    }
+});
+if(a == 1 && a == 2 && a == 3) {
+  console.log(1);
+}
+```
