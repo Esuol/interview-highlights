@@ -386,5 +386,6 @@ Number.prototype.add = function(n) {
 Number.prototype.minus = function(n) {
   return this.valueOf() - n;
 };
-console.loog((5).add(3).minus(2))
+let res = (5).add(3).minus(2)
+console.log(res)
 ```
