@@ -206,7 +206,7 @@ if(a == 1 && a == 2 && a == 3) {
   console.log(1);
 }
 ```
-####2
+#### 2
 ```js
 let a = {
   i: 1,
@@ -219,7 +219,7 @@ if(a == 1 && a == 2 && a == 3) {
   console.log(1);
 }
 ```
-####3
+#### 3
 ```js
 var a = [1,2,3];
 a.join = a.shift;
@@ -248,3 +248,74 @@ if(a == 1 && a == 2 && a == 3) {
   console.log(1);
 }
 ```
+
+### 下面代码输出什么?
+
+```js
+var a = 10;
+(function () {
+    console.log(a)
+    a = 5
+    console.log(window.a)
+    var a = 20;
+    console.log(a)
+})()
+```
+
+#### 依次输出：undefined -> 10 -> 20
+
+在立即执行函数中，var a = 20; 语句定义了一个局部变量 a，由于js的变量声明提升机制，局部变量a的声明会被提升至立即执行函数的函数体最上方，且由于这样的提升并不包括赋值，因此第一条打印语句会打印undefined，最后一条语句会打印20。
+由于变量声明提升，a = 5; 这条语句执行时，局部的变量a已经声明，因此它产生的效果是对局部的变量a赋值，此时window.a 依旧是最开始赋值的10。
+
+### 实现一个 sleep 函数
+
+比如 sleep(1000) 意味着等待1000毫秒，可从 Promise、Generator、Async/Await 等角度实现。
+
+```js
+// promise
+const sleep = time => {
+  return new Promise(resolve => setTimeout(resolve, time))
+}
+sleep(1000).then(() => {
+  console.log(1)
+})
+
+//Generator
+function* SleepGenerator (time) {
+  yield new Promise((resolve, reject) => {
+    setTimeout(resolve, time)
+  })
+}
+
+SleepGenerator(1000).next().value.then(() =>{console.log(1)})
+
+// async
+
+function sleep(time) {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, time)
+  })
+}
+
+async function output() {
+  let out = await sleep(1000)
+  console.log(1)
+  return out
+}
+
+output()
+
+//es5
+
+function sleep(callback, time) {
+  if(typeof callback === 'function') {
+      setTimeout(callback,time)
+  }
+}
+
+function output(){
+  console.log(1);
+}
+sleep(output,1000);
+```
+
