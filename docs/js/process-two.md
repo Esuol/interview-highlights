@@ -377,3 +377,14 @@ call比apply的性能要好，平常可以多用call, call传入参数的格式�
 
 GIF的最低合法体积最小（最小的BMP文件需要74个字节，PNG需要67个字节，而合法的GIF，只需要43个字节）
 
+### 实现 (5).add(3).minus(2) 功能
+
+```js
+Number.prototype.add = function(n) {
+  return this.valueOf() + n;
+};
+Number.prototype.minus = function(n) {
+  return this.valueOf() - n;
+};
+console.loog((5).add(3).minus(2))
+```
