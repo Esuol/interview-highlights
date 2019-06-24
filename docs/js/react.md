@@ -107,4 +107,81 @@ class Example extends React.Component {
 
 输出： 0 0 2 3
 
+### React 的主要特点是什么?
+
+React 的主要特性有：
+
+考虑到真实的 DOM 操作成本很高，它使用 VirtualDOM 而不是真实的 DOM。
+
+支持服务端渲染。
+
+遵循单向数据流或数据绑定。
+
+使用可复用/可组合的 UI 组件开发视图。
+
+### 什么是 JSX?
+
+JSX 是 ECMAScript 一个类似 XML 的语法扩展。基本上，它只是为 React.createElement() 函数提供语法糖，从而让在我们在 JavaScript 中，使用类 HTML 模板的语法，进行页面描述。
+
+在下面的示例中，h1 内的文本标签会作为 JavaScript 函数返回给渲染函数。
+
+```js
+class App extends React.Component {
+  render() {
+    return(
+      <div>
+        <h1>{'Welcome to React world!'}</h1>
+      </div>
+    )
+  }
+```
+
+以上示例 render 方法中的 JSX 将会被转换为以下内容：
+
+```js
+React.createElement("div", null, React.createElement(
+  "h1", null, 'Welcome to React world!'));
+```
+
+### 如何在 React 中创建组件?
+
+有两种可行的方法来创建一个组件：
+
+Function Components: 这是创建组件最简单的方式。这些是纯 JavaScript 函数，接受 props 对象作为第一个参数并返回 React 元素：
+
+```js
+function Greeting({ message }) {
+  return <h1>{`Hello, ${message}`}</h1>
+}
+```
+
+Class Components: 你还可以使用 ES6 类来定义组件。上面的函数组件若使用 ES6 的类可改写为
+
+```js
+class Greeting extends React.Component {
+  render() {
+    return <h1>{`Hello, ${this.props.message}`}</h1>
+  }
+}
+```
+
+通过以上任意方式创建的组件，可以这样使用：
+
+```js
+ <Greeting message="semlinker"/>
+```
+
+在 React 内部对函数组件和类组件的处理方式是不一样的，如：
+
+```js
+  // 如果 Greeting 是一个函数
+  const result = Greeting(props); // <p>Hello</p>
+
+  // 如果 Greeting 是一个类
+  const instance = new Greeting(props); // Greeting {}
+  const result = instance.render(); // <p>Hello</p>
+```
+
+
+
 
