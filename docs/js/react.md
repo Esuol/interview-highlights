@@ -182,6 +182,15 @@ class Greeting extends React.Component {
   const result = instance.render(); // <p>Hello</p>
 ```
 
+### 何时使用类组件和函数组件?
+
+如果组件需要使用状态或生命周期方法，那么使用类组件，否则使用函数组件。
+
+### 什么是 Pure Components?
+
+React.PureComponent 与 React.Component 完全相同，只是它为你处理了 shouldComponentUpdate() 方法。当属性或状态发生变化时，PureComponent 将对属性和状态进行浅比较。另一方面，一般的组件不会将当前的属性和状态与新的属性和状态进行比较。因此，在默认情况下，每当调用 shouldComponentUpdate 时，默认返回 true，所以组件都将重新渲染。
+
+
 
 
 
