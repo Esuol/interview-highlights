@@ -190,7 +190,29 @@ class Greeting extends React.Component {
 
 React.PureComponent 与 React.Component 完全相同，只是它为你处理了 shouldComponentUpdate() 方法。当属性或状态发生变化时，PureComponent 将对属性和状态进行浅比较。另一方面，一般的组件不会将当前的属性和状态与新的属性和状态进行比较。因此，在默认情况下，每当调用 shouldComponentUpdate 时，默认返回 true，所以组件都将重新渲染。
 
+### React 的状态是什么?
 
+组件的状态是一个对象，它包含某些信息，这些信息可能在组件的生命周期中发生更改。我们应该尽量使状态尽可能简单，并尽量减少有状态组件的数量。让我们创建一个包含消息状态的 User 组件：
+
+```js
+class User extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      message: 'Welcome to React world'
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+      </div>
+    )
+  }
+}
+```
 
 
 
