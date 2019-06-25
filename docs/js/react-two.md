@@ -123,3 +123,50 @@ handleClick = () => {
 </button>
 ```
 
+### refs 有什么用?
+
+ref 用于返回对元素的引用。但在大多数情况下，应该避免使用它们。当你需要直接访问 DOM 元素或组件的实例时，它们可能非常有用。
+
+### 如何创建 refs?
+
+1 这是最近增加的一种方案。Refs 是使用 React.createRef() 方法创建的，并通过 ref 属性添加到 React 元素上。为了在整个组件中使用refs，只需将 ref 分配给构造函数中的实例属性。
+
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props)
+    this.myRef = React.createRef()
+  }
+  render() {
+    return <div ref={this.myRef} />
+  }
+}
+```
+2 你也可以使用 ref 回调函数的方案，而不用考虑 React 版本。例如，访问搜索栏组件中的 input 元素如下：
+
+```js
+class SearchBar extends Component {
+   constructor(props) {
+      super(props);
+      this.txtSearch = null;
+      this.state = { term: '' };
+      this.setInputSearchRef = e => {
+         this.txtSearch = e;
+      }
+   }
+
+   onInputChange(event) {
+      this.setState({ term: this.txtSearch.value });
+   }
+
+   render() {
+      return (
+         <input
+            value={this.state.term}
+            onChange={this.onInputChange.bind(this)}
+            ref={this.setInputSearchRef} />
+      );
+   }
+}
+```
+
