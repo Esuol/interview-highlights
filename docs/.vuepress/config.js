@@ -60,6 +60,7 @@ module.exports = {
                 'js/process-two',
                 'js/es678',
                 'js/react',
+                'js/react-two',
                 'js/vue'
                 ]
         },
