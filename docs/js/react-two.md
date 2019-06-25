@@ -62,3 +62,31 @@ onClick = () => {
 
 <img :src="$withBase('/img/setState')" />
 
+
+### HTML 和 React 事件处理有什么区别?
+
+在 HTML 中事件名必须小写：
+
+```html
+<button onclick='activateLasers()'>
+```
+而在 React 中它遵循 camelCase (驼峰) 惯例：
+
+```html
+<button onClick={activateLasers}>
+```
+在 HTML 中你可以返回 false 以阻止默认的行为：在 HTML 中你可以返回 false 以阻止默认的行为：
+
+```html
+<a href='#' onclick='console.log("The link was clicked."); return false;' />
+```
+
+而在 React 中你必须地明确地调用 preventDefault() ：
+
+```js
+function handleClick(event) {
+  event.preventDefault()
+  console.log('The link was clicked.')
+}
+```
+
