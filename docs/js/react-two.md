@@ -170,3 +170,50 @@ class SearchBar extends Component {
 }
 ```
 
+### 什么是 forward refs?
+
+Ref forwarding 是一个特性，它允许一些组件获取接收到 ref 对象并将它进一步传递给子组件。
+
+```js
+const ButtonElement = React.forwardRef((props, ref) => (
+  <button ref={ref} className="CustomButton">
+    {props.children}
+  </button>
+));
+
+// Create ref to the DOM button:
+const ref = React.createRef();
+<ButtonElement ref={ref}>{'Forward Ref'}</ButtonElement>
+```
+
+### callback refs 和 findDOMNode() 哪一个是首选选项?
+
+最好是使用 callback refs 而不是 findDOMNode() API。因为 findDOMNode() 阻碍了将来对 React 的某些改进。
+
+使用 findDOMNode 已弃用的方案：
+
+```js
+class MyComponent extends Component {
+  componentDidMount() {
+    findDOMNode(this).scrollIntoView()
+  }
+
+  render() {
+    return <div />
+  }
+}
+
+```
+推荐的方案是：
+
+```js
+class MyComponent extends Component {
+  componentDidMount() {
+    this.node.scrollIntoView()
+  }
+
+  render() {
+    return <div ref={node => this.node = node} />
+  }
+}
+```
