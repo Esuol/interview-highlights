@@ -1,4 +1,4 @@
-## React
+## React one 
 
 ### 写 React / Vue 项目时为什么要在列表组件中写 key，其作用是什么?
 
@@ -214,5 +214,37 @@ class User extends React.Component {
 }
 ```
 
+### React 中的 props 是什么?
+
+Props 是组件的输入。它们是单个值或包含一组值的对象，这些值在创建时使用类似于 HTML 标记属性的命名约定传递给组件。它们是从父组件传递到子组件的数据。
+
+#### Props 的主要目的是提供以下组件功能：
+
+将自定义数据传递到组件。
+
+触发状态更改。
+
+在组件的 render() 方法中通过 this.props.reactProp 使用。
+
+### 状态和属性有什么区别?
+
+state 和 props 都是普通的 JavaScript 对象。虽然它们都保存着影响渲染输出的信息，但它们在组件方面的功能不同。Props 以类似于函数参数的方式传递给组件，而状态则类似于在函数内声明变量并对它进行管理。
 
 
+### 我们为什么不能直接更新状态?
+
+如果你尝试直接改变状态，那么组件将不会重新渲染。
+
+```js
+//Wrong
+this.state.message = 'Hello world'
+```
+
+正确方法应该是使用 setState() 方法。它调度组件状态对象的更新。当状态更改时，组件通将会重新渲染。
+
+```js
+//Correct
+this.setState({ message: 'Hello World' })
+```
+
+ 你可以在 constructor 中或使用最新的 JavaScript 类属性声明语法直接设置状态对象。
