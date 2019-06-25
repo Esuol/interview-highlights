@@ -90,3 +90,36 @@ function handleClick(event) {
 }
 ```
 
+### 如何在 JSX 回调中绑定方法或事件处理程序?
+
+1 Binding in Constructor: 在 JavaScript 类中，方法默认不被绑定。这也适用于定义为类方法的 React 事件处理程序。通常我们在构造函数中绑定它们。
+
+```js
+class Component extends React.Componenet {
+  constructor(props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick() {
+    // ...
+  }
+}
+```
+
+2 Public class fields syntax: 如果你不喜欢 bind 方案，则可以使用 public class fields syntax 正确绑定回调。
+
+```js
+handleClick = () => {
+  console.log('this is:', this)
+}
+```
+
+3 Arrow functions in callbacks: 你可以在回调函数中直接使用 arrow functions。
+
+```html
+<button onClick={(event) => this.handleClick(event)}>
+  {'Click me'}
+</button>
+```
+
