@@ -217,3 +217,26 @@ class MyComponent extends Component {
   }
 }
 ```
+
+### 为什么 String Refs 被弃用?
+
+如果你以前使用过 React，你可能会熟悉旧的 API，其中的 ref 属性是字符串，如 ref={'textInput'}，并且 DOM 节点的访问方式为this.refs.textInput。我们建议不要这样做，因为字符串引用有以下问题，并且被认为是遗留问题。字符串 refs 在 React v16 版本中被移除。
+
+它们强制 React 跟踪当前执行的组件。这是有问题的，因为它使 React 模块有状态，这会导致在 bundle 中复制 React 模块时会导致奇怪的错误。
+
+它们是不可组合的 - 如果一个库把一个 ref 传给子元素，则用户无法对其设置另一个引用。
+
+它们不能与静态分析工具一起使用，如 Flow。Flow 无法猜测出 this.refs 上的字符串引用的作用及其类型。Callback refs 对静态分析更友好。
+
+使用 "render callback" 模式（比如： ），它无法像大多数人预期的那样工作。
+
+### 什么是 Virtual DOM?
+
+Virtual DOM (VDOM) 是 Real DOM 的内存表示形式。UI 的展示形式被保存在内存中并与真实的 DOM 同步。这是在调用的渲染函数和在屏幕上显示元素之间发生的一个步骤。整个过程被称为 reconciliation。
+
+Real DOM	            Virtual DOM
+更新较慢	             更新较快
+可以直接更新 HTML	      无法直接更新 HTML
+如果元素更新，则创建新的  DOM	如果元素更新，则更新 JSX
+DOM 操作非常昂贵	      DOM 操作非常简单
+较多的内存浪费	        没有内存浪费
