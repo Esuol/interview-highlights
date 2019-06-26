@@ -562,4 +562,73 @@ render() {
 }
 ```
 
+### 为什么有组件名称要首字母大写?
+
+这是必要的，因为组件不是 DOM 元素，它们是构造函数。 此外，在 JSX 中，小写标记名称是指 HTML 元素，而不是组件。
+
+### 为什么 React 使用 className 而不是 class 属性?
+
+class 是 JavaScript 中的关键字，而 JSX 是 JavaScript 的扩展。这就是为什么 React 使用 className 而不是 class 的主要原因。传递一个字符串作为 className 属性。
+
+```js
+render() {
+  return <span className={'menu navigation-menu'}>{'Menu'}</span>
+}
+
+```
+
+在实际项目中，我们经常使用classnames来方便我们操作className。
+
+### 什么是 Fragments ?
+
+它是 React 中的常见模式，用于组件返回多个元素。Fragments 可以让你聚合一个子元素列表，而无需向 DOM 添加额外节点。
+
+```js
+render() {
+  return (
+    <React.Fragment>
+      <ChildA />
+      <ChildB />
+      <ChildC />
+    </React.Fragment>
+  )
+}
+```
+
+### 为什么使用 Fragments 比使用容器 div 更好?
+
+通过不创建额外的 DOM 节点，Fragments 更快并且使用更少的内存。这在非常大而深的节点树时很有好处。
+
+一些 CSS 机制如Flexbox和CSS Grid具有特殊的父子关系，如果在中间添加 div 将使得很难保持所需的结构。
+
+在 DOM 审查器中不会那么的杂乱。
+
+### 在 React 中什么是 Portal ?
+
+Portal 提供了一种很好的将子节点渲染到父组件以外的 DOM 节点的方式。
+
+```js
+ReactDOM.createPortal(child, container)
+```
+
+第一个参数是任何可渲染的 React 子节点，例如元素，字符串或片段。第二个参数是 DOM 元素。
+
+如果行为独立于其状态，则它可以是无状态组件。你可以使用函数或类来创建无状态组件。但除非你需要在组件中使用生命周期钩子，否则你应该选择函数组件。无状态组件有很多好处： 它们易于编写，理解和测试，速度更快，而且你可以完全避免使用this关键字。
+
+### 什么是有状态组件?
+
+如果组件的行为依赖于组件的state，那么它可以被称为有状态组件。这些有状态组件总是类组件，并且具有在constructor中初始化的状态。
+
+```js
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+  }
+
+  render() {
+    // ...
+  }
+}
+```
 
