@@ -525,6 +525,22 @@ class MyComponent extends React.Component {
 
 上面的代码片段显示this.props仅在构造函数中有所不同。 它在构造函数之外是相同的。
 
+### 什么是调解?
 
+当组件的props或state发生更改时，React 通过将新返回的元素与先前呈现的元素进行比较来确定是否需要实际的 DOM 更新。当它们不相等时，React 将更新 DOM 。此过程称为reconciliation。
+
+### 如何使用动态属性名设置 state ?
+
+如果你使用 ES6 或 Babel 转换器来转换你的 JSX 代码，那么你可以使用计算属性名称来完成此操作。
+
+```js
+handleInputChange(event) {
+  this.setState({ [event.target.id]: event.target.value })
+}
+
+toggle = () => {
+  this.setState(prevState => ({ collapsed: !prevState.collapsed }));
+};
+```
 
 
