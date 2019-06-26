@@ -404,5 +404,42 @@ function HOC(WrappedComponent) {
 
 ```
 
+### 什么是上下文（Context）?
+
+Context 通过组件树提供了一个传递数据的方法，从而避免了在每一个层级手动的传递props。比如，需要在应用中许多组件需要访问登录用户信息、地区偏好、UI主题等。
+
+```js
+// 创建一个 theme Context,  默认 theme 的值为 light
+const ThemeContext = React.createContext('light');
+
+function ThemedButton(props) {
+  // ThemedButton 组件从 context 接收 theme
+  return (
+    <ThemeContext.Consumer>
+      {theme => <Button {...props} theme={theme} />}
+    </ThemeContext.Consumer>
+  );
+}
+
+// 中间组件
+function Toolbar(props) {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <ThemeContext.Provider value="dark">
+        <Toolbar />
+      </ThemeContext.Provider>
+    );
+  }
+}
+```
+
 
 
