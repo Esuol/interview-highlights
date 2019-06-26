@@ -366,6 +366,21 @@ componentDidUpdate: 它主要用于更新 DOM 以响应 prop 或 state 更改。
 
 componentWillUnmount: 当一个组件被从 DOM 中移除时，该方法被调用，取消网络请求或者移除与该组件相关的事件监听程序等应该在这里进行。
 
+### 什么是高阶组件（HOC）?
+
+高阶组件(HOC) 就是一个函数，且该函数接受一个组件作为参数，并返回一个新的组件，它只是一种模式，这种模式是由react自身的组合性质必然产生的。
+
+我们将它们称为纯组件，因为它们可以接受任何动态提供的子组件，但它们不会修改或复制其输入组件中的任何行为。
+
+```js
+const EnhancedComponent = higherOrderComponent(WrappedComponent)
+```
+HOC 有很多用例：
+
+代码复用，逻辑抽象化
+渲染劫持
+抽象化和操作状态（state）
+操作属性（props）
 
 
 
