@@ -382,5 +382,27 @@ HOC 有很多用例：
 抽象化和操作状态（state）
 操作属性（props）
 
+### 如何为高阶组件创建属性代理?
+
+你可以使用属性代理模式向输入组件增加或编辑属性（props）：
+
+```js
+function HOC(WrappedComponent) {
+  return class Test extends Component {
+    render() {
+      const newProps = {
+        title: 'New Header',
+        footer: false,
+        showFeatureX: false,
+        showFeatureY: true
+      };
+
+      return <WrappedComponent {...this.props} {...newProps} />
+    }
+  }
+}
+
+```
+
 
 
