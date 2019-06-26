@@ -240,3 +240,13 @@ Real DOM	            Virtual DOM
 如果元素更新，则创建新的  DOM	如果元素更新，则更新 JSX
 DOM 操作非常昂贵	      DOM 操作非常简单
 较多的内存浪费	        没有内存浪费
+
+### Virtual DOM 如何工作?
+
+Virtual DOM 分为三个简单的步骤。
+
+1 每当任何底层数据发生更改时，整个 UI 都将以 Virtual DOM 的形式重新渲染。
+
+2 然后计算先前 Virtual DOM 对象和新的 Virtual DOM 对象之间的差异。
+
+3 一旦计算完成，真实的 DOM 将只更新实际更改的内容。
