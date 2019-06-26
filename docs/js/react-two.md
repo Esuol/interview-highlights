@@ -250,3 +250,37 @@ Virtual DOM 分为三个简单的步骤。
 2 然后计算先前 Virtual DOM 对象和新的 Virtual DOM 对象之间的差异。
 
 3 一旦计算完成，真实的 DOM 将只更新实际更改的内容。
+
+### hadow DOM 和 Virtual DOM 之间有什么区别?
+
+Shadow DOM 是一种浏览器技术，它解决了构建网络应用的脆弱性问题。Shadow DOM 修复了 CSS 和 DOM。它在网络平台中引入作用域样式。 无需工具或命名约定，你即可使用原生 JavaScript 捆绑 CSS 和标记、隐藏实现详情以及编写独立的组件。Virtual DOM 是一个由 JavaScript 库在浏览器 API 之上实现的概念。
+
+### 什么是 React Fiber?
+
+Fiber 是 React v16 中新的 reconciliation 引擎，或核心算法的重新实现。React Fiber 的目标是提高对动画，布局，手势，暂停，中止或者重用任务的能力及为不同类型的更新分配优先级，及新的并发原语等领域的适用性。
+
+### React Fiber 的主要目标是什么?
+
+React Fiber 的目标是提高其在动画、布局和手势等领域的适用性。它的主要特性是 incremental rendering: 将渲染任务拆分为小的任务块并将任务分配到多个帧上的能力。
+
+### 什么是受控组件?
+
+在随后的用户输入中，能够控制表单中输入元素的组件被称为受控组件，即每个状态更改都有一个相关联的处理程序。
+
+例如，我们使用下面的 handleChange 函数将输入框的值转换成大写：
+
+```js
+handleChange(event) {
+  this.setState({value: event.target.value.toUpperCase()})
+}
+```
+
+### 什么是非受控组件?
+
+非受控组件是在内部存储其自身状态的组件，当需要时，可以使用 ref 查询 DOM 并查找其当前值。这有点像传统的 HTML。
+
+在下面的 UserProfile 组件中，我们通过 ref 引用 name 输入框：
+
+
+
+
