@@ -441,5 +441,28 @@ class App extends React.Component {
 }
 ```
 
+### children 属性是什么?
+
+Children 是一个属性（this.props.chldren），它允许你将组件作为数据传递给其他组件，就像你使用的任何其他组件一样。在组件的开始和结束标记之间放置的组件树将作为children属性传递给该组件。
+
+React API 中有许多方法中提供了这个不透明数据结构的方法，包括：React.Children.map、React.Children.forEach、React.Children.count、React.Children.only、React.Children.toArray。
+
+```js
+const MyDiv = React.createClass({
+  render: function() {
+    return <div>{this.props.children}</div>
+  }
+})
+
+ReactDOM.render(
+  <MyDiv>
+    <span>{'Hello'}</span>
+    <span>{'World'}</span>
+  </MyDiv>,
+  node
+)
+
+```
+
 
 
