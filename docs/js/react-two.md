@@ -543,4 +543,23 @@ toggle = () => {
 };
 ```
 
+### 每次组件渲染时调用函数的常见错误是什么?
+
+你需要确保在将函数作为参数传递时未调用该函数。
+
+```js
+render() {
+  // Wrong: handleClick is called instead of passed as a reference!
+  return <button onClick={this.handleClick()}>{'Click Me'}</button>
+}
+```
+
+相反地，传递函数本身应该没有括号：
+```js
+render() {
+  // Correct: handleClick is passed as a reference!
+  return <button onClick={this.handleClick}>{'Click Me'}</button>
+}
+```
+
 
