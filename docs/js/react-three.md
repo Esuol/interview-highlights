@@ -53,3 +53,84 @@ JSX 使代码易于读写。
 易于与框架（Angular，Backbone）集成，因为它只是一个视图库。
 
 使用 Jest 等工具轻松编写单元与集成测试。
+
+### React 的局限性是什么?
+
+React 只是一个视图库，而不是一个完整的框架。
+
+对于 Web 开发初学者来说，有一个学习曲线。
+
+将 React 集成到传统的 MVC 框架中需要一些额外的配置。
+
+代码复杂性随着内联模板和 JSX 的增加而增加。
+
+如果有太多的小组件可能增加项目的庞大和复杂。
+
+### 在 React v16 中的错误边界是什么?
+
+错误边界是在其子组件树中的任何位置捕获 JavaScript 错误、记录这些错误并显示回退 UI 而不是崩溃的组件树的组件。
+
+如果一个类组件定义了一个名为 componentDidCatch(error, info) 或 static getDerivedStateFromError() 新的生命周期方法，则该类组件将成为错误边界：
+
+```js
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  componentDidCatch(error, info) {
+    // You can also log the error to an error reporting service
+    logErrorToMyService(error, info)
+  }
+
+  static getDerivedStateFromError(error) {
+     // Update state so the next render will show the fallback UI.
+     return { hasError: true };
+   }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>{'Something went wrong.'}</h1>
+    }
+    return this.props.children
+  }
+}
+```
+
+之后，将其作为常规组件使用：
+
+```html
+<ErrorBoundary>
+  <MyWidget />
+</ErrorBoundary>
+```
+
+### 静态类型检查推荐的方法是什么?
+
+通常，我们使用 PropTypes 库（在 React v15.5 之后 React.PropTypes 被移动到了 prop-types 包中），在 React 应用程序中执行类型检查。对于大型项目，建议使用静态类型检查器，比如 Flow 或 TypeScript，它们在编译时执行类型检查并提供 auto-completion 功能。
+
+### react-dom 包的用途是什么?
+
+react-dom 包提供了特定的 DOM 方法，可以在应用程序的顶层使用。大多数的组件不需要使用此模块。该模块中提供的一些方法如下：
+
+render()
+
+hydrate()
+
+unmountComponentAtNode()
+
+findDOMNode()
+
+createPortal()
+
+### react-dom 中 render 方法的目的是什么?
+
+此方法用于将 React 元素渲染到所提供容器中的 DOM 结构中，并返回对组件的引用。如果 React 元素之前已被渲染到容器中，它将对其执行更新，并且只在需要时改变 DOM 以反映最新的更改。
+
+```JS
+ReactDOM.render(element, container[, callback])
+```
+
+如果提供了可选的回调函数，该函数将在组件被渲染或更新后执行。
