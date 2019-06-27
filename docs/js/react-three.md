@@ -205,3 +205,83 @@ React 事件处理程序是采用驼峰而不是小写来命名的。
 
 当你使用 setState() 时，除了设置状态对象之外，React 还会重新渲染组件及其所有的子组件。你会得到这样的错误：Can only update a mounted or mounting component.。因此我们需要在构造函数中使用 this.state 初始化状态。
 
+### 索引作为键的影响是什么?
+
+Keys 应该是稳定的，可预测的和唯一的，这样 React 就能够跟踪元素。
+
+在下面的代码片段中，每个元素的键将基于列表项的顺序，而不是绑定到即将展示的数据上。这将限制 React 能够实现的优化。
+
+```js
+{todos.map((todo, index) =>
+  <Todo
+    {...todo}
+    key={index}
+  />
+)}
+```
+
+假设 todo.id 对此列表是唯一且稳定的，如果将此数据作为唯一键，那么 React 将能够对元素进行重新排序，而无需重新创建它们。
+
+```js
+{todos.map((todo) =>
+  <Todo {...todo}
+    key={todo.id} />
+)}
+
+```
+
+### 在 componentWillMount() 方法中使用 setState() 好吗?
+
+建议避免在 componentWillMount() 生命周期方法中执行异步初始化。在 mounting 发生之前会立即调用 componentWillMount()，且它在 render() 之前被调用，因此在此方法中更新状态将不会触发重新渲染。应避免在此方法中引入任何副作用或订阅操作。我们需要确保对组件初始化的异步调用发生在 componentDidMount() 中，而不是在 componentWillMount() 中。
+
+```js
+componentDidMount() {
+  axios.get(`api/todos`)
+    .then((result) => {
+      this.setState({
+        messages: [...result.data]
+      })
+    })
+}
+```
+
+### 如果在初始状态中使用 props 属性会发生什么?
+
+如果在不刷新组件的情况下更改组件上的属性，则不会显示新的属性值，因为构造函数函数永远不会更新组件的当前状态。只有在首次创建组件时才会用 props 属性初始化状态。
+
+以下组件将不显示更新的输入值：
+
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      records: [],
+      inputValue: this.props.inputValue
+    };
+  }
+
+  render() {
+    return <div>{this.state.inputValue}</div>
+  }
+}
+```
+
+在 render 方法使用使用 props 将会显示更新的值：
+
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      record: []
+    }
+  }
+
+  render() {
+    return <div>{this.props.inputValue}</div>
+  }
+}
+```
