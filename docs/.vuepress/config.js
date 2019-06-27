@@ -61,6 +61,7 @@ module.exports = {
                 'js/es678',
                 'js/react',
                 'js/react-two',
+                'js/react-three',
                 'js/vue'
                 ]
         },
