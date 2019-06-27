@@ -285,3 +285,44 @@ class MyComponent extends React.Component {
   }
 }
 ```
+
+### 如何有条件地渲染组件?
+
+在某些情况下，你希望根据某些状态渲染不同的组件。 JSX 不会渲染 false 或 undefined，因此你可以使用 && 运算符，在某个条件为 true 时，渲染组件中指定的内容。
+
+```js
+const MyComponent = ({ name, address }) => (
+  <div>
+    <h2>{name}</h2>
+    {address &&
+      <p>{address}</p>
+    }
+  </div>
+)
+```
+
+如果你需要一个 if-else 条件，那么使用三元运算符：
+
+```js
+const MyComponent = ({ name, address }) => (
+  <div>
+    <h2>{name}</h2>
+    {address
+      ? <p>{address}</p>
+      : <p>{'Address is not available'}</p>
+    }
+  </div>
+)
+```
+
+### 为什么在 DOM 元素上展开 props 需要小心?
+
+当我们展开属性时，我们会遇到添加未知 HTML 属性的风险，这是一种不好的做法。相反，我们可以使用属性解构和...rest 运算符，因此它只添加所需的 props 属性。例如，
+
+```js
+const ComponentA = () =>
+  <ComponentB isDisplay={true} className={'componentStyle'} />
+
+const ComponentB = ({ isDisplay, ...domProps }) =>
+  <div {...domProps}>{'ComponentB'}</div>
+```
