@@ -175,3 +175,33 @@ function MyComponent() {
   return <div dangerouslySetInnerHTML={createMarkup()} />
 }
 ```
+### 如何在 React 中使用样式?
+
+style 属性接受含有 camelCased（驼峰）属性的 JavaScript 对象，而不是 CSS 字符串。这与 DOM 样式中的 JavaScript 属性一致，效率更高，并且可以防止 XSS 安全漏洞。
+
+```js
+const divStyle = {
+  color: 'blue',
+  backgroundImage: 'url(' + imgUrl + ')'
+};
+
+function HelloWorldComponent() {
+  return <div style={divStyle}>Hello World!</div>
+}
+```
+
+为了与在 JavaScript 中访问 DOM 节点上的属性保持一致，样式键采用了 camelcased（例如node.style.backgroundImage）。
+
+### 在 React 中事件有何不同?
+
+处理 React 元素中的事件有一些语法差异：
+
+React 事件处理程序是采用驼峰而不是小写来命名的。
+
+使用 JSX，你将传递一个函数作为事件处理程序，而不是字符串。
+
+
+### 如果在构造函数中使用 setState() 会发生什么?
+
+当你使用 setState() 时，除了设置状态对象之外，React 还会重新渲染组件及其所有的子组件。你会得到这样的错误：Can only update a mounted or mounting component.。因此我们需要在构造函数中使用 this.state 初始化状态。
+
