@@ -41,3 +41,15 @@ class User extends React.Component {
   }
 }
 ```
+
+### React 的优点是什么?
+
+使用 Virtual DOM 提高应用程序的性能。
+
+JSX 使代码易于读写。
+
+它支持在客户端和服务端渲染。
+
+易于与框架（Angular，Backbone）集成，因为它只是一个视图库。
+
+使用 Jest 等工具轻松编写单元与集成测试。
