@@ -385,3 +385,53 @@ ReactDOMServer.renderToString(<App />)
 ```
 
 此方法将以字符串形式输出常规 HTML，然后将其作为服务器响应的一部分放在页面正文中。在客户端，React 检测预渲染的内容并无缝地衔接。
+
+### 如何在 React 中启用生产模式?
+
+你应该使用 Webpack 的 DefinePlugin 方法将 NODE_ENV 设置为 production，通过它你可以去除 propType 验证和额外警告等内容。除此之外，如果你压缩代码，如使用 Uglify 的死代码消除，以去掉用于开发的代码和注释，它将大大减少包的大小。
+
+### 什么是 CRA 及其好处?
+
+create-react-app CLI 工具允许你无需配置步骤，快速创建和运行 React 应用。
+
+让我们使用 CRA 来创建 Todo 应用：
+
+```txt
+# Installation
+$ npm install -g create-react-app
+
+# Create new project
+$ create-react-app todo-app
+$ cd todo-app
+
+# Build, test and run
+$ npm run build
+$ npm run test
+$ npm start
+```
+它包含了构建 React 应用程序所需的一切：
+
+React, JSX, ES6, 和 Flow 语法支持。
+
+ES6 之外的语言附加功能，比如对象扩展运算符。
+
+Autoprefixed CSS，因此你不在需要 -webkit- 或其他前缀。
+
+一个快速的交互式单元测试运行程序，内置了对覆盖率报告的支持。
+
+一个实时开发服务器，用于警告常见错误。
+
+一个构建脚本，用于打包用于生产中包含 hashes 和 sourcemaps 的 JS、CSS 和 Images 文件。
+
+### 在 mounting 阶段生命周期方法的执行顺序是什么?
+
+在创建组件的实例并将其插入到 DOM 中时，将按以下顺序调用生命周期方法。
+
+constructor()
+
+static getDerivedStateFromProps()
+
+render()
+
+componentDidMount()
+
