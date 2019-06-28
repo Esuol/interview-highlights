@@ -326,3 +326,31 @@ const ComponentA = () =>
 const ComponentB = ({ isDisplay, ...domProps }) =>
   <div {...domProps}>{'ComponentB'}</div>
 ```
+
+### 在 React 中如何使用装饰器?
+
+你可以装饰你的类组件，这与将组件传递到函数中是一样的。 装饰器是修改组件功能灵活且易读的方式。
+
+```js
+@setTitle('Profile')
+class Profile extends React.Component {
+    //....
+}
+
+/*
+  title is a string that will be set as a document title
+  WrappedComponent is what our decorator will receive when
+  put directly above a component class as seen in the example above
+*/
+const setTitle = (title) => (WrappedComponent) => {
+  return class extends React.Component {
+    componentDidMount() {
+      document.title = title
+    }
+
+    render() {
+      return <WrappedComponent {...this.props} />
+    }
+  }
+}
+```
