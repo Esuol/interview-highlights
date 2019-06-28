@@ -474,4 +474,28 @@ class MyComponent extends React.Component {
 
 此生命周期方法与 componentDidUpdate() 一起涵盖了 componentWillUpdate() 的所有用例。
 
+### createElement() 和 cloneElement() 方法有什么区别?
+
+SX 元素将被转换为 React.createElement() 函数来创建 React 元素，这些对象将用于表示 UI 对象。而 cloneElement 用于克隆元素并传递新的属性。
+
+### 推荐的组件命名方法是什么?
+
+建议通过引用命名组件，而不是使用 displayName。
+
+使用 displayName 命名组件:
+
+```js
+export default React.createClass({
+  displayName: 'TodoApp',
+  // ...
+})
+```
+
+推荐的方式：
+
+```js
+export default class TodoApp extends React.Component {
+  // ...
+}```
+
 
