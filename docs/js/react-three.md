@@ -354,3 +354,21 @@ const setTitle = (title) => (WrappedComponent) => {
   }
 }
 ```
+
+### 如何 memoize（记忆）组件?
+
+有可用于函数组件的 memoize 库。例如 moize 库可以将组件存储在另一个组件中。
+
+```js
+import moize from 'moize'
+import Component from './components/Component' // this module exports a non-memoized component
+
+const MemoizedFoo = moize.react(Component)
+
+const Consumer = () => {
+  <div>
+    {'I will memoize the following entry:'}
+    <MemoizedFoo/>
+  </div>
+}
+```
