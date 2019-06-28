@@ -447,4 +447,31 @@ componentWillUpdate()
 
 从 React v16.3 开始，这些方法使用 UNSAFE_ 前缀作为别名，未加前缀的版本将在 React v17 中被移除。
 
+### 生命周期方法 getDerivedStateFromProps() 的目的是什么?
+
+新的静态 getDerivedStateFromProps() 生命周期方法在实例化组件之后以及重新渲染组件之前调用。它可以返回一个对象用于更新状态，或者返回 null 指示新的属性不需要任何状态更新。
+
+```js
+class MyComponent extends React.Component {
+  static getDerivedStateFromProps(props, state) {
+    // ...
+  }
+}
+```
+此生命周期方法与 componentDidUpdate() 一起涵盖了 componentWillReceiveProps() 的所有用例。
+
+### 生命周期方法 getSnapshotBeforeUpdate() 的目的是什么?
+
+新的 getSnapshotBeforeUpdate() 生命周期方法在 DOM 更新之前被调用。此方法的返回值将作为第三个参数传递给componentDidUpdate()。
+
+```js
+class MyComponent extends React.Component {
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    // ...
+  }
+}
+```
+
+此生命周期方法与 componentDidUpdate() 一起涵盖了 componentWillUpdate() 的所有用例。
+
 
