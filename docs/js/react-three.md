@@ -372,3 +372,16 @@ const Consumer = () => {
   </div>
 }
 ```
+
+### 如何实现 Server Side Rendering 或 SSR?
+
+React 已经配备了用于处理 Node 服务器上页面渲染的功能。你可以使用特殊版本的 DOM 渲染器，它遵循与客户端相同的模式。
+
+```js
+import ReactDOMServer from 'react-dom/server'
+import App from './App'
+
+ReactDOMServer.renderToString(<App />)
+```
+
+此方法将以字符串形式输出常规 HTML，然后将其作为服务器响应的一部分放在页面正文中。在客户端，React 检测预渲染的内容并无缝地衔接。
