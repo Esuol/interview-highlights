@@ -435,3 +435,16 @@ render()
 
 componentDidMount()
 
+### 在 React v16 中，哪些生命周期方法将被弃用?
+
+以下生命周期方法将成为不安全的编码实践，并且在异步渲染方面会更有问题。
+
+componentWillMount()
+
+componentWillReceiveProps()
+
+componentWillUpdate()
+
+从 React v16.3 开始，这些方法使用 UNSAFE_ 前缀作为别名，未加前缀的版本将在 React v17 中被移除。
+
+
