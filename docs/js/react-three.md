@@ -498,4 +498,36 @@ export default class TodoApp extends React.Component {
   // ...
 }```
 
+### 什么是 switching 组件?
+
+switching 组件是渲染多个组件之一的组件。我们需要使用对象将 prop 映射到组件中。
+
+例如，以下的 switching 组件将基于 page 属性显示不同的页面：
+
+```js
+import HomePage from './HomePage'
+import AboutPage from './AboutPage'
+import ServicesPage from './ServicesPage'
+import ContactPage from './ContactPage'
+
+const PAGES = {
+  home: HomePage,
+  about: AboutPage,
+  services: ServicesPage,
+  contact: ContactPage
+}
+
+const Page = (props) => {
+  const Handler = PAGES[props.page] || ContactPage
+
+  return <Handler {...props} />
+}
+
+// The keys of the PAGES object can be used in the prop types to catch dev-time errors.
+Page.propTypes = {
+  page: PropTypes.oneOf(Object.keys(PAGES)).isRequired
+}
+```
+
+
 
