@@ -529,5 +529,30 @@ Page.propTypes = {
 }
 ```
 
+### 为什么我们需要将函数传递给 setState() 方法?
+
+这背后的原因是 setState() 是一个异步操作。出于性能原因，React 会对状态更改进行批处理，因此在调用 setState() 方法之后，状态可能不会立即更改。这意味着当你调用 setState() 方法时，你不应该依赖当前状态，因为你不能确定当前状态应该是什么。这个问题的解决方案是将一个函数传递给 setState()，该函数会以上一个状态作为参数。通过这样做，你可以避免由于 setState() 的异步性质而导致用户在访问时获取旧状态值的问题。
+
+假设初始计数值为零。在连续三次增加操作之后，该值将只增加一个。
+
+```js
+// assuming this.state.count === 0
+this.setState({ count: this.state.count + 1 })
+this.setState({ count: this.state.count + 1 })
+this.setState({ count: this.state.count + 1 })
+// this.state.count === 1, not 3
+```
+
+如果将函数传递给 setState()，则 count 将正确递增。
+
+```js
+this.setState((prevState, props) => ({
+  count: prevState.count + props.increment
+}))
+// this.state.count === 3 as expected
+```
+
+
+
 
 
