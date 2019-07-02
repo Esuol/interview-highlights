@@ -121,3 +121,27 @@ class MyComponent extends React.Component {
 
 在 constructor() 函数之外，访问 this.props 属性会显示相同的值。
 
+### 在 JSX 中如何进行循环?
+
+你只需使用带有 ES6 箭头函数语法的 Array.prototype.map 即可。例如，items 对象数组将会被映射成一个组件数组：
+
+```html
+<tbody>
+  {items.map(item => <SomeComponent key={item.id} name={item.name} />)}
+</tbody>
+```
+
+你不能使用 for 循环进行迭代：
+
+```html
+<tbody>
+  for (let i = 0; i < items.length; i++) {
+    <SomeComponent key={items[i].id} name={items[i].name} />
+  }
+</tbody>
+```
+
+这是因为 JSX 标签会被转换成函数调用，并且你不能在表达式中使用语句。但这可能会由于 do 表达式而改变，它们是第一阶段提案。
+
+
+
