@@ -143,5 +143,38 @@ class MyComponent extends React.Component {
 
 这是因为 JSX 标签会被转换成函数调用，并且你不能在表达式中使用语句。但这可能会由于 do 表达式而改变，它们是第一阶段提案。
 
+### 如何在 attribute 引号中访问 props 属性?
+
+React (或 JSX) 不支持属性值内的变量插值。下面的形式将不起作用：
+
+```html
+<img className='image' src='images/{this.props.image}' />
+```
+
+但你可以将 JS 表达式作为属性值放在大括号内。所以下面的表达式是有效的：
+
+```js
+<img className='image' src={'images/' + this.props.image} />
+```
+
+使用模板字符串也是可以的：
+
+```js
+<img className='image' src={`images/${this.props.image}`} />
+```
+
+### 什么是 React proptype 数组?
+
+如果你要规范具有特定对象格式的数组的属性，请使用 React.PropTypes.shape() 作为 React.PropTypes.arrayOf() 的参数。
+
+```js
+ReactComponent.propTypes = {
+  arrayWithShape: React.PropTypes.arrayOf(React.PropTypes.shape({
+    color: React.PropTypes.string.isRequired,
+    fontSize: React.PropTypes.number.isRequired
+  })).isRequired
+}
+
+```
 
 
