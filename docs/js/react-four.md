@@ -177,4 +177,24 @@ ReactComponent.propTypes = {
 
 ```
 
+### 如何有条件地应用样式类?
+
+你不应该在引号内使用大括号，因为它将被计算为字符串。
+
+```js
+<div className="btn-panel {this.props.visible ? 'show' : 'hidden'}">
+```
+
+相反，你需要将大括号移到外部（不要忘记在类名之间添加空格）：
+
+```js
+<div className={'btn-panel ' + (this.props.visible ? 'show' : 'hidden')}>
+```
+
+模板字符串也可以工作：
+
+```js
+<div className={`btn-panel ${this.props.visible ? 'show' : 'hidden'}`}>
+```
+
 
