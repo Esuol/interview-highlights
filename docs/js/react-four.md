@@ -80,3 +80,44 @@ const MyComponent = React.createClass({
   }
 })
 ```
+
+注意： 在 React v16 中 React.createClass() 已被弃用和删除，请改用普通的 JavaScript 类。
+
+### 是否可以在不调用 setState 方法的情况下，强制组件重新渲染?
+
+默认情况下，当组件的状态或属性改变时，组件将重新渲染。如果你的 render() 方法依赖于其他数据，你可以通过调用 forceUpdate() 来告诉 React，当前组件需要重新渲染
+
+```js
+component.forceUpdate(callback)
+```
+
+建议避免使用 forceUpdate()，并且只在 render() 方法中读取 this.props 和 this.state。
+
+### 在使用 ES6 类的 React 中 super() 和 super(props) 有什么区别?
+
+当你想要在 constructor() 函数中访问 this.props，你需要将 props 传递给 super() 方法。
+
+使用 super(props):
+
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props)
+    console.log(this.props) // { name: 'John', ... }
+  }
+}
+```
+
+使用 super():
+
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super()
+    console.log(this.props) // undefined
+  }
+}
+```
+
+在 constructor() 函数之外，访问 this.props 属性会显示相同的值。
+
