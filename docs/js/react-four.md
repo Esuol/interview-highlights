@@ -30,9 +30,28 @@ class myComponent extends Component {
 
 export default myComponent
 ```
+
 当在另一个文件导入时，应该以大写字母开头：
 
 ```js
 import MyComponent from './MyComponent'
 ```
 
+### 在 React v16 中是否支持自定义 DOM 属性?
+
+是的，在过去 React 会忽略未知的 DOM 属性。如果你编写的 JSX 属性 React 无法识别，那么 React 将跳过它。例如
+
+```html
+<div mycustomattribute={'something'} />
+```
+在 React 15 中将在 DOM 中渲染一个空的 div：
+
+```html
+<div />
+```
+
+在 React 16 中，任何未知的属性都将会在 DOM 显示：
+
+```html
+<div mycustomattribute='something' />
+```
