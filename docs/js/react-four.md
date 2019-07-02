@@ -237,4 +237,36 @@ React 团队致力于将所有的与 DOM 相关的特性抽取到一个名为 Re
 
 ```
 
+### 如何在调整浏览器大小时重新渲染视图?
+
+```jsx
+class WindowDimensions extends React.Component {
+  componentWillMount() {
+    this.updateDimensions()
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions)
+  }
+
+  updateDimensions() {
+    this.setState({width: $(window).width(), height: $(window).height()})
+  }
+
+  render() {
+    return <span>{this.state.width} x {this.state.height}</span>
+  }
+}
+```
+
+### setState() 和 replaceState() 方法之间有什么区别?
+
+当你使用 setState() 时，当前和先前的状态将被合并。replaceState() 会抛出当前状态，并仅用你提供的内容替换它。通常使用 setState()，除非你出于某种原因确实需要删除所有以前的键。你还可以在 setState() 中将状态设置为 false/null，而不是使用 replaceState()。
+
+
+
 
