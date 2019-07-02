@@ -197,4 +197,44 @@ ReactComponent.propTypes = {
 <div className={`btn-panel ${this.props.visible ? 'show' : 'hidden'}`}>
 ```
 
+### React 和 ReactDOM 之间有什么区别?
+
+react 包中包含 React.createElement(), React.Component, React.Children，以及与元素和组件类相关的其他帮助程序。你可以将这些视为构建组件所需的同构或通用帮助程序。react-dom 包中包含了 ReactDOM.render()，在 react-dom/server 包中有支持服务端渲染的 ReactDOMServer.renderToString() 和 ReactDOMServer.renderToStaticMarkup() 方法。
+
+### 为什么 ReactDOM 从 React 分离出来?
+
+React 团队致力于将所有的与 DOM 相关的特性抽取到一个名为 ReactDOM 的独立库中。React v0.14 是第一个拆分后的版本。通过查看一些软件包，react-native，react-art，react-canvas，和 react-three，很明显，React 的优雅和本质与浏览器或 DOM 无关。为了构建更多 React 能应用的环境，React 团队计划将主要的 React 包拆分成两个：react 和 react-dom。这为编写可以在 React 和 React Native 的 Web 版本之间共享的组件铺平了道路。
+
+### 如何使用 React label 元素?
+
+如果你尝试使用标准的 for 属性将 <label> 元素绑定到文本输入框，那么在控制台将会打印缺少 HTML 属性的警告消息。
+
+```js
+<label for={'user'}>{'User'}</label>
+<input type={'text'} id={'user'} />
+```
+
+因为 for 是 JavaScript 的保留字，请使用 htmlFor 来替代。
+
+```js
+<label htmlFor={'user'}>{'User'}</label>
+<input type={'text'} id={'user'} />
+
+```
+
+### 如何合并多个内联的样式对象?
+
+在 React 中，你可以使用扩展运算符:
+
+```html
+ <button style={{...styles.panel.button, ...styles.panel.submitButton}}>{'Submit'}</button>
+```
+
+如果你使用的是 React Native，则可以使用数组表示法：
+
+```html
+<button style={[styles.panel.button, styles.panel.submitButton]}>{'Submit'}</button>
+
+```
+
 
