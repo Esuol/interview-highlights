@@ -55,3 +55,28 @@ import MyComponent from './MyComponent'
 ```html
 <div mycustomattribute='something' />
 ```
+
+### constructor 和 getInitialState 有什么区别?
+
+当使用 ES6 类时，你应该在构造函数中初始化状态，而当你使用 React.createClass() 时，就需要使用 getInitialState() 方法。
+
+使用 ES6 类:
+
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { /* initial state */ }
+  }
+}
+```
+
+使用 React.createClass():
+
+```js
+const MyComponent = React.createClass({
+  getInitialState() {
+    return { /* initial state */ }
+  }
+})
+```
