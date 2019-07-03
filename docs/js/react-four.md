@@ -267,6 +267,15 @@ class WindowDimensions extends React.Component {
 
 当你使用 setState() 时，当前和先前的状态将被合并。replaceState() 会抛出当前状态，并仅用你提供的内容替换它。通常使用 setState()，除非你出于某种原因确实需要删除所有以前的键。你还可以在 setState() 中将状态设置为 false/null，而不是使用 replaceState()。
 
+### 如何监听状态变化?
+
+当状态更改时将调用以下生命周期方法。你可以将提供的状态和属性值与当前状态和属性值进行比较，以确定是否发生了有意义的改变。
+
+```js
+componentWillUpdate(object nextProps, object nextState)
+componentDidUpdate(object prevProps, object prevState)
+```
+
 
 
 
