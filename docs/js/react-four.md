@@ -276,6 +276,18 @@ componentWillUpdate(object nextProps, object nextState)
 componentDidUpdate(object prevProps, object prevState)
 ```
 
+### 在 React 状态中删除数组元素的推荐方法是什么?
 
+更好的方法是使用 Array.prototype.filter() 方法。
+
+例如，让我们创建用于更新状态的 removeItem() 方法。
+
+```js
+removeItem(index) {
+  this.setState({
+    data: this.state.data.filter((item, i) => i !== index)
+  })
+}
+```
 
 
