@@ -315,5 +315,23 @@ render() {
   return <></>
 }
 ```
+### 如何用 React 漂亮地显示 JSON?
 
+我们可以使用 <pre> 标签，以便保留 JSON.stringify() 的格式：
+
+```js
+const data = { name: 'John', age: 42 }
+
+class User extends React.Component {
+  render() {
+    return (
+      <pre>
+        {JSON.stringify(data, null, 2)}
+      </pre>
+    )
+  }
+}
+
+React.render(<User />, document.getElementById('container'))
+```
 
