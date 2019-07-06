@@ -290,4 +290,30 @@ removeItem(index) {
 }
 ```
 
+### 在 React 中是否可以不在页面上渲染 HTML 内容?
+
+可以使用最新的版本 (>=16.2)，以下是可能的选项：
+
+```js
+render() {
+  return false
+}
+
+render() {
+  return null
+}
+
+render() {
+  return []
+}
+
+render() {
+  return <React.Fragment></React.Fragment>
+}
+
+render() {
+  return <></>
+}
+```
+
 
