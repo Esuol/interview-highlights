@@ -395,3 +395,38 @@ this.setState(prevState => ({
   }
 }))
 ```
+
+### 为什么函数比对象更适合于 setState()?
+
+出于性能考虑，React 可能将多个 setState() 调用合并成单个更新。这是因为我们可以异步更新 this.props 和 this.state，所以不应该依赖它们的值来计算下一个状态。
+
+以下的 counter 示例将无法按预期更新：
+```js
+// Wrong
+this.setState({
+  counter: this.state.counter + this.props.increment,
+})
+```
+
+首选方法是使用函数而不是对象调用 setState()。该函数将前一个状态作为第一个参数，当前时刻的 props 作为第二个参数。
+
+```js
+// Correct
+this.setState((prevState, props) => ({
+  counter: prevState.counter + props.increment
+}))
+
+```
+
+### 我们如何在浏览器中找到当前正在运行的 React 版本?
+
+你可以使用 React.version 来获取版本：
+
+```js
+const REACT_VERSION = React.version
+
+ReactDOM.render(
+  <div>{`React version: ${REACT_VERSION}`}</div>,
+  document.getElementById('app')
+)
+```
