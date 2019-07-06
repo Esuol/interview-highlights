@@ -335,3 +335,63 @@ class User extends React.Component {
 React.render(<User />, document.getElementById('container'))
 ```
 
+### 为什么你不能更新 React 中的 props?
+
+React 的哲学是 props 应该是 immutable 和 top-down。这意味着父级可以向子级发送任何属性值，但子级不能修改接收到的属性。
+
+### 如何在页面加载时聚焦一个输入元素?
+
+你可以为 input 元素创建一个 ref，然后在 componentDidMount() 方法中使用它：
+
+```js
+class App extends React.Component{
+  componentDidMount() {
+    this.nameInput.focus()
+  }
+
+  render() {
+    return (
+      <div>
+        <input
+          defaultValue={'Won\'t focus'}
+        />
+        <input
+          ref={(input) => this.nameInput = input}
+          defaultValue={'Will focus'}
+        />
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'))
+```
+
+### 更新状态中的对象有哪些可能的方法?
+
+用一个对象调用 setState() 来与状态合并：
+
+使用 Object.assign() 创建对象的副本：
+
+```js
+const user = Object.assign({}, this.state.user, { age: 42 })
+this.setState({ user })
+```
+
+使用扩展运算符：
+
+```js
+const user = { ...this.state.user, age: 42 }
+this.setState({ user })
+```
+
+使用一个函数调用 setState()：
+
+```js
+this.setState(prevState => ({
+  user: {
+    ...prevState.user,
+    age: 42
+  }
+}))
+```
