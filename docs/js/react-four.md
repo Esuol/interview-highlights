@@ -430,3 +430,36 @@ ReactDOM.render(
   document.getElementById('app')
 )
 ```
+
+### 在 create-react-app 项目中导入 polyfills 的方法有哪些?
+
+从 core-js 中手动导入:
+
+创建一个名为 polyfills.js 文件，并在根目录下的 index.js 文件中导入它。运行 npm install core-js 或 yarn add core-js 并导入你所需的功能特性：
+
+```js
+import 'core-js/fn/array/find'
+import 'core-js/fn/array/includes'
+import 'core-js/fn/number/is-nan'
+```
+
+使用 Polyfill 服务:
+
+通过将以下内容添加到 index.html 中来获取自定义的特定于浏览器的 polyfill：
+
+```js
+<script src='https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.includes'></script>
+
+```
+
+在上面的脚本中，我们必须显式地请求 Array.prototype.includes 特性，因为它没有被包含在默认的特性集中。
+
+### 如何在 create-react-app 中使用 https 而不是 http?
+
+你只需要使用 HTTPS=true 配置。你可以编辑 package.json 中的 scripts 部分：
+
+```js
+"scripts": {
+  "start": "set HTTPS=true && react-scripts start"
+}
+```
