@@ -63,6 +63,7 @@ module.exports = {
                 'js/react-two',
                 'js/react-three',
                 'js/react-four',
+                'js/react-router',
                 'js/vue'
                 ]
         },
