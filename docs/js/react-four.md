@@ -482,3 +482,29 @@ history.listen(function (location) {
   window.ga('send', 'pageview', location.pathname + location.search)
 })
 ```
+
+### 如何每秒更新一个组件?
+
+你需要使用 setInterval() 来触发更改，但也需要在组件卸载时清除计时器，以防止错误和内存泄漏。
+
+```js
+componentDidMount() {
+  this.interval = setInterval(() => this.setState({ time: Date.now() }), 1000)
+}
+
+componentWillUnmount() {
+  clearInterval(this.interval)
+}
+```
+
+### 如何将 vendor prefixes 应用于 React 中的内联样式?
+
+React不会自动应用 vendor prefixes，你需要手动添加 vendor prefixes。
+
+```js
+<div style={{
+  transform: 'rotate(90deg)',
+  WebkitTransform: 'rotate(90deg)', // note the capital 'W' here
+  msTransform: 'rotate(90deg)' // 'ms' is the only lowercase vendor prefix
+}} />
+```
