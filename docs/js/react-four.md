@@ -574,3 +574,14 @@ this.inputElement.click()
 ### 在 React 中是否可以使用 async/await?
 
 如果要在 React 中使用 async/await，则需要 Babel 和 transform-async-to-generator 插件。
+
+### 最流行的动画软件包是什么?
+
+React Transition Group 和 React Motion 是React生态系统中流行的动画包。
+
+### 模块化样式文件有什么好处?
+
+建议避免在组件中对样式值进行硬编码。任何可能在不同的 UI 组件之间使用的值都应该提取到它们自己的模块中。
+
+例如，可以将这些样式提取到单独的组件中：
+
