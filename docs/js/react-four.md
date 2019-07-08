@@ -585,3 +585,18 @@ React Transition Group 和 React Motion 是React生态系统中流行的动画�
 
 例如，可以将这些样式提取到单独的组件中：
 
+```js
+export const colors = {
+  white,
+  black,
+  blue
+}
+
+export const space = [
+  0,
+  8,
+  16,
+  32,
+  64
+]
+```
