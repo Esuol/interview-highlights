@@ -600,3 +600,7 @@ export const space = [
   64
 ]
 ```
+
+### 什么是 React 流行的特定 linters?
+ESLint 是一个流行的 JavaScript linter。有一些插件可以分析特定的代码样式。在 React 中最常见的一个是名为 eslint-plugin-react npm 包。默认情况下，它将使用规则检查许多最佳实践，检查内容从迭代器中的键到一组完整的 prop 类型。另一个流行的插件是 eslint-plugin-jsx-a11y，它将帮助修复可访问性的常见问题。由于 JSX 提供的语法与常规 HTML 略有不同，因此常规插件无法获取 alt 文本和 tabindex 的问题。
+
