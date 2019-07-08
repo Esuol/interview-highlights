@@ -605,3 +605,52 @@ export const space = [
 
 ESLint 是一个流行的 JavaScript linter。有一些插件可以分析特定的代码样式。在 React 中最常见的一个是名为 eslint-plugin-react npm 包。默认情况下，它将使用规则检查许多最佳实践，检查内容从迭代器中的键到一组完整的 prop 类型。另一个流行的插件是 eslint-plugin-jsx-a11y，它将帮助修复可访问性的常见问题。由于 JSX 提供的语法与常规 HTML 略有不同，因此常规插件无法获取 alt 文本和 tabindex 的问题。
 
+### 如何发起 AJAX 调用以及应该在哪些组件生命周期方法中进行 AJAX 调用?
+
+你可以使用 AJAX 库，如 Axios，jQuery AJAX 和浏览器内置的 fetch API。你应该在 componentDidMount() 生命周期方法中获取数据。这样当获取到数据的时候，你就可以使用 setState() 方法来更新你的组件。
+
+例如，从 API 中获取员工列表并设置本地状态：
+
+```js
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      employees: [],
+      error: null
+    }
+  }
+
+  componentDidMount() {
+    fetch('https://api.example.com/items')
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            employees: result.employees
+          })
+        },
+        (error) => {
+          this.setState({ error })
+        }
+      )
+  }
+
+  render() {
+    const { error, employees } = this.state
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else {
+      return (
+        <ul>
+          {employees.map(item => (
+            <li key={employee.name}>
+              {employee.name}-{employees.experience}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  }
+}
+```
