@@ -540,3 +540,33 @@ export default class MyProfile extends React.Component {
 <Component /> 将被转换为 React.createElement(Component)
 ```
 
+### 为什么组件的构造函数只被调用一次?
+
+React 协调算法假设如果自定义组件出现在后续渲染的相同位置，则它与之前的组件相同，因此重用前一个实例而不是创建新实例。
+
+### 在 React 中如何定义常量?
+
+你可以使用 ES7 的 static 来定义常量。
+
+```js
+class MyComponent extends React.Component {
+  static DEFAULT_PAGINATION = 10
+}
+
+```
+
+###  React 中如何以编程方式触发点击事件?
+
+你可以使用 ref 属性通过回调函数获取对底层的 HTMLinputeElement 对象的引用，并将该引用存储为类属性，之后你就可以利用该引用在事件回调函数中， 使用 HTMLElement.click 方法触发一个点击事件。这可以分为两个步骤：
+
+在 render 方法创建一个 ref：
+
+```html
+<input ref={input => this.inputElement = input} />
+```
+
+在事件处理器中触发点击事件
+
+```js
+this.inputElement.click()
+```
