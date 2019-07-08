@@ -463,3 +463,22 @@ import 'core-js/fn/number/is-nan'
   "start": "set HTTPS=true && react-scripts start"
 }
 ```
+
+### 如何避免在 create-react-app 中使用相对路径导入?
+
+在项目的根目录中创建一个名为 .env 的文件，并写入导入路径：
+
+```js
+NODE_PATH=src/app
+```
+
+### 如何为 React Router 添加 Google Analytics?
+
+在 history 对象上添加一个监听器以记录每个页面的访问：
+
+```js
+history.listen(function (location) {
+  window.ga('set', 'page', location.pathname + location.search)
+  window.ga('send', 'pageview', location.pathname + location.search)
+})
+```
