@@ -570,3 +570,7 @@ class MyComponent extends React.Component {
 ```js
 this.inputElement.click()
 ```
+
+### 在 React 中是否可以使用 async/await?
+
+如果要在 React 中使用 async/await，则需要 Babel 和 transform-async-to-generator 插件。
