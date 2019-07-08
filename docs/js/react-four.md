@@ -654,3 +654,15 @@ class MyComponent extends React.Component {
   }
 }
 ```
+
+### 什么是渲染属性?
+
+Render Props 是一种简单的技术，用于使用值为函数的 prop 属性在组件之间共享代码。下面的组件使用返回 React 元素的 render 属性：
+
+```js
+<DataProvider render={data => (
+  <h1>{`Hello ${data.target}`}</h1>
+)}/>
+```
+
+像 React Router 和 DownShift 这样的库使用了这种模式。
