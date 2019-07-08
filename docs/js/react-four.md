@@ -508,3 +508,35 @@ React不会自动应用 vendor prefixes，你需要手动添加 vendor prefixes�
   msTransform: 'rotate(90deg)' // 'ms' is the only lowercase vendor prefix
 }} />
 ```
+
+### 如何使用 React 和 ES6 导入和导出组件?
+
+导出组件时，你应该使用默认导出：
+
+```js
+import React from 'react'
+import User from 'user'
+
+export default class MyProfile extends React.Component {
+  render(){
+    return (
+      <User type="customer">
+        //...
+      </User>
+    )
+  }
+}
+```
+
+使用 export 说明符，MyProfile 将成为成员并导出到此模块，此外在其他组件中你无需指定名称就可以导入相同的内容。
+
+### 为什么 React 组件名称必须以大写字母开头?
+
+在 JSX 中，小写标签被认为是 HTML 标签。但是，含有 . 的大写和小写标签名却不是。
+
+```html
+<component /> 将被转换为 React.createElement('component') (i.e, HTML 标签)
+<obj.component /> 将被转换为 React.createElement(obj.component)
+<Component /> 将被转换为 React.createElement(Component)
+```
+
