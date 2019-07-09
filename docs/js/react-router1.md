@@ -92,3 +92,21 @@ Button.contextTypes = {
   })
 }
 ```
+
+#### 如何在 React Router v4 中获取查询字符串参数?
+
+在 React Router v4 中并没有内置解析查询字符串的能力，因为多年来一直有用户希望支持不同的实现。因此，使用者可以选择他们喜欢的实现方式。建议的方法是使用 query-string 库。
+
+```js
+const queryString = require('query-string');
+const parsed = queryString.parse(props.location.search);
+```
+
+如果你想要使用原生 API 的话，你也可以使用 URLSearchParams ：
+
+```js
+const params = new URLSearchParams(props.location.search)
+const foo = params.get('name')
+```
+
+如果使用 URLSearchParams 的话您应该为 IE11 使用polyfill。
