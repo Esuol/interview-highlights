@@ -29,3 +29,66 @@ push()
 replace()
 
 如果您将 history 视为一个访问位置的数组，则push()将向数组添加一个新位置，replace()将用新的位置替换数组中的当前位置。
+
+### 如何使用在 React Router v4 中以编程的方式进行导航?
+
+在组件中实现操作路由/导航有三种不同的方法。
+
+#### 使用withRouter()高阶函数：
+
+withRouter()高阶函数将注入 history 对象作为组件的 prop。该对象提供了push()和replace()方法，以避免使用上下文。
+
+```js
+import { withRouter } from 'react-router-dom' // this also works with 'react-router-native'
+
+const Button = withRouter(({ history }) => (
+  <button
+    type='button'
+    onClick={() => { history.push('/new-location') }}
+  >
+    {'Click Me!'}
+  </button>
+))
+```
+
+#### 使用<Route>组件和渲染属性模式：
+
+<Route>组件传递与withRouter()相同的属性，因此您将能够通过 history 属性访问到操作历史记录的方法。
+
+import { Route } from 'react-router-dom'
+
+```js
+const Button = () => (
+  <Route render={({ history }) => (
+    <button
+      type='button'
+      onClick={() => { history.push('/new-location') }}
+    >
+      {'Click Me!'}
+    </button>
+  )} />
+)
+```
+
+#### 使用上下文:
+
+建议不要使用此选项，并将其视为不稳定的API。
+
+```js
+const Button = (props, context) => (
+  <button
+    type='button'
+    onClick={() => {
+      context.history.push('/new-location')
+    }}
+  >
+    {'Click Me!'}
+  </button>
+)
+
+Button.contextTypes = {
+  history: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired
+  })
+}
+```
