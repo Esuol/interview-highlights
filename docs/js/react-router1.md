@@ -134,3 +134,17 @@ import { Switch, Router, Route } from 'react-router'
 </Router>
 
 ```
+
+### 如何在 React Router v4 中将 params 传递给 history.push 方法?
+
+在导航时，您可以将 props 传递给history对象：
+
+```js
+this.props.history.push({
+  pathname: '/template',
+  search: '?name=sudheer',
+  state: { detail: response.data }
+})
+```
+
+search属性用于在push()方法中传递查询参数。
