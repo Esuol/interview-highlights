@@ -197,3 +197,23 @@ import history from './history'
 
 history.push('/go-here')
 ```
+
+### 登录后如何执行自动重定向?
+
+react-router包在 React Router 中提供了<Redirect>组件。渲染<Redirect>将导航到新位置。与服务器端重定向一样，新位置将覆盖历史堆栈中的当前位置。
+
+```js
+import React, { Component } from 'react'
+import { Redirect } from 'react-router'
+
+export default class LoginComponent extends Component {
+  render() {
+    if (this.state.isLoggedIn === true) {
+      return <Redirect to="/your/redirect/page" />
+    } else {
+      return <div>{'Login Please'}</div>
+    }
+  }
+}
+
+```
