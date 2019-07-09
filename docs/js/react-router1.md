@@ -160,3 +160,40 @@ search属性用于在push()方法中传递查询参数。
   <Route component={NotFound} />
 </Switch>
 ```
+
+### 如何在 React Router v4 上获取历史对象?
+
+#### 创建一个导出history对象的模块，并在整个项目中导入该模块。
+
+例如， 创建history.js文件:
+
+```js
+import { createBrowserHistory } from 'history'
+
+export default createBrowserHistory({
+  /* pass a configuration object here if needed */
+})
+```
+
+#### 应该使用<Router>组件而不是内置路由器。在index.js文件中导入上面的history.js：
+
+```js
+import { Router } from 'react-router-dom'
+import history from './history'
+import App from './App'
+
+ReactDOM.render((
+  <Router history={history}>
+    <App />
+  </Router>
+), holder)
+```
+
+#### 您还可以使用类似于内置历史对象的history对象的push方法：
+
+```js
+// some-other-file.js
+import history from './history'
+
+history.push('/go-here')
+```
