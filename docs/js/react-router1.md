@@ -148,3 +148,15 @@ this.props.history.push({
 ```
 
 search属性用于在push()方法中传递查询参数。
+
+### search属性用于在push()方法中传递查询参数。
+
+<Switch>呈现匹配的第一个孩子<Route>。 没有路径的<Route>总是匹配。所以你只需要简单地删除 path 属性，如下所示：
+
+```js
+<Switch>
+  <Route exact path="/" component={Home}/>
+  <Route path="/user" component={User}/>
+  <Route component={NotFound} />
+</Switch>
+```
