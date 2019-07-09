@@ -19,3 +19,13 @@ React Router v4 提供了以下三种类型的 <Router> 组件:
 <MemoryRouter>
 
 以上组件将创建browser，hash和memory的 history 实例。React Router v4 通过router对象中的上下文使与您的路由器关联的history实例的属性和方法可用。
+
+### history 中的 push() 和 replace() 方法的目的是什么?
+
+一个 history 实例有两种导航方法：
+
+push()
+
+replace()
+
+如果您将 history 视为一个访问位置的数组，则push()将向数组添加一个新位置，replace()将用新的位置替换数组中的当前位置。
