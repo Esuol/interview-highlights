@@ -110,3 +110,27 @@ const foo = params.get('name')
 ```
 
 如果使用 URLSearchParams 的话您应该为 IE11 使用polyfill。
+
+### 为什么你会得到 "Router may have only one child element" 警告?
+
+此警告的意思是Router组件下仅能包含一个子节点。
+
+你必须将你的 Route 包装在<Switch>块中，因为<Switch>是唯一的，它只提供一个路由。
+
+首先，您需要在导入中添加Switch：
+
+```js
+import { Switch, Router, Route } from 'react-router'
+
+```
+然后在<Switch>块中定义路由：
+
+```js
+<Router>
+  <Switch>
+    <Route {/* ... */} />
+    <Route {/* ... */} />
+  </Switch>
+</Router>
+
+```
