@@ -61,3 +61,22 @@ MyComponent.propTypes = {
 
 export default injectIntl(MyComponent)
 ```
+
+### 如何使用 React Intl 访问当前语言环境?
+
+您可以在应用的任何组件中使用injectIntl()获取的当前语言环境：
+
+```js
+import { injectIntl, intlShape } from 'react-intl'
+
+const MyComponent = ({ intl }) => (
+  <div>{`The current locale is ${intl.locale}`}</div>
+)
+
+MyComponent.propTypes = {
+  intl: intlShape.isRequired
+}
+
+export default injectIntl(MyComponent)
+```
+
