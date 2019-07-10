@@ -80,3 +80,26 @@ MyComponent.propTypes = {
 export default injectIntl(MyComponent)
 ```
 
+### 如何使用 React Intl 格式化日期?
+
+injectIntl()高阶组件将允许您通过组件中的 props 访问formatDate()方法。 该方法由FormattedDate实例在内部使用，它返回格式化日期的字符串表示。
+
+```js
+import { injectIntl, intlShape } from 'react-intl'
+
+const stringDate = this.props.intl.formatDate(date, {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric'
+})
+
+const MyComponent = ({intl}) => (
+  <div>{`The formatted date is ${stringDate}`}</div>
+)
+
+MyComponent.propTypes = {
+  intl: intlShape.isRequired
+}
+
+export default injectIntl(MyComponent)
+```
