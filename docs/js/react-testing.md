@@ -60,3 +60,7 @@ console.log(testRenderer.toJSON())
 
 ReactTestUtils由with-addons包提供，允许您对模拟 DOM 执行操作以进行单元测试。
 
+### 什么是 Jest?
+
+Jest是一个由 Facebook 基于 Jasmine 创建的 JavaScript 单元测试框架，提供自动模拟创建和jsdom环境。它通常用于测试组件。
+
