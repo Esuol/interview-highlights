@@ -34,3 +34,24 @@ expect(result.props.children).toEqual([
   <span className={'description'}>{'Description'}</span>
 ])
 ```
+
+### 在 React 中 TestRenderer 包是什么?
+
+此包提供了一个渲染器，可用于将组件渲染为纯 JavaScript 对象，而不依赖于 DOM 或原生移动环境。该包可以轻松获取由 ReactDOM 或 React Native 平台所渲染的视图层次结构（类似于DOM树）的快照，而无需使用浏览器或jsdom。
+
+```js
+import TestRenderer from 'react-test-renderer'
+
+const Link = ({page, children}) => <a href={page}>{children}</a>
+
+const testRenderer = TestRenderer.create(
+  <Link page={'https://www.facebook.com/'}>{'Facebook'}</Link>
+)
+
+console.log(testRenderer.toJSON())
+// {
+//   type: 'a',
+//   props: { href: 'https://www.facebook.com/' },
+//   children: [ 'Facebook' ]
+// }
+```
