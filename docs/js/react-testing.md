@@ -55,3 +55,8 @@ console.log(testRenderer.toJSON())
 //   children: [ 'Facebook' ]
 // }
 ```
+
+### ReactTestUtils 包的目的是什么?
+
+ReactTestUtils由with-addons包提供，允许您对模拟 DOM 执行操作以进行单元测试。
+
