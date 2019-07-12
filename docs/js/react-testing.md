@@ -64,3 +64,16 @@ ReactTestUtils由with-addons包提供，允许您对模拟 DOM 执行操作以�
 
 Jest是一个由 Facebook 基于 Jasmine 创建的 JavaScript 单元测试框架，提供自动模拟创建和jsdom环境。它通常用于测试组件。
 
+### Jest 对比 Jasmine 有什么优势?
+
+与 Jasmine 相比，有几个优点：
+
+自动查找在源代码中要执行测试。
+
+在运行测试时自动模拟依赖项。
+
+允许您同步测试异步代码。
+
+使用假的 DOM 实现（通过jsdom）运行测试，以便可以在命令行上运行测试。
+
+在并行流程中运行测试，以便更快完成。
