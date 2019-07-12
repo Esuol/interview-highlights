@@ -77,3 +77,23 @@ Jest是一个由 Facebook 基于 Jasmine 创建的 JavaScript 单元测试框架
 使用假的 DOM 实现（通过jsdom）运行测试，以便可以在命令行上运行测试。
 
 在并行流程中运行测试，以便更快完成。
+
+### 举一个简单的 Jest 测试用例
+
+让我们为sum.js文件中添加两个数字的函数编写一个测试：
+
+```js
+const sum = (a, b) => a + b
+
+export default sum
+```
+创建一个名为sum.test.js的文件，其中包含实际测试：
+
+```js
+import sum from './sum'
+
+test('adds 1 + 2 to equal 3', () => {
+  expect(sum(1, 2)).toBe(3)
+})
+
+```
