@@ -97,3 +97,21 @@ test('adds 1 + 2 to equal 3', () => {
 })
 
 ```
+
+然后将以下部分添加到package.json：
+
+```json
+{
+  "scripts": {
+    "test": "jest"
+  }
+}
+```
+
+最后，运行yarn test或npm test，Jest 将打印结果：
+
+```yml
+$ yarn test
+PASS ./sum.test.js
+✓ adds 1 + 2 to equal 3 (2ms)
+```
