@@ -109,3 +109,28 @@ const mapDispatchToProps = { fetchData }
 export default connect(mapStateToProps, mapDispatchToProps)(App)
 
 ```
+
+### 在 React 中如何使用 Redux 的 connect() ?
+
+您需要按照两个步骤在容器中使用您的 Store：
+
+使用mapStateToProps()： 它将 Store 中的状态变量映射到您指定的属性。
+
+将上述属性连接到容器： mapStateToProps函数返回的对象连接到容器。你可以从react-redux导入connect()。
+
+```js
+import React from 'react'
+import { connect } from 'react-redux'
+
+class App extends React.Component {
+  render() {
+    return <div>{this.props.containerData}</div>
+  }
+}
+
+function mapStateToProps(state) {
+  return { containerData: state.data }
+}
+
+export default connect(mapStateToProps)(App)
+```
