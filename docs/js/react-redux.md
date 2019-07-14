@@ -55,3 +55,23 @@ const mapDispatchToProps = (dispatch) => {
 ### 我可以在 reducer 中触发一个 Action 吗?
 
 在 reducer 中触发 Action 是反模式。您的 reducer 应该没有副作用，只是接收 Action 并返回一个新的状态对象。在 reducer 中添加侦听器和调度操作可能会导致链接的 Action 和其他副作用。
+
+### 如何在组件外部访问 Redux 存储的对象?
+
+是的，您只需要使用createStore()从它创建的模块中导出存储。此外，它不应污染全局窗口对象。
+
+```js
+store = createStore(myReducer)
+
+export default store
+```
+
+### MVW 模式的缺点是什么?
+
+DOM 操作非常昂贵，导致应用程序行为缓慢且效率低下。
+
+由于循环依赖性，围绕模型和视图创建了复杂的模型。
+
+协作型应用程序（如Google Docs）会发生大量数据更改。
+
+无需添加太多额外代码就无法轻松撤消（及时回退）。
