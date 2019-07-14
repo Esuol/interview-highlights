@@ -134,3 +134,44 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps)(App)
 ```
+
+### 如何在 Redux 中重置状态?
+
+你需要在你的应用程序中编写一个root reducer，它将处理动作委托给combineReducers()生成的 reducer。
+
+例如，让我们在USER_LOGOUT动作之后让rootReducer()返回初始状态。我们知道，无论 Action 怎么样，当使用undefined作为第一个参数调用它们时，reducers 应该返回初始状态。
+
+```js
+const appReducer = combineReducers({
+  /* your app's top-level reducers */
+})
+
+const rootReducer = (state, action) => {
+  if (action.type === 'USER_LOGOUT') {
+    state = undefined
+  }
+
+  return appReducer(state, action)
+}
+```
+
+如果使用redux-persist，您可能还需要清理存储空间。redux-persist在 storage 引擎中保存您的状态副本。首先，您需要导入适当的 storage 引擎，然后在将其设置为undefined之前解析状态并清理每个存储状态键。
+
+```js
+const appReducer = combineReducers({
+  /* your app's top-level reducers */
+})
+
+const rootReducer = (state, action) => {
+  if (action.type === 'USER_LOGOUT') {
+    Object.keys(state).forEach(key => {
+      storage.removeItem(`persist:${key}`)
+    })
+
+    state = undefined
+  }
+
+  return appReducer(state, action)
+}
+```
+
