@@ -66,6 +66,7 @@ module.exports = {
                 'js/react-router',
                 'js/react-international',
                 'js/react-testing',
+                'js/react-redux',
                 'js/vue'
                 ]
         },
