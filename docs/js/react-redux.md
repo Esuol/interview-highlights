@@ -82,3 +82,30 @@ DOM 操作非常昂贵，导致应用程序行为缓慢且效率低下。
 这些库的目的是不同的，但是存在一些模糊的相似之处。
 
 Redux 是一个在整个应用程序中管理状态的工具。它通常用作 UI 的体系结构。可以将其视为（一半）Angular 的替代品。 RxJS 是一个反应式编程库。它通常用作在 JavaScript 中完成异步任务的工具。把它想象成 Promise 的替代品。 Redux 使用 Reactive 范例，因为Store是被动的。Store 检测到 Action，并自行改变。RxJS也使用 Reactive 范例，但它不是一个体系结构，它为您提供了基本构建块 Observables 来完成这种模式。
+
+### 如何在加载时触发 Action?
+
+您可以在componentDidMount()方法中触发 Action，然后在render()方法中可以验证数据。
+
+```js
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchData()
+  }
+
+  render() {
+    return this.props.isLoaded
+      ? <div>{'Loaded'}</div>
+      : <div>{'Not Loaded'}</div>
+  }
+}
+
+const mapStateToProps = (state) => ({
+  isLoaded: state.isLoaded
+})
+
+const mapDispatchToProps = { fetchData }
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
+
+```
