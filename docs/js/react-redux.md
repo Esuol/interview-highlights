@@ -51,3 +51,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 ```
+
+### 我可以在 reducer 中触发一个 Action 吗?
+
+在 reducer 中触发 Action 是反模式。您的 reducer 应该没有副作用，只是接收 Action 并返回一个新的状态对象。在 reducer 中添加侦听器和调度操作可能会导致链接的 Action 和其他副作用。
