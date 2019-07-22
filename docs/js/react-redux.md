@@ -176,3 +176,56 @@ const rootReducer = (state, action) => {
 
 ```
 
+### Redux 中连接装饰器的 at 符号的目的是什么?
+
+@ 符号实际上是用于表示装饰器的 JavaScript 表达式。装饰器可以在设计时注释和修改类和属性。
+
+让我们举个例子，在没有装饰器的情况下设置 Redux 。
+
+#### 未使用装饰器:
+
+```js
+import React from 'react'
+import * as actionCreators from './actionCreators'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+function mapStateToProps(state) {
+  return { todos: state.todos }
+}
+
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(actionCreators, dispatch) }
+}
+
+class MyApp extends React.Component {
+  // ...define your main app here
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyApp)
+```
+
+#### 使用装饰器:
+
+```js
+import React from 'react'
+import * as actionCreators from './actionCreators'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+function mapStateToProps(state) {
+  return { todos: state.todos }
+}
+
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators(actionCreators, dispatch) }
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class MyApp extends React.Component {
+  // ...define your main app here
+}
+```
+
+
+
