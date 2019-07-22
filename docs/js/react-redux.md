@@ -486,6 +486,13 @@ const getUserData = state => state.user.data
 
 Redux Form与 React 和 Redux 一起使用，以使 React 中的表单能够使用 Redux 来存储其所有状态。Redux Form 可以与原始 HTML5 输入一起使用，但它也适用于常见的 UI 框架，如 Material UI，React Widgets和React Bootstrap。
 
+### Redux Form 的主要功能有哪些?
+
+字段值通过 Redux 存储持久化。
+
+验证（同步/异步）和提交。
+
+字段值的格式化，解析和规范化。
 
 
 
