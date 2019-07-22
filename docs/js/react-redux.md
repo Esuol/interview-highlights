@@ -456,6 +456,23 @@ Redux Thunk中间件允许您编写返回函数而不是 Action 的创建者。 
 
 Redux Thunk和Redux Saga都负责处理副作用。在大多数场景中，Thunk 使用Promises来处理它们，而 Saga 使用Generators。Thunk 易于使用，因为许多开发人员都熟悉 Promise，Sagas/Generators 功能更强大，但您需要学习它们。但是这两个中间件可以共存，所以你可以从 Thunks 开始，并在需要时引入 Sagas。
 
+### 什么是 Redux DevTools?
+
+Redux DevTools是 Redux 的实时编辑的时间旅行环境，具有热重新加载，Action 重放和可自定义的 UI。如果您不想安装 Redux DevTools 并将其集成到项目中，请考虑使用 Chrome 和 Firefox 的扩展插件。
+
+### Redux DevTools 的功能有哪些?
+
+允许您检查每个状态和 action 负载。
+
+让你可以通过撤销回到过去。
+
+如果更改 reducer 代码，将重新评估每个已暂存的 Action。
+
+如果 Reducers 抛出错误，你会看到这发生了什么 Action，以及错误是什么。
+
+使用persistState()存储增强器，您可以在页面重新加载期间保持调试会话。
+
+
 
 
 
