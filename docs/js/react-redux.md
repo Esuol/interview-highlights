@@ -494,6 +494,17 @@ Redux Form与 React 和 Redux 一起使用，以使 React 中的表单能够使�
 
 字段值的格式化，解析和规范化。
 
+### 如何向 Redux
+
+添加多个中间件?你可以使用applyMiddleware()。
+
+例如，你可以添加redux-thunk和logger作为参数传递给applyMiddleware()：
+
+```js
+import { createStore, applyMiddleware } from 'redux'
+const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore)
+```
+
 
 
 
