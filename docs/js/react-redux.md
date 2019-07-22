@@ -360,5 +360,23 @@ export default (state = [], action) => {
 }
 ```
 
+### 编写 mapDispatchToProps() 有哪些不同的方法?
+
+有一些方法可以将action creators绑定到mapDispatchToProps()中的dispatch()。以下是可能的写法：
+
+```js
+const mapDispatchToProps = (dispatch) => ({
+ action: () => dispatch(action())
+})
+```
+```js
+const mapDispatchToProps = (dispatch) => ({
+ action: bindActionCreators(action, dispatch)
+})
+```
+
+```js
+const mapDispatchToProps = { action }
+```
 
 
