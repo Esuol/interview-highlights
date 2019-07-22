@@ -262,5 +262,11 @@ function setAccount(data) {
 }
 ```
 
+### 我应该在 Redux Store 中保留所有组件的状态吗?
+
+将数据保存在 Redux 存储中，并在组件内部保持 UI 相关状态。
+
+
+
 
 
