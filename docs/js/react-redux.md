@@ -379,4 +379,24 @@ const mapDispatchToProps = (dispatch) => ({
 const mapDispatchToProps = { action }
 ```
 
+### 在 mapStateToProps() 和 mapDispatchToProps() 中使用 ownProps 参数有什么用?
+
+如果指定了ownProps参数，React Redux 会将传递给该组件的 props 传递给你的connect函数。因此，如果您使用连接组件：
+
+```js
+import ConnectedComponent from './containers/ConnectedComponent';
+
+<ConnectedComponent user={'john'} />
+```
+
+你的mapStateToProps()和mapDispatchToProps()函数里面的ownProps将是一个对象：
+
+```js
+{ user: 'john' }
+```
+
+您可以使用此对象来决定从这些函数返回的内容。
+
+
+
 
