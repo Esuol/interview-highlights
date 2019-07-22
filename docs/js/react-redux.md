@@ -232,7 +232,35 @@ export default class MyApp extends React.Component {
 
 您可以直接在应用程序中使用Context，这对于将数据传递给深度嵌套的组件非常有用。而Redux功能更强大，它还提供了 Context API 无法提供的大量功能。此外，React Redux 在内部使用上下文，但它不会在公共 API 中有所体现。
 
+### 为什么 Redux 状态函数称为 reducers ?
 
+Reducers 总是返回状态的累积（基于所有先前状态和当前 Action）。因此，它们充当了状态的 Reducer。每次调用 Redux reducer 时，状态和 Action 都将作为参数传递。然后基于该 Action 减少（或累积）该状态，然后返回下一状态。您可以reduce一组操作和一个初始状态（Store），在该状态下执行这些操作以获得最终的最终状态。
+
+### 如何在 Redux 中发起 AJAX 请求?
+
+您可以使用redux-thunk中间件，它允许您定义异步操作。
+
+让我们举个例子，使用fetch API将特定帐户作为 AJAX 调用获取：
+
+```js
+export function fetchAccount(id) {
+  return dispatch => {
+    dispatch(setLoadingAccountState()) // Show a loading spinner
+    fetch(`/account/${id}`, (response) => {
+      dispatch(doneFetchingAccount()) // Hide loading spinner
+      if (response.status === 200) {
+        dispatch(setAccount(response.json)) // Use a normal function to set the received state
+      } else {
+        dispatch(someError)
+      }
+    })
+  }
+}
+
+function setAccount(data) {
+ return { type: 'SET_Account', data: data }
+}
+```
 
 
 
