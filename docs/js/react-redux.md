@@ -228,6 +228,11 @@ export default class MyApp extends React.Component {
 ```
 除了装饰器的使用外，上面的例子几乎相似。装饰器语法尚未构建到任何 JavaScript 运行时中，并且仍然是实验性的并且可能会发生变化。您可以使用babel来获得装饰器支持。
 
+### React 上下文和 React Redux 之间有什么区别?
+
+您可以直接在应用程序中使用Context，这对于将数据传递给深度嵌套的组件非常有用。而Redux功能更强大，它还提供了 Context API 无法提供的大量功能。此外，React Redux 在内部使用上下文，但它不会在公共 API 中有所体现。
+
+
 
 
 
