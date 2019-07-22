@@ -526,6 +526,10 @@ const store = createStore(
 
 ```
 
+### Relay 与 Redux 有何不同
+
+Relay 与 Redux 类似，因为它们都使用单个 Store。主要区别在于 relay 仅管理源自服务器的状态，并且通过GraphQL查询（用于读取数据）和突变（用于更改数据）来使用对状态的所有访问。Relay 通过仅提取已更改的数据而为您缓存数据并优化数据提取。
+
 
 
 
