@@ -423,6 +423,10 @@ redux-saga是一个库，旨在使 React/Redux 项目中的副作用（数据获
 $ npm install --save redux-saga
 ```
 
+### redux-saga 的模型概念是什么?
+
+Saga就像你的项目中的一个单独的线程，它独自负责副作用。redux-saga 是一个 redux 中间件，这意味着它可以在项目启动中使用正常的 Redux 操作，暂停和取消该线程，它可以访问完整的 Redux 应用程序状态，并且它也可以调度 Redux 操作。
+
 
 
 
