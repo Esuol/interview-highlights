@@ -226,6 +226,8 @@ export default class MyApp extends React.Component {
   // ...define your main app here
 }
 ```
+除了装饰器的使用外，上面的例子几乎相似。装饰器语法尚未构建到任何 JavaScript 运行时中，并且仍然是实验性的并且可能会发生变化。您可以使用babel来获得装饰器支持。
+
 
 
 
