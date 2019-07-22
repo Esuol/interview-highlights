@@ -266,6 +266,43 @@ function setAccount(data) {
 
 将数据保存在 Redux 存储中，并在组件内部保持 UI 相关状态。
 
+### 访问 Redux Store 的正确方法是什么?
+
+在组件中访问 Store 的最佳方法是使用connect()函数，该函数创建一个包裹现有组件的新组件。此模式称为高阶组件，通常是在 React 中扩展组件功能的首选方式。这允许您将状态和 Action 创建者映射到组件，并在 Store 更新时自动传递它们。
+
+我们来看一个使用 connect 的<FilterLink>组件的例子：
+
+```js
+import { connect } from 'react-redux'
+import { setVisibilityFilter } from '../actions'
+import Link from '../components/Link'
+
+const mapStateToProps = (state, ownProps) => ({
+  active: ownProps.filter === state.visibilityFilter
+})
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onClick: () => dispatch(setVisibilityFilter(ownProps.filter))
+})
+
+const FilterLink = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Link)
+
+export default FilterLink
+```
+
+由于它具有相当多的性能优化并且通常不太可能导致错误，因此 Redux 开发人员几乎总是建议使用connect()直接访问 Store（使用上下文API）。
+
+```js
+class MyComponent {
+  someMethod() {
+    doSomethingWith(this.context.store)
+  }
+}
+```
+
 
 
 
