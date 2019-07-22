@@ -397,6 +397,22 @@ import ConnectedComponent from './containers/ConnectedComponent';
 
 您可以使用此对象来决定从这些函数返回的内容。
 
+### 如何构建 Redux 项目目录?
+
+大多数项目都有几个顶级目录，如下所示：
+
+Components: 用于dumb组件，Redux 不必关心的组件。
+
+Containers: 用于连接到 Redux 的smart组件。
+
+Actions: 用于所有 Action 创建器，其中文件名对应于应用程序的一部分。
+
+Reducers: 用于所有 reducer，其中文件名对应于state key。
+
+Store: 用于 Store 初始化。
+
+这种结构适用于中小型项目。
+
 
 
 
