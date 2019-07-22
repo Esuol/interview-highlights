@@ -427,6 +427,27 @@ $ npm install --save redux-saga
 
 Saga就像你的项目中的一个单独的线程，它独自负责副作用。redux-saga 是一个 redux 中间件，这意味着它可以在项目启动中使用正常的 Redux 操作，暂停和取消该线程，它可以访问完整的 Redux 应用程序状态，并且它也可以调度 Redux 操作。
 
+###  redux-saga 中 call() 和 put() 之间有什么区别?
+
+call()和put()都是 Effect 创建函数。 call()函数用于创建 Effect 描述，指示中间件调用 promise。put()函数创建一个 Effect，指示中间件将一个 Action 分派给 Store。
+
+让我们举例说明这些 Effect 如何用于获取特定用户数据。
+
+
+```js
+function* fetchUserSaga(action) {
+  // `call` function accepts rest arguments, which will be passed to `api.fetchUser` function.
+  // Instructing middleware to call promise, it resolved value will be assigned to `userData` variable
+  const userData = yield call(api.fetchUser, action.userId)
+
+  // Instructing middleware to dispatch corresponding action.
+  yield put({
+    type: 'FETCH_USER_SUCCESS',
+    userData
+  })
+}
+```
+
 
 
 
