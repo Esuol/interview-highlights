@@ -505,6 +505,27 @@ import { createStore, applyMiddleware } from 'redux'
 const createStoreWithMiddleware = applyMiddleware(ReduxThunk, logger)(createStore)
 ```
 
+### 如何在 Redux 中设置初始状态?
+
+您需要将初始状态作为第二个参数传递给 createStore ：
+
+```js
+const rootReducer = combineReducers({
+  todos: todos,
+  visibilityFilter: visibilityFilter
+})
+
+const initialState = {
+  todos: [{ id: 123, name: 'example', completed: false }]
+}
+
+const store = createStore(
+  rootReducer,
+  initialState
+)
+
+```
+
 
 
 
