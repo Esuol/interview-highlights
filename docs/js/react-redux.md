@@ -309,7 +309,56 @@ class MyComponent {
 容器组件是连接到 Redux Store的组件的非正式术语。容器组件订阅 Redux 状态更新和dispatch操作，它们通常不呈现 DOM 元素；他们将渲染委托给展示性的子组件。
 
 
+### Redux 中常量的用途是什么?
 
+常量允许您在使用 IDE 时轻松查找项目中该特定功能的所有用法。它还可以防止你拼写错误，在这种情况下，你会立即得到一个ReferenceError。
+
+通常我们会将它们保存在一个文件中（constants.js或actionTypes.js）。
+
+```js
+export const ADD_TODO = 'ADD_TODO'
+export const DELETE_TODO = 'DELETE_TODO'
+export const EDIT_TODO = 'EDIT_TODO'
+export const COMPLETE_TODO = 'COMPLETE_TODO'
+export const COMPLETE_ALL = 'COMPLETE_ALL'
+export const CLEAR_COMPLETED = 'CLEAR_COMPLETED'
+```
+在 Redux 中，您可以在两个地方使用它们：
+
+#### 在 Action 创建时:
+
+让我们看看 actions.js:
+
+```js
+import { ADD_TODO } from './actionTypes';
+
+export function addTodo(text) {
+  return { type: ADD_TODO, text }
+}
+```
+
+#### 在 reducers 里:
+
+让我们创建 reducer.js 文件:
+
+```js
+import { ADD_TODO } from './actionTypes'
+
+export default (state = [], action) => {
+  switch (action.type) {
+    case ADD_TODO:
+      return [
+        ...state,
+        {
+          text: action.text,
+          completed: false
+        }
+      ];
+    default:
+      return state
+  }
+}
+```
 
 
 
