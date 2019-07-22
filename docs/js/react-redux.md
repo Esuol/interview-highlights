@@ -413,6 +413,16 @@ Store: 用于 Store 初始化。
 
 这种结构适用于中小型项目。
 
+### 什么是 redux-saga?
+
+redux-saga是一个库，旨在使 React/Redux 项目中的副作用（数据获取等异步操作和访问浏览器缓存等可能产生副作用的动作）更容易，更好。
+
+这个包在 NPM 上有发布:
+
+```cmd
+$ npm install --save redux-saga
+```
+
 
 
 
