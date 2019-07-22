@@ -448,6 +448,12 @@ function* fetchUserSaga(action) {
 }
 ```
 
+### 什么是 Redux Thunk?
+
+Redux Thunk中间件允许您编写返回函数而不是 Action 的创建者。 thunk 可用于延迟 Action 的发送，或仅在满足某个条件时发送。内部函数接收 Store 的方法dispatch()和getState()作为参数。
+
+
+
 
 
 
