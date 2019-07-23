@@ -112,4 +112,32 @@ export default MyComponent
 styled-components 是一个用于样式化 React 应用程序的 JavaScript 库。 它删除了样式和组件之间的映射，并允许您在 js 中编写 CSS。
 
 
+### 举一个 Styled Components 的例子?
+
+让我们创建具有特定样式的<Title>和<Wrapper>组件。
+```js
+import React from 'react'
+import styled from 'styled-components'
+
+// Create a <Title> component that renders an <h1> which is centered, red and sized at 1.5em
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`
+
+// Create a <Wrapper> component that renders a <section> with some padding and a papayawhip background
+const Wrapper = styled.section`
+  padding: 4em;
+  background: papayawhip;
+`
+```
+Title和Wrapper变量现在是可以像任何其他 react 组件一样渲染。
+
+```html
+<Wrapper>
+  <Title>{'Lets start first styled component!'}</Title>
+</Wrapper>
+```
+
 
