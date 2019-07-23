@@ -101,3 +101,9 @@ export default MyComponent
 更适合创建移动端应用程序。
 
 提供更多的信息和解决方案。
+
+
+### 为什么 React 选项卡不会显示在 DevTools 中?
+
+当页面加载时，React DevTools设置一个名为__REACT_DEVTOOLS_GLOBAL_HOOK__的全局变量，然后 React 在初始化期间与该钩子通信。如果网站没有使用 React，或者如果 React 无法与 DevTools 通信，那么它将不会显示该选项卡。
+
