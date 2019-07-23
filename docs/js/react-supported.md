@@ -36,3 +36,15 @@ render() {
   return <div><i className={'fa fa-spinner'} /></div>
 }
 ```
+
+### 什么 是 React 开发者工具?
+
+React Developer Tools 允许您检查组件层次结构，包括组件属性和状态。它既可以作为浏览器扩展（用于 Chrome 和 Firefox ），也可以作为独立的应用程序（用于其他环境，包括 Safari、IE 和 React Native）。
+
+可用于不同浏览器或环境的官方扩展。
+
+Chrome插件
+
+Firefox插件
+
+独立应用 （ Safari，React Native 等）
