@@ -50,3 +50,16 @@ console.log(taxSelector(exampleState))      // 0.172
 console.log(totalSelector(exampleState))    // { total: 2.322 }
 ```
 
+### Redux 中的 Action 是什么?
+
+Actions是纯 JavaScript 对象或信息的有效负载，可将数据从您的应用程序发送到您的 Store。 它们是 Store 唯一的数据来源。 Action 必须具有指示正在执行的操作类型的 type 属性。
+
+例如，表示添加新待办事项的示例操作：
+
+```js
+{
+  type: ADD_TODO,
+  text: 'Add todo item'
+}
+
+```
