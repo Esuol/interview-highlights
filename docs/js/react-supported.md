@@ -48,3 +48,7 @@ Chrome插件
 Firefox插件
 
 独立应用 （ Safari，React Native 等）
+
+### 在 Chrome 中为什么 DevTools 没有加载本地文件?
+
+如果您在浏览器中打开了本地 HTML 文件（file://...），则必须先打开Chrome Extensions并选中“允许访问文件URL”。
