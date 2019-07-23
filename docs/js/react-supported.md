@@ -176,3 +176,52 @@ const App = () => (
   </div>
 )
 ```
+
+### 为什么不建议使用内联引用回调或函数?
+
+如果将 ref 回调定义为内联函数，则在更新期间它将会被调用两次。首先使用 null 值，然后再使用 DOM 元素。这是因为每次渲染的时候都会创建一个新的函数实例，因此 React 必须清除旧的 ref 并设置新的 ref。
+
+```js
+class UserForm extends Component {
+  handleSubmit = () => {
+    console.log("Input Value is: ", this.input.value)
+  }
+
+  render () {
+   return (
+     <form onSubmit={this.handleSubmit}>
+       <input
+         type='text'
+         ref={(input) => this.input = input} /> // Access DOM input in handle submit
+       <button type='submit'>Submit</button>
+     </form>
+   )
+ }
+}
+
+```
+
+但我们期望的是当组件挂载时，ref 回调只会被调用一次。一个快速修复的方法是使用 ES7 类属性语法定义函数。
+
+```js
+class UserForm extends Component {
+ handleSubmit = () => {
+   console.log("Input Value is: ", this.input.value)
+ }
+
+ setSearchInput = (input) => {
+   this.input = input
+ }
+
+ render () {
+   return (
+     <form onSubmit={this.handleSubmit}>
+       <input
+         type='text'
+         ref={this.setSearchInput} /> // Access DOM input in handle submit
+       <button type='submit'>Submit</button>
+     </form>
+   )
+ }
+}
+```
