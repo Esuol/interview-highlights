@@ -91,3 +91,8 @@ class Component extends React.Component {
   }
 }
 ```
+
+### Redux 只能与 React 一起使用么?
+
+Redux 可以用做任何 UI 层的数据存储。最常见的应用场景是 React 和 React Native，但也有一些 bindings 可用于 AngularJS，Angular 2，Vue，Mithril 等项目。Redux 只提供了一种订阅机制，任何其他代码都可以使用它。
+
