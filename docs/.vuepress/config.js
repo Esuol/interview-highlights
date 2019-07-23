@@ -67,6 +67,9 @@ module.exports = {
                 'js/react-international',
                 'js/react-testing',
                 'js/react-redux',
+                'js/react-native',
+                'js/react-native',
+                'js/react-supported',
                 'js/vue'
                 ]
         },
@@ -81,5 +84,5 @@ module.exports = {
   }
 }
 /**
- * 
+ *
  */

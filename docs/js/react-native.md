@@ -33,3 +33,5 @@ $ react-native log-android
 ->Developer Tools打开它。
 
 您现在应该能够像平常那样进行调试。
+
+### 
