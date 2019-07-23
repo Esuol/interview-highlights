@@ -110,3 +110,20 @@ const InitializeFromStateForm = reduxForm({
   enableReinitialize : true
 })(UserEdit)
 ```
+
+如果你的initialValues属性得到更新，你的表单也会更新。
+
+### React 是如何为一个属性声明不同的类型?
+
+你可以使用 PropTypes 中的 oneOfType() 方法。
+
+例如，如下所示 size 的属性值可以是 string 或 number 类型。
+
+```js
+Component.PropTypes = {
+  size: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])
+}
+```
