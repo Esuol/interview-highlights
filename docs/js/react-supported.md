@@ -14,3 +14,25 @@ Flow 是一个静态类型检查器，旨在查找 JavaScript 中的类型错误
 
 Flow 是一个静态分析工具（静态检查器），它使用该语言的超集，允许你在所有代码中添加类型注释，并在编译时捕获整个类的错误。PropTypes 是一个基本类型检查器（运行时检查器），已经被添加到 React 中。除了检查传递给给定组件的属性类型外，它不能检查其他任何内容。如果你希望对整个项目进行更灵活的类型检查，那么 Flow/TypeScript 是更合适的选择。
 
+### 在 React 中如何使用 Font Awesome 图标?
+
+接下来的步骤将在 React 中引入 Font Awesome：
+
+安装 font-awesome:
+
+```js
+$ npm install --save font-awesome
+```
+
+在 index.js 文件中导入 font-awesome:
+
+```js
+import 'font-awesome/css/font-awesome.min.css'
+```
+
+在 className 中添加 Font Awesome 类:
+```js
+render() {
+  return <div><i className={'fa fa-spinner'} /></div>
+}
+```
