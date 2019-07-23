@@ -144,5 +144,22 @@ Title和Wrapper变量现在是可以像任何其他 react 组件一样渲染。
 
 Relay 是一个 JavaScript 框架，用于使用 React 视图层为 Web 应用程序提供数据层和客户端与服务器之间的通信。
 
+### 如何在 create-react-app 中使用 TypeScript?
+当您创建一个新项目带有--scripts-version选项值为react-scripts-ts时便可将 TypeScript 引入。
 
+生成的项目结构如下所示：
 
+my-app/
+├─ .gitignore
+├─ images.d.ts
+├─ node_modules/
+├─ public/
+├─ src/
+│  └─ ...
+├─ package.json
+├─ tsconfig.json
+├─ tsconfig.prod.json
+├─ tsconfig.test.json
+└─ tslint.json
+
+### 
