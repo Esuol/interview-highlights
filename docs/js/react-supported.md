@@ -89,5 +89,15 @@ class MyComponent extends React.Component {
 }
 
 export default MyComponent
-
 ```
+
+### 与 Vue.js 相比，React 有哪些优势?
+与 Vue.js 相比，React 具有以下优势：
+
+在大型应用程序开发中提供更大的灵活性。
+
+更容易测试。
+
+更适合创建移动端应用程序。
+
+提供更多的信息和解决方案。
