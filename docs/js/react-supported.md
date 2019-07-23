@@ -52,3 +52,42 @@ Firefox插件
 ### 在 Chrome 中为什么 DevTools 没有加载本地文件?
 
 如果您在浏览器中打开了本地 HTML 文件（file://...），则必须先打开Chrome Extensions并选中“允许访问文件URL”。
+
+### 如何在 React 中使用 Polymer?
+
+创建 Polymer 元素：
+
+```html
+<link rel='import' href='../../bower_components/polymer/polymer.html' />
+```
+```js
+Polymer({
+  is: 'calender-element',
+  ready: function() {
+    this.textContent = 'I am a calender'
+  }
+})
+```
+
+通过在 HTML 文档中导入 Polymer 组件，来创建该组件对应的标签。例如，在 React 应用程序的 index.html 文件中导入。
+
+```html
+<link rel='import' href='./src/polymer-components/calender-element.html'>
+```
+
+在 JSX 文件中使用该元素：
+
+```js
+import React from 'react'
+
+class MyComponent extends React.Component {
+  render() {
+    return (
+      <calender-element />
+    )
+  }
+}
+
+export default MyComponent
+
+```
