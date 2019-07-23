@@ -140,4 +140,9 @@ Title和Wrapper变量现在是可以像任何其他 react 组件一样渲染。
 </Wrapper>
 ```
 
+### 什么是 Relay?
+
+Relay 是一个 JavaScript 框架，用于使用 React 视图层为 Web 应用程序提供数据层和客户端与服务器之间的通信。
+
+
 
