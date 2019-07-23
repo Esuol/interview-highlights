@@ -18,3 +18,18 @@ React Native 只能在 iOS 和 Android 等移动模拟器中进行测试。您�
 $ react-native log-ios
 $ react-native log-android
 ```
+
+### 怎么调试 React Native 应用?
+
+按照以下步骤调试 React Native 应用程序：
+
+在 iOS 模拟器中运行您的应用程序。
+
+按Command + D，然后在网页中打开http://localhost:8081/debugger-ui。
+
+启用Pause On Caught Exceptions以获得更好的调试体验。
+
+按Command + Option + I打开 Chrome Developer 工具，或通过View ->Developer
+->Developer Tools打开它。
+
+您现在应该能够像平常那样进行调试。
