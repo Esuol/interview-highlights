@@ -162,4 +162,17 @@ my-app/
 ├─ tsconfig.test.json
 └─ tslint.json
 
-### 
+### 我可以导入一个 SVG 文件作为 React 组件么?
+
+你可以直接将 SVG 作为组件导入，而不是将其作为文件加载。此功能仅在 react-scripts@2.0.0 及更高版本中可用。
+
+```js
+import { ReactComponent as Logo } from './logo.svg'
+
+const App = () => (
+  <div>
+    {/* Logo is an actual react component */}
+    <Logo />
+  </div>
+)
+```
