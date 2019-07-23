@@ -99,3 +99,14 @@ Redux 可以用做任何 UI 层的数据存储。最常见的应用场景是 Rea
 ### 您是否需要使用特定的构建工具来使用 Redux ?
 
 Redux 最初是用 ES6 编写的，用 Webpack 和 Babel 编译成 ES5。 无论您的 JavaScript 构建过程如何，您都应该能够使用它。Redux 还提供了一个 UMD 版本，可以直接使用而无需任何构建过程。
+
+### Redux Form 的 initialValues 如何从状态更
+
+你需要添加enableReinitialize：true设置。
+
+```js
+const InitializeFromStateForm = reduxForm({
+  form: 'initializeFromState',
+  enableReinitialize : true
+})(UserEdit)
+```
