@@ -63,3 +63,31 @@ Actions是纯 JavaScript 对象或信息的有效负载，可将数据从您的�
 }
 
 ```
+
+### 在 React 中 statics 对象是否能与 ES6 类一起使用?
+
+不行，statics 仅适用于 React.createClass()：
+
+```js
+someComponent= React.createClass({
+  statics: {
+    someMethod: function() {
+      // ..
+    }
+  }
+})
+```
+
+但是你可以在 ES6+ 的类中编写静态代码，如下所示：
+
+```js
+class Component extends React.Component {
+  static propTypes = {
+    // ...
+  }
+
+  static someMethod() {
+    // ...
+  }
+}
+```
