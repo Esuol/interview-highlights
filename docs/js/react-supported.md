@@ -448,3 +448,26 @@ function Example() {
 仅在 React 函数中调用 hooks。例如，你不能在常规的 JavaScript 函数中调用 hooks。
 
 
+### 如何确保钩子遵循正确的使用规则?
+
+React 团队发布了一个名为eslint-plugin-react-hooks的 ESLint 插件，它实施了这两个规则。您可以使用以下命令将此插件添加到项目中，
+
+```t
+npm install eslint-plugin-react-hooks@next
+```
+
+并在您的 ESLint 配置文件中应用以下配置：
+
+```js
+// Your ESLint configuration
+{
+  "plugins": [
+    // ...
+    "react-hooks"
+  ],
+  "rules": {
+    // ...
+    "react-hooks/rules-of-hooks": "error"
+  }
+}
+```
