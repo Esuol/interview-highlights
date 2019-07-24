@@ -305,3 +305,23 @@ const MyComponent = React.memo(function MyComponent(props) {
  /* only rerenders if props change */
 });
 ```
+
+### React lazy 函数是什么?
+
+使用 React.lazy 函数允许你将动态导入的组件作为常规组件进行渲染。当组件开始渲染时，它会自动加载包含 OtherComponent 的包。它必须返回一个 Promise，该 Promise 解析后为一个带有默认导出 React 组件的模块。
+
+```js
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+function MyComponent() {
+ return (
+   <div>
+     <OtherComponent />
+   </div>
+ );
+}
+```
+
+注意： React.lazy 和 Suspense 还不能用于服务端渲染。如果要在服务端渲染的应用程序中进行代码拆分，我们仍然建议使用 React Loadable。
+
+
