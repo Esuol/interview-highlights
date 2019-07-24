@@ -257,3 +257,11 @@ function iiHOC(WrappedComponent) {
  }
 }
 ```
+
+### 如何传递数字给 React 组件?
+
+传递数字时你应该使用 {}，而传递字符串时还需要使用引号：
+
+  ```js
+   React.render(<User age={30} department={"IT"} />, document.getElementById('container'));
+   ```
