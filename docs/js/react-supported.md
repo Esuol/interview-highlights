@@ -324,4 +324,21 @@ function MyComponent() {
 
 注意： React.lazy 和 Suspense 还不能用于服务端渲染。如果要在服务端渲染的应用程序中进行代码拆分，我们仍然建议使用 React Loadable。
 
+### 如何使用 setState 防止不必要的更新?
+
+你可以把状态的当前值与已有的值进行比较，并决定是否重新渲染页面。如果没有更改，你需要返回 null 以阻止渲染，否则返回最新的状态值。例如，用户配置信息组件将按以下方式实现条件渲染：
+
+```js
+getUserProfile = user => {
+  const latestAddress = user.address;
+  this.setState(state => {
+    if (state.address === latestAddress) {
+      return null;
+    } else {
+      return { title: latestAddress };
+    }
+  });
+};
+```
+
 
