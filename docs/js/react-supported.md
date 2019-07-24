@@ -499,3 +499,18 @@ React 组件监测 Store	      容器组件使用连接函数
 您无需手动设置历史记录。路由器模块将通过使用组件包装路由来处理历史记录。
 
 通过仅添加特定路由器模块（Web，core 或 native）来减少应用大小。
+
+### 您能描述一下 componentDidCatch 生命周期方法签名吗?
+
+在后代层级的组件抛出错误后，将调用componentDidCatch生命周期方法。该方法接收两个参数：
+
+error: - 抛出的错误对象
+
+info: - 具有 componentStack 键的对象，包含有关哪个组件引发错误的信息。
+
+方法结构如下：
+
+```js
+componentDidCatch(error, info)
+```
+
