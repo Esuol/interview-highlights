@@ -341,4 +341,46 @@ getUserProfile = user => {
 };
 ```
 
+### 如何在 React 16 版本中渲染数组、字符串和数值?
+
+Arrays: 与旧版本不同的是，在 React 16 中你不需要确保 render 方法必须返回单个元素。通过返回数组，你可以返回多个没有包装元素的同级元素。例如，让我们看看下面的开发人员列表：
+
+```js
+const ReactJSDevs = () => {
+  return [
+    <li key="1">John</li>,
+    <li key="2">Jackie</li>,
+    <li key="3">Jordan</li>
+  ];
+}
+```
+
+你还可以将此数组项合并到另一个数组组件中：
+
+```js
+const JSDevs = () => {
+  return (
+    <ul>
+      <li>Brad</li>
+      <li>Brodge</li>
+      <ReactJSDevs/>
+      <li>Brandon</li>
+    </ul>
+  );
+}
+```
+
+Strings and Numbers: 在 render 方法中，你也可以返回字符串和数值类型：
+
+```js
+// String
+render() {
+ return 'Welcome to ReactJS questions';
+}
+// Number
+render() {
+ return 2018;
+}
+```
+
 
