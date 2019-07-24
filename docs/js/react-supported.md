@@ -383,4 +383,37 @@ render() {
 }
 ```
 
+### 如何在 React 类中使用类字段声明语法?
+
+使用类字段声明可以使 React 类组件更加简洁。你可以在不使用构造函数的情况下初始化本地状态，并通过使用箭头函数声明类方法，而无需额外对它们进行绑定。让我们以一个 counter 示例来演示类字段声明，即不使用构造函数初始化状态且不进行方法绑定：
+
+```js
+class Counter extends Component {
+  state = { value: 0 };
+
+  handleIncrement = () => {
+    this.setState(prevState => ({
+      value: prevState.value + 1
+    }));
+  };
+
+  handleDecrement = () => {
+    this.setState(prevState => ({
+      value: prevState.value - 1
+    }));
+  };
+
+  render() {
+    return (
+      <div>
+        {this.state.value}
+
+        <button onClick={this.handleIncrement}>+</button>
+        <button onClick={this.handleDecrement}>-</button>
+      </div>
+    )
+  }
+}
+
+```
 
