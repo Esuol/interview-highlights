@@ -439,3 +439,12 @@ function Example() {
 }
 ```
 
+### Hooks 需要遵循什么规则?
+
+为了使用 hooks，你需要遵守两个规则：
+
+仅在顶层的 React 函数调用 hooks。也就是说，你不能在循环、条件或内嵌函数中调用 hooks。这将确保每次组件渲染时都以相同的顺序调用 hooks，并且它会在多个 useState 和 useEffect 调用之间保留 hooks 的状态。
+
+仅在 React 函数中调用 hooks。例如，你不能在常规的 JavaScript 函数中调用 hooks。
+
+
