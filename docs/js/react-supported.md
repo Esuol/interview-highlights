@@ -230,3 +230,30 @@ class UserForm extends Component {
 
 渲染劫持的概念是控制一个组件将从另一个组件输出什么的能力。实际上，这意味着你可以通过将组件包装成高阶组件来装饰组件。通过包装，你可以注入额外的属性或产生其他变化，这可能会导致渲染逻辑的更改。实际上它不支持劫持，但通过使用 HOC，你可以使组件以不同的方式工作。
 
+### 什么是 HOC 工厂实现?
+
+在 React 中实现 HOC 有两种主要方式。 1.属性代理（PP）和 2.继承倒置（II）。他们遵循不同的方法来操纵WrappedComponent。
+
+属性代理 在这种方法中，HOC 的 render 方法返回 WrappedComponent 类型的 React 元素。我们通过 HOC 收到 props，因此定义为属性代理。
+
+```js
+function ppHOC(WrappedComponent) {
+ return class PP extends React.Component {
+   render() {
+     return <WrappedComponent {...this.props}/>
+   }
+ }
+}
+```
+
+继承倒置 在这种方法中，返回的 HOC 类（Enhancer）扩展了 WrappedComponent 。它被称为继承反转，因为它不是扩展一些 Enhancer 类的 WrappedComponent，而是由 Enhancer 被动扩展。 通过这种方式，它们之间的关系似乎是逆的。
+
+```js
+function iiHOC(WrappedComponent) {
+ return class Enhancer extends WrappedComponent {
+   render() {
+     return super.render()
+   }
+ }
+}
+```
