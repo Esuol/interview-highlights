@@ -262,6 +262,6 @@ function iiHOC(WrappedComponent) {
 
 传递数字时你应该使用 {}，而传递字符串时还需要使用引号：
 
-  ```js
-   React.render(<User age={30} department={"IT"} />, document.getElementById('container'));
-   ```
+```js
+React.render(<User age={30} department={"IT"} />, document.getElementById('container'));
+```
