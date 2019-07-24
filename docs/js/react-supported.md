@@ -281,3 +281,17 @@ React.render(<User age={30} department={"IT"} />, document.getElementById('conta
 能够将此状态恢复到给定时间点（即时间旅行调试）是否对您有价值？
 
 您是否要缓存数据（即，如果已经存在，则使用处于状态的状态而不是重新请求它）？
+
+### 在 React 中 registerServiceWorker 的用途是什么?
+
+默认情况下，React 会为你创建一个没有任何配置的 service worker。Service worker 是一个 Web API，它帮助你缓存资源和其他文件，以便当用户离线或在弱网络时，他/她仍然可以在屏幕上看到结果，因此，它可以帮助你建立更好的用户体验，这是你目前应该了解的关于 Service worker 的内容。
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
+```
