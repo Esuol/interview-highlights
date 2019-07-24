@@ -471,3 +471,21 @@ npm install eslint-plugin-react-hooks@next
   }
 }
 ```
+
+### Flux 和 Redux 之间有什么区别?
+
+以下是 Flux 和 Redux 之间的主要区别
+
+Flux	                     Redux
+
+状态是可变的	               状态是不可变的
+
+Store 包含状态和更改逻辑	    存储和更改逻辑是分开的
+
+存在多个 Store	            仅存在一个 Store
+
+所有的 Store 都是断开连接的	  带有分层 reducers 的 Store
+
+它有一个单独的 dispatcher	   没有 dispatcher 的概念
+
+React 组件监测 Store	      容器组件使用连接函数
