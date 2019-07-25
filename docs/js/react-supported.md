@@ -557,3 +557,28 @@ class MyComponent extends React.Component {
 ```
 
 上面的代码使用普通的 JavaScript try/catch 块而不是错误边界来捕获错误。
+
+### try catch 与错误边界有什么区别?
+
+Try catch 块使用命令式代码，而错误边界则是使用在屏幕上呈现声明性代码。
+
+例如，以下是使用声明式代码的 try/catch 块：
+
+```js
+try {
+  showButton();
+} catch (error) {
+  // ...
+}
+```
+
+而错误边界包装的声明式代码如下：
+
+```html
+<ErrorBoundary>
+  <MyComponent />
+</ErrorBoundary>
+
+```
+
+因此，如果在组件树深处某个位置组件的 componentDidUpdate 方法中，发生了由 setState 引发的错误，它仍然会正确地冒泡到最近的错误边界。
