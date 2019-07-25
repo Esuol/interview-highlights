@@ -603,5 +603,18 @@ try {
 
 在类组件中 render() 方法是唯一需要的方法。也就是说，对于类组件，除了 render() 方法之外的所有方法都是可选的。
 
+### render 方法可能返回的类型是什么?
+
+以下列表是 render 方法返回的类型：
+
+React elements: 用于告诉 React 如何渲染 DOM 节点。它包括 HTML 元素，如 div 和用户定义的元素。
+
+Arrays and fragments: 以数组的形式返回多个元素和包装多个元素的片段。
+
+Portals: 将子元素渲染到不同的 DOM 子树中。
+
+String and numbers: 在 DOM 中将字符串和数字都作为文本节点进行呈现。
+
+Booleans or null: 不会渲染任何内容，但这些类型用于有条件地渲染内容。
 
 
