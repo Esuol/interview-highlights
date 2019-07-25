@@ -514,3 +514,14 @@ info: - 具有 componentStack 键的对象，包含有关哪个组件引发错�
 componentDidCatch(error, info)
 ```
 
+### 在哪些情况下，错误边界不会捕获错误?
+
+以下是错误边界不起作用的情况：
+
+在事件处理器内。
+
+setTimeout 或 requestAnimationFrame 回调中的异步代码。
+
+在服务端渲染期间。
+
+错误边界代码本身中引发错误时。
