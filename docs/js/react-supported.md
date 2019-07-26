@@ -640,6 +640,29 @@ constructor(props) {
 
 不，这不是强制的。也就是说，如果你不需要初始化状态且不需要绑定方法，则你不需要为 React 组件实现一个构造函数。
 
+### 什么是默认属性?
+
+defaultProps 被定义为组件类上的属性，用于设置组件类默认的属性值。它只适用于 undefined 的属性，而不适用于 null 属性。例如，让我们为按钮组件创建默认的 color 属性：
+
+```js
+class MyButton extends React.Component {
+  // ...
+}
+
+MyButton.defaultProps = {
+  color: 'red'
+};
+```
+
+如果未设置 props.color，则会使用默认值 red。 也就是说，每当你试图访问 color 属性时，它都使用默认值。
+
+```js
+render() {
+   return <MyButton /> ; // props.color will be set to red
+ }
+```
+
+
 
 
 
