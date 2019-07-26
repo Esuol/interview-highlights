@@ -804,6 +804,27 @@ export default App;
 
 有关已弃用的 findDOMNode 用法的警告。
 
+### 什么是 Keyed Fragments ?
+
+使用显式 React.Fragment 语法声明的片段可能具有 key 。一般用例是将集合映射到片段数组，如下所示，
+
+```js
+function Glossary(props) {
+  return (
+    <dl>
+      {props.items.map(item => (
+        // Without the `key`, React will fire a key warning
+        <React.Fragment key={item.id}>
+          <dt>{item.term}</dt>
+          <dd>{item.description}</dd>
+        </React.Fragment>
+      ))}
+    </dl>
+  );
+}
+```
+
+
 
 
 
