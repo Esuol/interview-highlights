@@ -716,8 +716,13 @@ getSnapshotBeforeUpdate()
 
 componentDidUpdate()
 
+### 错误处理期间调用哪些方法?
 
+在渲染期间，生命周期方法内或任何子组件的构造函数中出现错误时，将会调用以下方法：
 
+static getDerivedStateFromError()
+
+componentDidCatch()
 
 
 
