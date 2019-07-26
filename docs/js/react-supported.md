@@ -702,6 +702,20 @@ class ErrorBoundary extends React.Component {
 }
 ```
 
+### 当组件重新渲染时顺序执行的方法有哪些?
+
+更新可能由属性或状态的更改引起。在重新渲染组件时，会按以下顺序调用下列方法。
+
+static getDerivedStateFromProps()
+
+shouldComponentUpdate()
+
+render()
+
+getSnapshotBeforeUpdate()
+
+componentDidUpdate()
+
 
 
 
