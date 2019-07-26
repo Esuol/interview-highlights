@@ -750,5 +750,45 @@ function getDisplayName(WrappedComponent) {
 ReactDOM.unmountComponentAtNode(container)
 ```
 
+### 什么是代码拆分?
+
+Code-Splitting 是 Webpack 和 Browserify 等打包工具所支持的一项功能，它可以创建多个 bundles，并可以在运行时动态加载。React 项目支持通过 dynamic import() 特性进行代码拆分。例如，在下面的代码片段中，它将使 moduleA.js 及其所有唯一依赖项作为单独的块，仅当用户点击 'Load' 按钮后才加载。
+
+#### moduleA.js
+
+```js
+const moduleA = 'Hello';
+
+export { moduleA };
+```
+
+#### App.js
+
+```js
+import React, { Component } from 'react';
+
+class App extends Component {
+  handleClick = () => {
+    import('./moduleA')
+      .then(({ moduleA }) => {
+        // Use moduleA
+      })
+      .catch(err => {
+        // Handle failure
+      });
+  };
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>Load</button>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
 
 
