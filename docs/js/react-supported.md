@@ -742,5 +742,13 @@ function getDisplayName(WrappedComponent) {
 }
 ```
 
+### unmountComponentAtNode 方法的目的是什么?
+
+此方法可从 react-dom 包中获得，它从 DOM 中移除已装载的 React 组件，并清除其事件处理程序和状态。如果容器中没有装载任何组件，则调用此函数将不起任何作用。如果组件已卸载，则返回 true；如果没有要卸载的组件，则返回 false。该方法的签名如下：
+
+```js
+ReactDOM.unmountComponentAtNode(container)
+```
+
 
 
