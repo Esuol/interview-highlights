@@ -724,5 +724,23 @@ static getDerivedStateFromError()
 
 componentDidCatch()
 
+### displayName 类属性的用途是什么?
+
+displayName 被用于调试信息。通常，你不需要显式设置它，因为它是从定义组件的函数或类的名称推断出来的。如果出于调试目的或在创建高阶组件时显示不同的名称，可能需要显式设置它。
+
+例如，若要简化调试，请选择一个显示名称，以表明它是 withSubscription HOC 的结果。
+
+```js
+function withSubscription(WrappedComponent) {
+  class WithSubscription extends React.Component {/* ... */}
+  WithSubscription.displayName = `WithSubscription(${getDisplayName(WrappedComponent)})`;
+  return WithSubscription;
+}
+
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
+```
+
 
 
