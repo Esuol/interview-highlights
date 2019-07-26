@@ -790,5 +790,20 @@ class App extends Component {
 export default App;
 ```
 
+### 严格模式有什么好处?
+
+在下面的情况下， 将有所帮助：
+
+使用 unsafe lifecycle methods 标识组件。
+
+有关 legacy string ref API 用法发出警告。
+
+检测无法预测的 side effects。
+
+检测 legacy context API。
+
+有关已弃用的 findDOMNode 用法的警告。
+
+
 
 
