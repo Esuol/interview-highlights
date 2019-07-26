@@ -662,6 +662,47 @@ render() {
  }
 ```
 
+注意： 如果你提供的是 null 值，它会仍然保留 null 值。
+
+### 为什么不能在 componentWillUnmount 中调用 setState() 方法?
+
+不应在 componentWillUnmount() 中调用 setState()，因为一旦卸载了组件实例，就永远不会再次装载它。
+
+
+### getDerivedStateFromError 的目的是什么?
+
+在子代组件抛出异常后会调用此生命周期方法。它以抛出的异常对象作为参数，并返回一个值用于更新状态。该生命周期方法的签名如下：
+
+```js
+static getDerivedStateFromError(error)
+```
+
+让我们举一个包含上述生命周期方法的错误边界示例，来说明 getDerivedStateFromError 的目的：
+
+```js
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children;
+  }
+}
+```
+
+
 
 
 
