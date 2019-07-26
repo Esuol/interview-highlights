@@ -824,6 +824,19 @@ function Glossary(props) {
 }
 ```
 
+### React 支持所有的 HTML 属性么?
+
+从 React 16 开始，完全支持标准或自定义 DOM 属性。由于 React 组件通常同时使用自定义和与 DOM 相关的属性，因此 React 与 DOM API 一样都使用 camelCase 约定。让我们对标准 HTML 属性采取一些措施：
+
+```html
+<div tabIndex="-1" />      // Just like node.tabIndex DOM API
+<div className="Button" /> // Just like node.className DOM API
+<input readOnly={true} />  // Just like node.readOnly DOM API
+```
+除了特殊情况外，这些属性的工作方式与相应的 HTML 属性类似。它还支持所有 SVG 属性。
+
+
+
 
 
 
