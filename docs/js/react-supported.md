@@ -839,7 +839,7 @@ function Glossary(props) {
 
 除了它的好处之外，高阶组件还有一些注意事项。 以下列出的几个注意事项:
 
-不要在渲染方法中使用HOC： 建议不要将 HOC 应用于组件的 render 方法中的组件。
+1 不要在渲染方法中使用HOC： 建议不要将 HOC 应用于组件的 render 方法中的组件。
 
 ```js
 render() {
@@ -852,7 +852,7 @@ render() {
 ```
 上述代码通过重新装载，将导致该组件及其所有子组件状态丢失，会影响到性能。正确的做法应该是在组件定义之外应用 HOC ，以便仅生成一次生成的组件
 
-静态方法必须复制： 将 HOC 应用于组件时，新组件不具有原始组件的任何静态方法
+2 静态方法必须复制： 将 HOC 应用于组件时，新组件不具有原始组件的任何静态方法
 
 ```js
 // Define a static method
@@ -864,6 +864,18 @@ const EnhancedComponent = enhance(WrappedComponent);
 typeof EnhancedComponent.staticMethod === 'undefined' // true
 ```
 
+您可以通过在返回之前将方法复制到输入组件上来解决此问题
+
+```js
+function enhance(WrappedComponent) {
+  class Enhance extends React.Component {/*...*/}
+  // Must know exactly which method(s) to copy :(
+  Enhance.staticMethod = WrappedComponent.staticMethod;
+  return Enhance;
+}
+```
+
+3 Refs 不会被往下传递 对于HOC，您需要将所有属性传递给包装组件，但这对于 refs 不起作用。这是因为 ref 并不是一个类似于 key 的属性。在这种情况下，您需要使用 React.forwardRef API。
 
 
 
