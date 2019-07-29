@@ -930,5 +930,19 @@ function logProps(Component) {
 
 注意： 不建议使用此方法，因为它可能与 ES6 对象 shorthand 混淆（例如，{name}，它是{ name:name } 的缩写）
 
+### 什么是 NextJS 及其主要特征?
 
+Next.js 是一个流行的轻量级框架，用于使用 React 构建静态和服务端渲染应用程序。它还提供样式和路由解决方案。以下是 NextJS 提供的主要功能：
+
+默认服务端渲染
+
+自动代码拆分以加快页面加载速度
+
+简单的客户端路由 (基于页面)
+
+基于 Webpack 的开发环境支持 (HMR)
+
+能够使用 Express 或任何其他 Node.js HTTP 服务器
+
+可自定义你自己的 Babel 和 Webpack 配置
 
