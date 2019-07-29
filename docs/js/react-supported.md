@@ -850,6 +850,19 @@ render() {
   return <EnhancedComponent />;
 }
 ```
+上述代码通过重新装载，将导致该组件及其所有子组件状态丢失，会影响到性能。正确的做法应该是在组件定义之外应用 HOC ，以便仅生成一次生成的组件
+
+静态方法必须复制： 将 HOC 应用于组件时，新组件不具有原始组件的任何静态方法
+
+```js
+// Define a static method
+WrappedComponent.staticMethod = function() {/*...*/}
+// Now apply a HOC
+const EnhancedComponent = enhance(WrappedComponent);
+
+// The enhanced component has no static method
+typeof EnhancedComponent.staticMethod === 'undefined' // true
+```
 
 
 
