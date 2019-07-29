@@ -918,5 +918,17 @@ function logProps(Component) {
 }
 ```
 
+### x什么时候组件的 props 属性默认为 true?
+
+如果没有传递属性值，则默认为 true。此行为可用，以便与 HTML 的行为匹配。例如，下面的表达式是等价的：
+
+```html
+<MyInput autocomplete />
+
+<MyInput autocomplete={true} />
+```
+
+注意： 不建议使用此方法，因为它可能与 ES6 对象 shorthand 混淆（例如，{name}，它是{ name:name } 的缩写）
+
 
 
