@@ -835,7 +835,21 @@ function Glossary(props) {
 ```
 除了特殊情况外，这些属性的工作方式与相应的 HTML 属性类似。它还支持所有 SVG 属性。
 
+### HOC 有哪些限制?
 
+除了它的好处之外，高阶组件还有一些注意事项。 以下列出的几个注意事项:
+
+不要在渲染方法中使用HOC： 建议不要将 HOC 应用于组件的 render 方法中的组件。
+
+```js
+render() {
+  // A new version of EnhancedComponent is created on every render
+  // EnhancedComponent1 !== EnhancedComponent2
+  const EnhancedComponent = enhance(MyComponent);
+  // That causes the entire subtree to unmount/remount each time!
+  return <EnhancedComponent />;
+}
+```
 
 
 
