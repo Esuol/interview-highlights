@@ -877,6 +877,28 @@ function enhance(WrappedComponent) {
 
 3 Refs 不会被往下传递 对于HOC，您需要将所有属性传递给包装组件，但这对于 refs 不起作用。这是因为 ref 并不是一个类似于 key 的属性。在这种情况下，您需要使用 React.forwardRef API。
 
+### 如何在 DevTools 中调试 forwardRefs?
+
+React.forwardRef接受渲染函数作为参数，DevTools 使用此函数来确定为 ref 转发组件显示的内容。例如，如果您没有使用 displayName 属性命名 render 函数，那么它将在 DevTools 中显示为“ForwardRef”，
+
+```js
+const WrappedComponent = React.forwardRef((props, ref) => {
+  return <LogProps {...props} forwardedRef={ref} />;
+});
+```
+
+但如果你命名 render 函数，那么它将显示为 “ForwardRef(myFunction)”
+
+```js
+const WrappedComponent = React.forwardRef(
+  function myFunction(props, ref) {
+    return <LogProps {...props} forwardedRef={ref} />;
+  }
+);
+```
+
+作为替代方案，您还可以为 forwardRef 函数设置 displayName 属性， 
+
 
 
 
