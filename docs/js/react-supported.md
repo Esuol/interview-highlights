@@ -1238,3 +1238,22 @@ function MyComponent() {
 
 现在，其他组件将以单独的包进行加载。
 
+### 什么是 suspense 组件?
+
+如果父组件在渲染时包含 dynamic import 的模块尚未加载完成，在此加载过程中，你必须使用一个 loading 指示器显示后备内容。这可以使用 Suspense 组件来实现。例如，下面的代码使用 Suspense 组件：
+
+```js
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+function MyComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <OtherComponent />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+正如上面的代码中所展示的，懒加载的组件被包装在 Suspense 组件中。
