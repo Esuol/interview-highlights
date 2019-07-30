@@ -1026,5 +1026,37 @@ function capital(amount, interest) {
 
 上面的函数称为“纯”函数，因为它不会尝试更改输入，并总是为相同的输入返回相同的结果。因此，React 有一条规则，即“所有 React 组件的行为都必须像纯函数一样”。
 
+### 你认为状态更新是如何合并的?
 
+当你在组件中调用 setState() 方法时，React 会将提供的对象合并到当前状态。例如，让我们以一个使用帖子和评论详细信息的作为状态变量的 Facebook 用户为例：
+
+```js
+constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+      comments: []
+    };
+  }
+```
+
+现在，你可以独立调用 setState() 方法，单独更新状态变量：
+
+```js
+ componentDidMount() {
+    fetchPosts().then(response => {
+      this.setState({
+        posts: response.posts
+      });
+    });
+
+    fetchComments().then(response => {
+      this.setState({
+        comments: response.comments
+      });
+    });
+  }
+```
+
+如上面的代码段所示，this.setState({comments}) 只会更新 comments 变量，而不会修改或替换 posts 变量。
 
