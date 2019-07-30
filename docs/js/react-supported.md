@@ -985,3 +985,14 @@ RequestAnimationFrame throttling: 基于 requestAnimationFrame 的更改。例�
 
 注意：_.debounce， _.throttle 和 raf-schd 都提供了一个 cancel 方法来取消延迟回调。所以需要调用 componentWillUnmount，或者对代码进行检查来保证在延迟函数有效期间内组件始终挂载。
 
+### JSX 如何防止注入攻击?
+
+React DOM 会在渲染 JSX 中嵌入的任何值之前对其进行转义。因此，它确保你永远不能注入任何未在应用程序中显式写入的内容。
+
+```js
+const name = response.potentiallyMaliciousInput;
+const element = <h1>{name}</h1>;
+```
+
+这样可以防止应用程序中的XSS（跨站点脚本）攻击。
+
