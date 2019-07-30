@@ -953,3 +953,20 @@ Next.js 是一个流行的轻量级框架，用于使用 React 构建静态和�
 ```html
 <button onClick={this.handleClick}>
 ```
+
+### 在渲染方法中使用箭头函数好么?
+
+是的，你可以用。它通常是向回调函数传递参数的最简单方法。但在使用时需要优化性能。
+
+```js
+class Foo extends Component {
+  handleClick() {
+    console.log('Click happened');
+  }
+  render() {
+    return <button onClick={() => this.handleClick()}>Click Me</button>;
+  }
+}
+```
+
+注意： 组件每次渲染时，在 render 方法中的箭头函数都会创建一个新的函数，这可能会影响性能。
