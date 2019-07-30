@@ -1071,5 +1071,41 @@ constructor(props) {
 
 在这两种方法中，合成参数 e 作为第二个参数传递。你需要在箭头函数中显式传递它，并使用 bind 方法自动转发它。
 
+### 如何防止组件渲染?
+
+你可以基于特定的条件通过返回 null 值来阻止组件的渲染。这样它就可以有条件地渲染组件。
+
+```js
+function Greeting(props) {
+  if (!props.loggedIn) {
+    return null;
+  }
+
+  return (
+    <div className="greeting">
+      welcome, {props.name}
+    </div>
+  );
+}
+```
+
+```js
+class User extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {loggedIn: false, name: 'John'};
+  }
+
+  render() {
+   return (
+       <div>
+         //Prevent component render if it is not loggedIn
+         <Greeting loggedIn={this.state.loggedIn} />
+         <UserDetails name={this.state.name}>
+       </div>
+   );
+  }
+```
+在上面的示例中，greeting 组件通过应用条件并返回空值跳过其渲染部分。
 
 
