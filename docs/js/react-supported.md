@@ -1060,3 +1060,16 @@ constructor(props) {
 
 如上面的代码段所示，this.setState({comments}) 只会更新 comments 变量，而不会修改或替换 posts 变量。
 
+### 如何将参数传递给事件处理程序?
+
+在迭代或循环期间，向事件处理程序传递额外的参数是很常见的。这可以通过箭头函数或绑定方法实现。让我们以网格中更新的用户详细信息为例：
+
+```html
+<button onClick={(e) => this.updateUser(userId, e)}>Update User details</button>
+<button onClick={this.updateUser.bind(this, userId)}>Update User details</button>
+```
+
+在这两种方法中，合成参数 e 作为第二个参数传递。你需要在箭头函数中显式传递它，并使用 bind 方法自动转发它。
+
+
+
