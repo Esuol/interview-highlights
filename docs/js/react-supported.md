@@ -1198,3 +1198,22 @@ class App extends Component {
 
 export default App;
 ```
+
+### 什么是动态导入?
+
+动态导入语法是 ECMAScript 提案，目前不属于语言标准的一部分。它有望在不久的将来被采纳。在你的应用程序中，你可以使用动态导入来实现代码拆分。让我们举一个加法的例子：
+
+#### Normal Import
+
+```js
+import { add } from './math';
+console.log(add(10, 20));
+```
+
+#### Dynamic Import
+
+```js
+import("./math").then(math => {
+  console.log(math.add(10, 20));
+});
+```
