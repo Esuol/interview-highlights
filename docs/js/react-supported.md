@@ -970,3 +970,18 @@ class Foo extends Component {
 ```
 
 注意： 组件每次渲染时，在 render 方法中的箭头函数都会创建一个新的函数，这可能会影响性能。
+
+### 如何防止函数被多次调用?
+
+如果你使用一个事件处理程序，如 onClick or onScroll 并希望防止回调被过快地触发，那么你可以限制回调的执行速度。
+
+这可以通过以下可能的方式实现：
+
+Throttling: 基于时间的频率进行更改。例如，它可以使用 lodash 的 _.throttle 函数。
+
+Debouncing: 在一段时间不活动后发布更改。例如，可以使用 lodash 的 _.debounce 函数。
+
+RequestAnimationFrame throttling: 基于 requestAnimationFrame 的更改。例如，可以使用 raf-schd。
+
+注意：_.debounce， _.throttle 和 raf-schd 都提供了一个 cancel 方法来取消延迟回调。所以需要调用 componentWillUnmount，或者对代码进行检查来保证在延迟函数有效期间内组件始终挂载。
+
