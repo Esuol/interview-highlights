@@ -1177,3 +1177,24 @@ Formik 是一个用于 React 的表单库，它提供验证、跟踪访问字段
 
 在 React 中，建议使用组合而不是继承来重用组件之间的代码。Props 和 composition 都为你提供了以一种明确和安全的方式自定义组件外观和行为所需的灵活性。但是，如果你希望在组件之间复用非 UI 功能，建议将其提取到单独的 JavaScript 模块中。之后的组件导入它并使用该函数、对象或类，而不需扩展它。
 
+### 我可以在 React 应用程序中可以使用 web components 么?
+
+是的，你可以在 React 应用程序中使用 Web Components。尽管许多开发人员不会使用这种组合方式，但如果你使用的是使用 Web Components 编写的第三方 UI 组件，则可能需要这种组合。例如，让我们使用 Vaadin 提供的 Web Components 日期选择器组件：
+
+```js
+import React, { Component } from 'react';
+import './App.css';
+import '@vaadin/vaadin-date-picker';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <vaadin-date-picker label="When were you born?"></vaadin-date-picker>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
