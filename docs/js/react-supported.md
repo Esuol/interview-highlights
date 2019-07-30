@@ -1118,3 +1118,35 @@ class User extends React.Component {
 列表中的列表项没有 ids 属性。
 
 列表不会被重新排序或筛选。
+
+### keys 是否需要全局唯一?
+
+数组中使用的键在其同级中应该是唯一的，但它们不需要是全局唯一的。也就是说，你可以在两个不同的数组中使用相同的键。例如，下面的 book 组件在不同的组件中使用相同的数组：
+
+```js
+function Book(props) {
+  const index = (
+    <ul>
+      {props.pages.map((page) =>
+        <li key={page.id}>
+          {page.title}
+        </li>
+      )}
+    </ul>
+  );
+  const content = props.pages.map((page) =>
+    <div key={page.id}>
+      <h3>{page.title}</h3>
+      <p>{page.content}</p>
+      <p>{page.pageNumber}</p>
+    </div>
+  );
+  return (
+    <div>
+      {index}
+      <hr />
+      {content}
+    </div>
+  );
+}
+```
