@@ -68,7 +68,6 @@ module.exports = {
                 'js/react-testing',
                 'js/react-redux',
                 'js/react-native',
-                'js/react-native',
                 'js/react-supported',
                 'js/vue'
                 ]
