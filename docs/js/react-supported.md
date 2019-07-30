@@ -1282,3 +1282,37 @@ const App = () => (
 ```
 
 在上面的代码中，代码拆分将发生在每个路由层级。
+
+### 举例说明如何使用 context?
+
+Context 旨在共享可被视为全局的数据，用于 React 组件树。例如，在下面的代码中，允许手动通过一个 theme 属性来设置按钮组件的样式。
+
+```js
+//Lets create a context with a default theme value "luna"
+const ThemeContext = React.createContext('luna');
+// Create App component where it uses provider to pass theme value in the tree
+class App extends React.Component {
+  render() {
+    return (
+      <ThemeContext.Provider value="nova">
+        <Toolbar />
+      </ThemeContext.Provider>
+    );
+  }
+}
+// A middle component where you don't need to pass theme prop anymore
+function Toolbar(props) {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+// Lets read theme value in the button component to use
+class ThemedButton extends React.Component {
+  static contextType = ThemeContext;
+  render() {
+    return <Button theme={this.context} />;
+  }
+}
+```
