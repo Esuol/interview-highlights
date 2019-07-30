@@ -1217,3 +1217,24 @@ import("./math").then(math => {
   console.log(math.add(10, 20));
 });
 ```
+
+### 什么是 loadable 组件?
+
+如果你想要在服务端渲染的应用程序中实现代码拆分，建议使用 Loadable 组件，因为 React.lazy 和 Suspense 还不可用于服务器端渲染。Loadable 允许你将动态导入的组件作为常规的组件进行渲染。让我们举一个例子：
+
+```js
+import loadable from '@loadable/component'
+
+const OtherComponent = loadable(() => import('./OtherComponent'))
+
+function MyComponent() {
+  return (
+    <div>
+      <OtherComponent />
+    </div>
+  )
+}
+```
+
+现在，其他组件将以单独的包进行加载。
+
