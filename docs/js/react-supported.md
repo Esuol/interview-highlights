@@ -996,3 +996,35 @@ const element = <h1>{name}</h1>;
 
 这样可以防止应用程序中的XSS（跨站点脚本）攻击。
 
+### 如何更新已渲染的元素?
+
+通过将新创建的元素传递给 ReactDOM 的 render 方法，可以实现 UI 更新。例如，让我们举一个滴答时钟的例子，它通过多次调用 render 方法来更新时间：
+
+```js
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(element, document.getElementById('root'));
+}
+
+setInterval(tick, 1000);
+```
+
+### 你怎么说 props 是只读的?
+
+当你将组件声明为函数或类时，它决不能修改自己的属性。让我们来实现一个 capital 的函数：
+
+```js
+function capital(amount, interest) {
+   return amount + interest;
+}
+```
+
+上面的函数称为“纯”函数，因为它不会尝试更改输入，并总是为相同的输入返回相同的结果。因此，React 有一条规则，即“所有 React 组件的行为都必须像纯函数一样”。
+
+
+
