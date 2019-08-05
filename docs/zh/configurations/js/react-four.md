@@ -207,7 +207,7 @@ React 团队致力于将所有的与 DOM 相关的特性抽取到一个名为 Re
 
 ### 如何使用 React label 元素?
 
-如果你尝试使用标准的 for 属性将 <label> 元素绑定到文本输入框，那么在控制台将会打印缺少 HTML 属性的警告消息。
+如果你尝试使用标准的 for 属性将 label 元素绑定到文本输入框，那么在控制台将会打印缺少 HTML 属性的警告消息。
 
 ```js
 <label for={'user'}>{'User'}</label>
@@ -317,7 +317,7 @@ render() {
 ```
 ### 如何用 React 漂亮地显示 JSON?
 
-我们可以使用 <pre> 标签，以便保留 JSON.stringify() 的格式：
+我们可以使用 pre 标签，以便保留 JSON.stringify() 的格式：
 
 ```js
 const data = { name: 'John', age: 42 }

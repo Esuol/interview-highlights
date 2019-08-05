@@ -114,7 +114,7 @@ styled-components 是一个用于样式化 React 应用程序的 JavaScript 库�
 
 ### 举一个 Styled Components 的例子?
 
-让我们创建具有特定样式的<Title>和<Wrapper>组件。
+让我们创建具有特定样式的Title和Wrapper组件。
 ```js
 import React from 'react'
 import styled from 'styled-components'

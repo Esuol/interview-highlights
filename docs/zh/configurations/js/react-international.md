@@ -42,7 +42,7 @@ const messages = defineMessages({
 formatMessage(messages.accountMessage)
 ```
 
-### 在 React Intl 中如何使用<FormattedMessage>作为占位符使用?
+### 在 React Intl 中如何使用 FormattedMessage 作为占位符使用?
 
 react-intl的<Formatted ... />组件返回元素，而不是纯文本，因此它们不能用于占位符，替代文本等。在这种情况下，您应该使用较低级别的 API formatMessage()。您可以使用injectIntl()高阶函数将intl对象注入到组件中，然后使用该对象上使用formatMessage()格式化消息。
 

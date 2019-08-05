@@ -270,7 +270,7 @@ function setAccount(data) {
 
 在组件中访问 Store 的最佳方法是使用connect()函数，该函数创建一个包裹现有组件的新组件。此模式称为高阶组件，通常是在 React 中扩展组件功能的首选方式。这允许您将状态和 Action 创建者映射到组件，并在 Store 更新时自动传递它们。
 
-我们来看一个使用 connect 的<FilterLink>组件的例子：
+我们来看一个使用 connect 的 FilterLink 组件的例子：
 
 ```js
 import { connect } from 'react-redux'

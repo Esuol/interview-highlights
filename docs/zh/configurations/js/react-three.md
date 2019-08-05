@@ -554,7 +554,7 @@ this.setState((prevState, props) => ({
 
 ### 在 React 中什么是严格模式?
 
-React.StrictMode 是一个有用的组件，用于突出显示应用程序中的潜在问题。就像 <Fragment>，<StrictMode> 一样，它们不会渲染任何额外的 DOM 元素。它为其后代激活额外的检查和警告。这些检查仅适用于开发模式。
+React.StrictMode 是一个有用的组件，用于突出显示应用程序中的潜在问题。就像 Fragment，<StrictMode 一样，它们不会渲染任何额外的 DOM 元素。它为其后代激活额外的检查和警告。这些检查仅适用于开发模式。
 
 ```js
 function ExampleApplication() {

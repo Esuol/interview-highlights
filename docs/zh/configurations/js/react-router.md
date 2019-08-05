@@ -8,15 +8,15 @@ React Router 是一个基于 React 之上的强大路由库，可以帮助您快
 
 React Router 是history库的包装器，它处理浏览器的window.history与浏览器和哈希历史的交互。它还提供了内存历史记录，这对于没有全局历史记录的环境非常有用，例如移动应用程序开发（React Native）和使用 Node 进行单元测试。
 
-### 在 React Router v4 中的<Router>组件是什么?
+### 在 React Router v4 中的 Router 组件是什么?
 
-React Router v4 提供了以下三种类型的 <Router> 组件:
+React Router v4 提供了以下三种类型的 Router 组件:
 
-<BrowserRouter>
+BrowserRouter
 
-<HashRouter>
+HashRouter
 
-<MemoryRouter>
+MemoryRouter
 
 以上组件将创建browser，hash和memory的 history 实例。React Router v4 通过router对象中的上下文使与您的路由器关联的history实例的属性和方法可用。
 
@@ -51,9 +51,9 @@ const Button = withRouter(({ history }) => (
 ))
 ```
 
-#### 使用<Route>组件和渲染属性模式：
+#### 使用 Route 组件和渲染属性模式：
 
-<Route>组件传递与withRouter()相同的属性，因此您将能够通过 history 属性访问到操作历史记录的方法。
+ Route 组件传递与withRouter()相同的属性，因此您将能够通过 history 属性访问到操作历史记录的方法。
 
 import { Route } from 'react-router-dom'
 
@@ -115,7 +115,7 @@ const foo = params.get('name')
 
 此警告的意思是Router组件下仅能包含一个子节点。
 
-你必须将你的 Route 包装在<Switch>块中，因为<Switch>是唯一的，它只提供一个路由。
+你必须将你的 Route 包装在Switch块中，因为Switch是唯一的，它只提供一个路由。
 
 首先，您需要在导入中添加Switch：
 
@@ -123,7 +123,7 @@ const foo = params.get('name')
 import { Switch, Router, Route } from 'react-router'
 
 ```
-然后在<Switch>块中定义路由：
+然后在Switch=块中定义路由：
 
 ```js
 <Router>
@@ -151,7 +151,7 @@ search属性用于在push()方法中传递查询参数。
 
 ### search属性用于在push()方法中传递查询参数。
 
-<Switch>呈现匹配的第一个孩子<Route>。 没有路径的<Route>总是匹配。所以你只需要简单地删除 path 属性，如下所示：
+Switch呈现匹配的第一个孩子 Route。 没有路径的Route总是匹配。所以你只需要简单地删除 path 属性，如下所示：
 
 ```js
 <Switch>
@@ -175,7 +175,7 @@ export default createBrowserHistory({
 })
 ```
 
-#### 应该使用<Router>组件而不是内置路由器。在index.js文件中导入上面的history.js：
+#### 应该使用 Router 组件而不是内置路由器。在index.js文件中导入上面的history.js：
 
 ```js
 import { Router } from 'react-router-dom'
@@ -200,7 +200,7 @@ history.push('/go-here')
 
 ### 登录后如何执行自动重定向?
 
-react-router包在 React Router 中提供了<Redirect>组件。渲染<Redirect>将导航到新位置。与服务器端重定向一样，新位置将覆盖历史堆栈中的当前位置。
+react-router包在 React Router 中提供了Redirect组件。渲染Redirect将导航到新位置。与服务器端重定向一样，新位置将覆盖历史堆栈中的当前位置。
 
 ```js
 import React, { Component } from 'react'

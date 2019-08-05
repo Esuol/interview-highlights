@@ -65,72 +65,72 @@ module.exports = {
     ],
   },
   serviceWorker: false,
-  themeConfig: {
-      repo: 'berlinen/interview-highlights',
-      editLinks: true,
-      docsDir: 'docs',
-      editLinkText: '在 GitHub 上编辑此页',
-      lastUpdated: '上次更新',
-      nav: [
-          {
-              text: '个人主页',
-              link: 'https://github.com/berlinen/'
-          }
-      ],
-      sidebar: [
-        {
-          title: '开始',
-          collapsable: false,
-          children: [
-              ['prepare/', 'Introduction']
-          ]
-       },
-       {
-        title: 'Html',
-        collapsable: false,
-        children: [
-                ['html/', 'html']
-            ]
-        },
-        {
-            title: 'Css',
-            collapsable: false,
-            children: [
-                   'css/',
-                   'css/selector',
-                   'css/unit',
-                   'css/advanced'
-                ]
-        },
-        {
-            title: 'javaCript',
-            collapsable: false,
-            children: [
-                'js/process-one',
-                'js/process-two',
-                'js/es678',
-                'js/react',
-                'js/react-two',
-                'js/react-three',
-                'js/react-four',
-                'js/react-router',
-                'js/react-international',
-                'js/react-testing',
-                'js/react-redux',
-                'js/react-native',
-                // 'js/react-supported',
-                'js/vue'
-                ]
-        },
-        {
-        title: 'others',
-        collapsable: false,
-        children: [
-                ['others/', '其他']
-            ]
-        }
-    ]
-  }
+//   themeConfig: {
+//       repo: 'berlinen/interview-highlights',
+//       editLinks: true,
+//       docsDir: 'docs',
+//       editLinkText: '在 GitHub 上编辑此页',
+//       lastUpdated: '上次更新',
+//       nav: [
+//           {
+//               text: '个人主页',
+//               link: 'https://github.com/berlinen/'
+//           }
+//       ],
+//       sidebar: [
+//         {
+//           title: '开始',
+//           collapsable: false,
+//           children: [
+//               ['prepare/', 'Introduction']
+//           ]
+//        },
+//        {
+//         title: 'Html',
+//         collapsable: false,
+//         children: [
+//                 ['html/', 'html']
+//             ]
+//         },
+//         {
+//             title: 'Css',
+//             collapsable: false,
+//             children: [
+//                    'css/',
+//                    'css/selector',
+//                    'css/unit',
+//                    'css/advanced'
+//                 ]
+//         },
+//         {
+//             title: 'javaCript',
+//             collapsable: false,
+//             children: [
+//                 'js/process-one',
+//                 'js/process-two',
+//                 'js/es678',
+//                 'js/react',
+//                 'js/react-two',
+//                 'js/react-three',
+//                 'js/react-four',
+//                 'js/react-router',
+//                 'js/react-international',
+//                 'js/react-testing',
+//                 'js/react-redux',
+//                 'js/react-native',
+//                 // 'js/react-supported',
+//                 'js/vue'
+//                 ]
+//         },
+//         {
+//         title: 'others',
+//         collapsable: false,
+//         children: [
+//                 ['others/', '其他']
+//             ]
+//         }
+//     ]
+//   }
 }
 /**
  *
