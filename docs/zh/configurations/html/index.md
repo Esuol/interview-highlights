@@ -1,5 +1,12 @@
-# html 相关
+---
+title: 'html 相关'
+---
 
+<Block>
+# html 相关
+</Block>
+
+<Block>
 ##  关于doctype
 
 ###  doctype 作用? 严格模式与混杂模式如何区分？它们有何意义?
@@ -21,6 +28,9 @@
 
 每个页面都要从 doctype 开始，它为浏览器指定这个页面的文档类型，以便浏览器更正确的显示 HTML 。只要按照这样的格式和位置写，那么浏览器就会认为你在使用标准 HTML 。这样写的好处是：不用再像 HTML5 出来之前那样，既要写上 HTML 版本号，又要写上这个 HTML 文档所依据的标准是在什么位置。一劳永逸，之后不管 HTML 再怎么更新，我们的文档都可以被浏览器以最正确的方式显示出来。
 
+</Block>
+
+<Block>
 ## 关于 html
 
 ### html
@@ -85,6 +95,7 @@ translate 规定是否应该翻译元素内容。
 
 ### 列出常见h5的标签，并简单介绍这些标签用在什么场景？
 
+<Example>
 ```html
 <article> 用于一篇文章。<article>a self-contained article</article>
 <aside> 用于页面的侧边栏。<aside>some content</aside>
@@ -95,6 +106,8 @@ translate 规定是否应该翻译元素内容。
 <section> 用于包裹一部分有逻辑关第的页面内容
 <select> 用于制作一个下拉列表选框
 ```
+
+</Example>
 
 ### 如何理解标签语义化
 
@@ -127,6 +140,7 @@ accesskey则定义了访问这个控件的热键( 所设置的快捷键不能与
 
 ### radio如何分组
 
+<Example>
 ```html
  <form>
     <input type="radio" name="sex" value="male"> 男 <br>
@@ -136,6 +150,8 @@ accesskey则定义了访问这个控件的热键( 所设置的快捷键不能与
   </form>
 ```
 
+</Example>
+
 ### placeholder 属性有什么作用?
 placeholder 属性提供可描述输入字段预期值的提示信息（hint）。
 
@@ -143,12 +159,14 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 
 注释：placeholder 属性适用于以下的 <input> 类型：text, search, url, telephone, email 以及 password。
 
+<Example>
 ```html
   <form action="demo_form.asp" method="get">
     <input type="search" name="user_search" placeholder="Search W3School" />
     <input type="submit" />
   </form>
 ```
+</Example>
 
 ###  type=hidden 隐藏域有什么作用？举例说明。
 
@@ -170,7 +188,11 @@ CSRF（Cross-site request forgery），中文名称：跨站请求伪造。攻�
 
 Cross-site request forgery 跨站请求伪造，也被称为 “one click attack” 或者 session riding，通常缩写为 CSRF 或者 XSRF，是一种对网站的恶意利用；可以这么理解CSRF攻击：攻击者盗用你的身份，以你的名义向第三方网站发送恶意请求。CRSF能做的事情包括利用你的身份发邮件，发短信，进行交易转账，甚至盗取账号信息
 
+<Example>
+
 <img :src="$withBase('/img/csrf.png')" />
+
+</Example>
 
 #### 如何防止？
 
@@ -190,7 +212,9 @@ CSRF 攻击之所以能够成功，是因为黑客可以完全伪造用户的请
 
 这种方法也是使用 token 并进行验证，和上一种方法不同的是，这里并不是把 token 以参数的形式置于 HTTP 请求之中，而是把它放到 HTTP 头中自定义的属性里。通过 XMLHttpRequest 这个类，可以一次性给所有该类请求加上 csrftoken 这个 HTTP 头属性，并把 token 值放入其中。这样解决了上种方法在请求中加入 token 的不便，同时，通过 XMLHttpRequest 请求的地址不会被记录到浏览器的地址栏，也不用担心 token 会透过 Referer 泄露到其他网站中去。
 
+</Block>
 
+<Block>
 ## 关于meta
 
 ### meta 有哪些常见的值？
@@ -199,49 +223,76 @@ CSRF 攻击之所以能够成功，是因为黑客可以完全伪造用户的请
 
 1.Expires:用于设定网页的到期时间。网页一旦到期，必须从服务器接收数据。
 
+<Example>
+
 ```html
 <meta http-equiv="expires" content="Wed, 20 Jun 2007 22:33:00 GMT">
 ```
+</Example>
 
 2.Pragma:cache模式-用于设定禁止浏览器从本地机的缓存中调阅页面内容，设定后一旦离开网页就无法从cache中再调出，从而无法脱机浏览
+
+<Example>
 
 ``` html
 <meta http-equiv="Pragma" content="no-cache">
 ```
+</Example>
 
 3.Set-Cookie:cookie设定-如果网页过期，那么存盘中的cookie将被删除
+
+<Example>
 ```html
 <meta http-equiv="Set-Cookie" content="cookievalue=xxx;expires=Wednesday, 20-Jun-2007 22:33:00 GMT； path=/">
 ```
 
+</Example>
+
 4.Refresh：刷新机制-表示自动刷新并指向新页面
+
+<Example>
+
 ```html
 <meta http-equiv="Refresh" content="2；URL=http://www.net.cn/">
 ```
+</Example>
+
 2指的是2秒后自动刷新到新的URL网址。
 
 5.Window-target:显示窗口的设定-强制页面在当前窗口以独立页面显示，防止别人在框架里调用自己的页面
 
+<Example>
 ```html
 <meta http-equiv="Window-target" content="_top">
 ```
+</Example>
 
 6.content-Type：设定页面使用的字符集
+
+<Example>
 
 ```html
 <meta http-equiv="content-Type" content="text/html; charset=gb2312">
 ```
 
+</Example>
+
 7.Pics-label：网页等级评定，在IE的Internet选项中可以设置来防止浏览一些受限制的网站，网站的限制级别就是通过这个属性来设置的
 
+<Example>
 ```html
 <meta http-equiv="Pics-label" contect="">
 ```
+</Example>
 
 8.cache-control:清除缓存，再次访问这个网站要重新下载
+
+<Example>
 ```html
 <meta http-equiv="cache-control" content="no-cache">
 ```
+
+</Example>
 
 9.Access-Control-Allow-Origin:跨域请求
 ```html
@@ -249,21 +300,29 @@ CSRF 攻击之所以能够成功，是因为黑客可以完全伪造用户的请
 ```
 
 10.content-language:显示语言的设定
+
+<Example>
+
 ```html
 <meta http-equiv="Content-Language"content="zh-cn"/>
 ```
+</Example>
 
 11.imagetoolbar:指定是否显示图片工具栏，false表示不显示
 
+<Example>
 ```html
 <meta http-equiv="imagetoolbar"content="false"/>
 ```
+</Example>
 
 12.Content-Script-Type:W3C网页指定页面中的脚本的类型：
 
+<Example>
 ```html
 <meta http-equiv="Content-Script-Type"Content="text/javascript">
 ```
+</Example>
 
 ### 二、name属性
 
@@ -271,40 +330,53 @@ name属性主要用于描述网页，与之对应的属性值为content，conten
 
 1.keywords:设置关键字，给搜索引擎用的
 
+<Example>
 ```html
 <meta name="keywords" content="keyword1,keyword2,keyword3">
 ```
+</Example>
 
 2.description：页面描述
 
+<Example>
 ```html
 <meta name="description" content="This is my page">
 ```
+</Example>
 
 3.robots:用于告诉搜索机器人哪些页面需要索引，哪些页面不用
 
+<Example>
 ```html
 <meta name="robots"content="none">
 ```
+</Example>
 
 content的参数有all（文件将被检索，且页面上的链接可以被查询）,none（文件将不被检索，且页面上的链接不可以被查询）,index（文件将被检索）,noindex（文件将不被检索，但页面上的链接可以被查询）,follow（页面上的链接可以被查询）,nofollow（文件将被检索，但页面上的链接不可以被查询）。默认是all。
 
 4.author:标注网页的作者
+
+<Example>
 ```html
 <meta name="author"content="root,root@xxxx.com">
 ```
+</Example>
 
 5.generator:说明网站采用什么软件做的
 
+<Example>
 ```html
 <meta name="generator"content="信息参数"/>
 ```
+</Example>
 
 6.copyright:网站版权信息
 
+<Example>
 ```html
 <meta name="copyright" content="信息参数">
 ```
+</Example>
 
 ###  meta viewport 是做什么用的，怎么写？
 
@@ -315,6 +387,9 @@ user-scalable表示用户缩放能力, no表示不允许.
 initial-scale表示设备与视口的缩放比率
 maximum和minimum分别表示缩放的最大最小值, 要注意的是, maximum必须必minimum大.
 
+</Block>
+
+<Block>
 ##  post 和 get 方式提交数据有什么区别？
 
 1. GET使用URL或Cookie传参，而POST将数据放在BODY中”，这个是因为HTTP协议用法的约定。并非它们的本身区别。
@@ -327,12 +402,16 @@ maximum和minimum分别表示缩放的最大最小值, 要注意的是, maximum�
 
 GET和POST最大的区别主要是GET请求是幂等性的，POST请求不是。这个是它们本质区别，上面的只是在使用上的区别。
 
+<Example>
 ```text
 什么是幂等性？幂等性是指一次和多次请求某一个资源应该具有同样的副作用。
 
 简单来说意味着对同一URL的多个请求应该返回同样的结果。
 ```
+</Example>
 正因为它们有这样的区别，所以不应该且不能用get请求做数据的增删改这些有副作用的操作。因为get请求是幂等的，在网络不好的隧道中会尝试重试。如果用get请求增数据，会有重复操作的风险，而这种重复操作可能会导致副作用（浏览器和操作系统并不知道你会用get请求去做增操作）。
+
+</Block>
 
 
 

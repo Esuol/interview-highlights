@@ -1,5 +1,12 @@
-## jsvaScript 
+---
+title: 'jsvaScript'
+---
 
+<Block>
+# jsvaScript
+</Block>
+
+<Block>
 ### ['1', '2', '3'].map(parseInt) what & why ?
 
 var new_array = arr.map(function callback(currentValue[, index[, array]]) { // Return element for new_array }[, thisArg])
@@ -18,12 +25,18 @@ map函数返回的是一个数组，所以最后结果为[1, NaN, NaN]
 
 resolve
 
+<Example>
 ```js
 let unary = fn => val => fn(val)
 let parse = unary(fn)
 console.log(['1.1', '3', '1.3'].map(parse))
 ```
 
+</Example>
+
+</Block>
+
+<Block>
 ### 什么是防抖和节流？有什么区别？如何实现？
 
 #### 防抖
@@ -31,6 +44,8 @@ console.log(['1.1', '3', '1.3'].map(parse))
 触发高频事件后n秒内函数只会执行一次，如果n秒内高频事件再次被触发，则重新计算时间
 
 思路： 每次触发事件时都取消之前的延时调用方法
+
+<Example>
 
 ```js
 function debounce (fn) {
@@ -50,6 +65,7 @@ function debounce (fn) {
   var inp = document.getElementById('inp');
   inp.addEventListener('input', debounce(sayHi)); // 防抖
 ```
+</Example>
 
 #### 节流
 
@@ -57,6 +73,7 @@ function debounce (fn) {
 
 每次触发事件时都判断当前是否有等待执行的延时函数
 
+<Example>
 ```js
 function throttle(fn) {
       let canRun = true; // 通过闭包保存一个标记
@@ -76,6 +93,12 @@ function throttle(fn) {
     window.addEventListener('resize', throttle(sayHi));
 ```
 
+</Example>
+
+</Block>
+
+<Block>
+
 ### 介绍下深度优先遍历和广度优先遍历，如何实现？
 
 #### DFS 深度遍历
@@ -87,10 +110,14 @@ function throttle(fn) {
 
 从图中某顶点v出发，在访问了v之后依次访问v的各个未曾访问过的邻接点，然后分别从这些邻接点出发依次访问它们的邻接点，并使得“先被访问的顶点的邻接点先于后被访问的顶点的邻接点被访问，直至图中所有已被访问的顶点的邻接点都被访问到。 如果此时图中尚有顶点未被访问，则需要另选一个未曾被访问过的顶点作为新的起始点，重复上述过程，直至图中所有顶点都被访问到为止。
 
+</Block>
+
+<Block>
 ### 请分别用深度优先思想和广度优先思想实现一个拷贝函数？
 
 ### ES5/ES6 的继承除了写法以外还有什么区别？
 
+<Example>
 class 声明会提升，但不会初始化赋值。Foo 进入暂时性死区，类似于 let、const 声明变量。
 
 ```js
@@ -123,8 +150,11 @@ class Foo {
 const foo = new Foo();
 ```
 
+</Example>
+
 class 的所有方法（包括静态方法和实例方法）都是不可枚举的。
 
+<Example>
 ```js
 // 引用一个未声明的变量
 function Bar() {
@@ -153,8 +183,11 @@ class Foo {
 const fooKeys = Object.keys(Foo); // []
 const fooProtoKeys = Object.keys(Foo.prototype); // []
 ```
+</Example>
+
 class 的所有方法（包括静态方法和实例方法）都没有原型对象 prototype，所以也没有[[construct]]，不能使用 new 来调用。
 
+<Example>
 ```js
 function Bar() {
   this.bar = 42;
@@ -177,9 +210,11 @@ class Foo {
 const foo = new Foo();
 const fooPrint = new foo.print(); // TypeError: foo.print is not a constructor
 ```
+</Example>
 
 必须使用 new 调用 class
 
+<Example>
 ```js
 function Bar() {
   this.bar = 42;
@@ -194,8 +229,11 @@ class Foo {
 const foo = Foo(); // TypeError: Class constructor Foo cannot be invoked without 'new'
 
 ```
+</Example>
 
 class 内部无法重写类名
+
+<Example>
 ```js
 function Bar() {
   Bar = 'Baz'; // it's ok
@@ -214,15 +252,22 @@ class Foo {
 const foo = new Foo();
 Foo = 'Fol'; // it's ok
 ```
+</Example>
+
+</Block>
+
+<Block>
 ### JS异步解决方案的发展历程以及优缺点。
 
 #### 1. 回调函数（callback）
 
+<Example>
 ```js
 setTimeout(() => {
     // callback 函数体
 }, 1000)
 ```
+</Example>
 缺点：回调地狱，不能用 try catch 捕获错误，不能 return
 
 回调地狱的根本问题在于：
@@ -231,6 +276,7 @@ setTimeout(() => {
 嵌套函数存在耦合性，一旦有所改动，就会牵一发而动全身，即（控制反转）
 嵌套函数过多的多话，很难处理错误
 
+<Example>
 ```js
 ajax('XXX1', () => {
     // callback 函数体
@@ -242,6 +288,7 @@ ajax('XXX1', () => {
     })
 })
 ```
+</Example>
 
 优点：解决了同步的问题（只要有一个任务耗时很长，后面的任务都必须排队等着，会拖延整个程序的执行。）
 
@@ -251,6 +298,7 @@ Promise 实现了链式调用，也就是说每次 then 后返回的都是一个
 
 优点：解决了回调地狱的问题
 
+<Example>
 ```js
 ajax('XXX1')
   .then(res => {
@@ -263,13 +311,19 @@ ajax('XXX1')
       // 操作逻辑
   })
 ```
+</Example>
 
 缺点：无法取消 Promise ，错误需要通过回调函数来捕获
 
+</Block>
+
+
+<Block>
 ###3 generator
 
 特点：可以控制函数的执行，可以配合 co 函数库使用
 
+<Example>
 ```js
 function *fetch() {
     yield ajax('XXX1', () => {})
@@ -281,13 +335,18 @@ let result1 = it.next()
 let result2 = it.next()
 let result3 = it.next()
 ```
+</Example>
 
+</Block>
+
+<Block>
 ### 4 Async/await
 
 优点是：代码清晰，不用像 Promise 写一大堆 then 链，处理了回调地狱的问题
 
 缺点：await 将异步代码改造成同步代码，如果多个异步操作没有依赖性而使用 await 会导致性能上的降低。
 
+<Example>
 ```js
 async function test() {
   // 以下代码没有依赖性的话，完全可以使用 Promise.all 的方式
@@ -297,9 +356,11 @@ async function test() {
   await fetch('XXX3')
 }
 ```
+</Example>
 
 下面来看一个使用 await 的例子：
 
+<Example>
 ```js
 let a = 0
 let b = async () => {
@@ -310,6 +371,8 @@ b()
 a++
 console.log('1', a) // -> '1' 1
 ```
+</Example>
+
 对于以上代码你可能会有疑惑，让我来解释下原因
 
 首先函数 b 先执行，在执行到 await 10 之前变量 a 还是 0，因为 await 内部实现了 generator ，generator 会保留堆栈中东西，所以这时候 a = 0 被保存了下来
@@ -320,8 +383,12 @@ console.log('1', a) // -> '1' 1
 
 上述解释中提到了 await 内部实现了 generator，其实 await 就是 generator 加上 Promise的语法糖，且内部实现了自动执行 generator。如果你熟悉 co 的话，其实自己就可以实现这样的语法糖。
 
+</Block>
 
+<Block>
 ### 如何实现一个 new
+
+<Example>
 ```js
 function new (fn, ...arg) {
   const obj = Object.create(fn.prototype)
@@ -329,9 +396,14 @@ function new (fn, ...arg) {
   return ret instanceOf Object ? ret : obj
 }
 ```
+</Example>
 
+</Block>
+
+<Block>
 ### Object.create
 
+<Example>
 ```js
 if (typeof Object.create !== "function") {
     Object.create = function (proto, propertiesObject) {
@@ -352,6 +424,12 @@ if (typeof Object.create !== "function") {
 
 ```
 
+</Example>
+
+</Block>
+
+<Block>
+
 ### 简单讲解一下 http2 的多路复用
 
 HTTP2采用二进制格式传输，取代了HTTP1.x的文本格式，二进制格式解析更高效。
@@ -361,6 +439,10 @@ HTTP2中
 同域名下所有通信都在单个连接上完成，消除了因多个 TCP 连接而带来的延时和内存消耗。
 
 单个连接上可以并行交错的请求和响应，之间互不干扰
+
+</Block>
+
+<Block>
 
 ### 谈谈你对 TCP 三次握手和四次挥手的理解
 
@@ -372,12 +454,21 @@ HTTP2中
 2.数据链路层(Data Link) -- 交换机
 1.物理层(Physical) -- 网卡、集线器（Hub）
 
+</Block>
+
+<Block>
 
 ### ：A、B 机器正常连接后，B 机器突然重启，问 A 此时处于 TCP 什么状态
 
 因为B会在重启之后进入tcp状态机的listen状态，只要当a重新发送一个数据包（无论是syn包或者是应用数据），b端应该会主动发送一个带rst位的重置包来进行连接重置，所以a应该在syn_sent状态。
 
+</Block>
+
+<Block>
+
 ### 有以下 3 个判断数组的方法，请分别介绍它们之间的区别和优劣
+
+
 
 #### Object.prototype.toString.call() 、 instanceof 以及 Array.isArray()
 
@@ -385,14 +476,17 @@ HTTP2中
 
 每一个继承 Object 的对象都有 toString 方法，如果 toString 方法没有重写的话，会返回 [Object type]，其中 type 为对象的类型。但当除了 Object 类型的对象外，其他类型直接使用 toString 方法时，会直接返回都是内容的字符串，所以我们需要使用call或者apply方法来改变toString方法的执行上下文。
 
+<Example>
 ```js
 const an = ['Hello','An'];
 an.toString(); // "Hello,An"
 Object.prototype.toString.call(an); // "[object Array]"
 ```
+</Example>
 
 这种方法对于所有基本的数据类型都能进行判断，即使是 null 和 undefined 。
 
+<Example>
 ```js
 Object.prototype.toString.call('An') // "[object String]"
 Object.prototype.toString.call(1) // "[object Number]"
@@ -402,6 +496,8 @@ Object.prototype.toString.call(undefined) // "[object Undefined]"
 Object.prototype.toString.call(function(){}) // "[object Function]"
 Object.prototype.toString.call({name: 'An'}) // "[object Object]"
 ```
+</Example>
+
 Object.prototype.toString.call() 常用于判断浏览器内置对象。
 
 ##### 2. instanceof
@@ -410,15 +506,19 @@ instanceof 的内部机制是通过判断对象的原型链中是不是能找到
 
 使用 instanceof判断一个对象是否为数组，instanceof 会判断这个对象的原型链上是否会找到对应的 Array 的原型，找到返回 true，否则返回 false。
 
+<Example>
 ```js
 [] instanceOf Array // true
 ```
+</Example>
 
 但 instanceof 只能用来判断对象类型，原始类型不可以。并且所有对象类型 instanceof Object 都是 true。
 
+<Example>
 ```js
 []  instanceof Object; // true
 ```
+</Example>
 
 #####  Array.isArray()
 
@@ -426,6 +526,7 @@ instanceof 的内部机制是通过判断对象的原型链中是不是能找到
 
 当检测Array实例时，Array.isArray 优于 instanceof ，因为 Array.isArray 可以检测出 iframes
 
+<Example>
 ```js
 var iframe = document.createElement('iframe');
 document.body.appendChild(iframe);
@@ -439,9 +540,11 @@ Object.prototype.toString.call(arr); // true
 arr instanceof Array; // false
 
 ```
+</Example>
 
 Array.isArray()是ES5新增的方法，当不存在 Array.isArray() ，可以用 Object.prototype.toString.call() 实现。
 
+<Example>
 ```js
 if (!Array.isArray) {
   Array.isArray = function(arg) {
@@ -449,6 +552,9 @@ if (!Array.isArray) {
   };
 }
 ```
+</Example>
+
+</Block>
 
 
 
