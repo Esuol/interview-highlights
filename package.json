@@ -24,5 +24,8 @@
   "homepage": "https://github.com/berlinen/Interview-highlights#readme",
   "devDependencies": {
     "vuepress": "^0.10.0"
+  },
+  "dependencies": {
+    "vuepress-theme-api": "^0.2.1"
   }
 }
