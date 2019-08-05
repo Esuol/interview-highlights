@@ -1,20 +1,28 @@
-# css基础
+---
+title: Css基础
+---
 
+<Block>
+# css基础
+</Block>
+
+<Block>
 ##  CSS 加载方式有几种？
 1. 内联方式
 
 内联方式指的是直接在 HTML 标签中的 style 属性中添加 CSS。
 
+<Example>
 ```html
 <div style="background: red"></div>
 ```
+</Example>
 
 很显然，内联方式引入 CSS 代码会导致 HTML 代码变得冗长，且使得网页难以维护。
 
 2. 嵌入方式
 
-事例:
-
+<Example>
 ```html
 <head>
     <style>
@@ -26,6 +34,7 @@
     </style>
 </head>
 ```
+</Example>
 
 嵌入方式的 CSS 只对当前的网页有效。因为 CSS 代码是在 HTML 文件中，所以会使得代码比较集中，当我们写模板网页时这通常比较有利。因为查看模板代码的人可以一目了然地查看 HTML 结构和 CSS 样式。因为嵌入的 CSS 只对当前页面有效，所以当多个页面需要引入相同的 CSS 代码时，这样写会导致代码冗余，也不利于维护。
 
@@ -33,11 +42,14 @@
 
 链接方式指的是使用 HTML 头部的 head link 标签引入外部的 CSS 文件。
 
+<Example>
 ```html
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 ```
+</Example>
+
 这是最常见的也是最推荐的引入 CSS 的方式。使用这种方式，所有的 CSS 代码只存在于单独的 CSS 文件中，所以具有良好的可维护性。并且所有的 CSS 代码只存在于 CSS 文件中，CSS 文件会在第一次加载时引入，以后切换页面时只需加载 HTML 文件即可。
 
 4. 导入方式
@@ -46,12 +58,17 @@
 
 示例：
 
+<Example>
 ```html
 <style>
     @import url(style.css);
 </style>
 ```
+</Example>
 
+</Block>
+
+<Block>
 ## link和@import的区别？
 
 区别1：link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。
@@ -63,6 +80,9 @@
 
 区别4：link支持使用Javascript控制DOM去改变样式；而@import不支持。
 
+</Block>
+
+<Block>
 ##  CSS 选择器常见的有几种？
 
 一、基础选择器
@@ -75,11 +95,14 @@
 
 4. 优先级别：
 
+<Example>
 ```txt
 id > class > 元素
 ```
+</Example>
 二、属性选择器
 
+<Example>
 ```html
 <html>
 <head>
@@ -99,9 +122,11 @@ id > class > 元素
 </body>
 </html>
 ```
+</Example>
 
 三、伪类选择器
 
+<Example>
 ```html
 <html>
   <head>
@@ -119,10 +144,15 @@ id > class > 元素
   </body>
 </html>
 ```
+</Example>
 
 四、层级选择器
 
 省略
+
+</Block>
+
+<Block>
 
 ## id 选择器和 class 使用场景是什么？
 
@@ -136,6 +166,9 @@ ID是一个标签，用于区分不同的结构和内容，就象名字，如果
 
 目前的浏览器还都允许用多个相同ID，一般情况下也能正常显示，不过当你需要用JavaScript通过id来控制div时就会出现错误。
 
+</Block>
+
+<Block>
 ## @charset 有什么作用？
 
  @charset CSS @规则  指定样式表中使用的字符编码。它必须是样式表中的第一个元素，而前面不得有任何字符。因为它不是一个嵌套语句，所以不能在@规则条件组中使用。如果有多个 @charset @规则被声明，只有第一个会被使用，而且不能在HTML元素或HTML页面的字符集相关 style 元素内的样式属性内使用。
@@ -151,42 +184,63 @@ ID是一个标签，用于区分不同的结构和内容，就象名字，如果
 【二】是网页的文本格式，必须保存为UTF-8格式，方法是用记事本打开网页，点击“文件→另存为”，在最后的Encoding，默认是ANSI，改为UTF-8
 文件也存为utf-8格式。
 
+</Block>
+
+<Block>
 ## 简述 src 和 href 的区别？
 
 A : href 是指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，用于超链接。
 
 B : src是指向外部资源的位置，指向的内容将会嵌入到文档当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内。
 
+</Block>
+
+<Block>
 ##  块级元素和行内元素分别有哪些？
 
 [链接](https://blog.csdn.net/zhanglir333/article/details/79178370)
 
+</Block>
+
+<Block>
 ## IE 盒模型和 W3C 盒模型有什么区别?
 
 IE盒模型的宽度是边框+padding+内容宽度
 
 W3C盒模型的宽度就是内容宽度
 
+</Block>
+
+<Block>
 ### IE盒模型
+<Example>
 ```css
 box-sizing：border-box;
 ```
+</Example>
 width 与 height 包括内边距（padding）与边框（border），不包括外边距（margin）。这是IE 怪异模式（Quirks mode）使用的 盒模型 。
 
 这个时候内边距和边框将会包括在盒子中。
 
-尺寸计算公式：
+尺寸计算公式:
 
+<Example>
 ```css
 width = border + padding + 内容的宽度
 height = border + padding + 内容的高度。
 ```
+</Example>
 
+</Block>
+
+<Block>
 ### W3C盒模型
 
+<Example>
 ``` css
 box-sizing：content-box;
 ```
+</Example>
 
 以上CSS代码会使元素的盒模型为W3C盒模型（其实元素的默认盒模型是W3C盒模型）。
 
@@ -196,13 +250,18 @@ box-sizing：content-box;
 
 尺寸计算公式：
 
+<Example>
 ```css
 width = 内容的宽度
 height = 内容的高度
 ```
+</Example>
 
 宽度和高度都不包含内容的边框（border）和内边距（padding）。
 
+</Block>
+
+<Block>
 ## 在什么场景下会出现外边距合并？
 
 1. 兄弟元素合并：当一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并
@@ -227,11 +286,18 @@ height = 内容的高度
 
 对于空元素：设置border或padding属性或overflow：hidden等（形成BFC）来防止合并。
 
+</Block>
+
+<Block>
 ## line-height:2和line-height:200%区别?
 
 父元素设置line-height: 200%;属性时 父元素设置这个属性后，其所有子元素的行高都是一个具体的值，即他们父元素字体大小的200%。下例可看出子元素的行高都一致，即父元素字体大小的2倍，32px。
 
 父元素设置line-height: 2;属性时 父元素设置这个属性后，其所有子元素的行高都是自身字体大小的2倍。下例可看出子元素的行高都是不一致的。
+
+</Block>
+
+<Block>
 
 ## 让一个元素“看不见”有几种方式？有什么区别？
 
@@ -251,6 +317,7 @@ height = 内容的高度
 
 将height、width、padding、border、margin等盒模型属性的值全设为0，如果元素內还有子元素或内容，还应overflow: hidden;来隐藏子元素。
 
+<Example>
 ```css
 .box1 {
   width: 0;
@@ -262,8 +329,11 @@ height = 内容的高度
 }
 ```
 
+</Example>
+
 5、最鸡贼——设置元素绝对定位与top、right、bottom、left等将元素移出屏幕。
 
+<Example>
 ```css
 .box1 {
       position: absolute;
@@ -278,11 +348,14 @@ height = 内容的高度
 }
 ```
 
+</Example>
+
 6 、设置元素的绝对定位与z-index，将z-index设置成尽量小的负数。
 
 但z-index是相对而言的 ，用z-index就要设置其他元素的z-index值，且如果元素本身占据空间很大就不一定会被z-index值比它大的元素完全覆盖，所以不推荐这种方法。
 如：
 
+<Example>
 ```css
 .box1 {
         position: absolute;
@@ -294,6 +367,11 @@ height = 内容的高度
 }
 ```
 
+</Example>
+
+</Block>
+
+<Block>
 ## float 关于浮动
 
 ### 浮动元素有什么特征？对父容器、其他浮动元素、普通元素、文字分别有什么影响？
@@ -333,6 +411,7 @@ clear属性：一个元素是紧挨着前面的浮动元素，还是必须移动
 
 1. 利用clear样式
 
+<Example>
 ```css
 .parentDiv {
     color: blue;
@@ -341,8 +420,10 @@ clear属性：一个元素是紧挨着前面的浮动元素，还是必须移动
     clear: left;
 }
 ```
+</Example>
 2. 父元素结束标签之前插入清除浮动的块级元素
 
+<Example>
 ```css
 .childDiv {
     clear: both; // or left
@@ -358,6 +439,7 @@ container:after {
   clear: both;
 }
 ```
+</Example>
 
 4. 利用overflow清除浮动
 
@@ -376,12 +458,14 @@ z-index属性适用于定位元素（position属性值为 relative 或 absolute 
 
 BFC直译为"块级格式化上下文"。它是一块独立的区域，容器里面的子元素不会影响到外面的元素。要促发BFC的生成，则满足以下其中一个条件：
 
+<Example>
 ```css
 1.float属性不为none；
 2.position为absolute或fixed；
 3.display为inline-block, table-cell, table-caption, flex, inline-flex；
 4.overflow不为visible；
 ```
+</Example>
 
 BFC可以清除内部浮动；BFC可以包含浮动，让父容器生成新的BFC可以使父容器在视觉上包围了浮动的子元素，因而清除了浮动
 
@@ -397,6 +481,9 @@ BFC可以清除内部浮动；BFC可以包含浮动，让父容器生成新的BF
 形成BFC 可以阻止外边柜合并，对于垂直相邻的元素可以设置浮动或设置其中一个元素为display:inline-block;对于父子元素外边距，可为父元素设置padding或border。
 ]
 
+</Block>
+
+<Block>
 ## 列举你了解的 HTML5新特性？
 
 标签：
@@ -457,8 +544,8 @@ canvas 标签只是图形容器，您必须使用脚本来绘制图形。
 
 鉴于该特性可能侵犯用户的隐私，除非用户同意，否则用户位置信息是不可用的。
 
+<Example>
 ```js
-
 var x=document.getElementById("demo");
 function getLocation()
 {
@@ -473,18 +560,22 @@ function showPosition(position)
 x.innerHTML="Latitude: "+ position.coords.latitude +
 "<br>Longitude: "+ position.coords.longitude;
 }
-
 ```
+
+</Example>
 
 ### HTML5  Audio(音频)、Video(视频)
 
 HTML5 规定了在网页上嵌入音频元素的标准，即使用 audio 元素。
 
+<Example>
 ``` html
 <audiocontrols>
 <sourcesrc="horse.ogg"type="audio/ogg">
 <sourcesrc="horse.mp3"type="audio/mpeg">
 ```
+
+</Example>
 
 ### HTML5 Input 类型
 
@@ -500,12 +591,15 @@ manifest 文件是简单的文本文件，它告知浏览器被缓存的内容�
 
 manifest 文件可分为三个部分：
 
+<Example>
 ```txt
 CACHE MANIFEST - 在此标题下列出的文件将在首次下载后进行缓存
 NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会被缓存
 FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面（比如 404 页面
 ```
+</Example>
 
+<Example>
 ```txt
 CACHE MANIFEST
 # 2012-02-21 v1.0.0
@@ -517,6 +611,7 @@ login.php
 FALLBACK:
 /html/ /offline.html
 ```
+</Example>
 
 ### HTML5 Web Workers
 
@@ -534,6 +629,7 @@ Server-Sent 事件指的是网页自动获取来自服务器的更新。
 
 EventSource 对象用于接收服务器发送事件通知：
 
+<Example>
 ```js
 var source=newEventSource("demo_sse.php");
 source.onmessage=function(event)
@@ -541,28 +637,36 @@ source.onmessage=function(event)
 document.getElementById("result").innerHTML+=event.data +"<br>";
 };
 ```
+
+</Example>
 ### HTML5 WebSocket
 
 ebSocket是HTML5开始提供的一种在单个 TCP 连接上进行全双工通讯的协议。在WebSocket API中，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。浏览器通过 JavaScript 向服务器发出建立 WebSocket 连接的请求，连接建立以后，客户端和服务器端就可以通过 TCP 连接直接交换数据。当你获取 Web Socket 连接后，你可以通过 send() 方法来向服务器发送数据，并通过 onmessage 事件来接收服务器返回的数据。以下 API 用于创建 WebSocket 对象。
 
+</Block>
+
+<Block>
 ## CSS3选择器
 
 ### CSS3选择器
 
 ### CSS3 边框（Borders）
-
+<Example>
 ```css
 border-image	设置所有边框图像的速记属性。
 border-radius	一个用于设置所有四个边框- *-半径属性的速记属性
 box-shadow	附加一个或多个下拉框的阴影
 ```
+</Example>
 ### CSS3 背景
 
+<Example>
 ```css
 background-clip	规定背景的绘制区域。
 background-origin	规定背景图片的定位区域。
 background-size	规定背景图片的尺寸。
 ```
+</Example>
 
 ### CSS3 渐变
 
@@ -576,9 +680,11 @@ background: linear-gradient(direction, color-stop1, color-stop2,...);
 
 #### 径向渐变（Radial Gradients）- 由它们的中心定义
 
+<Example>
 ```css
 background: radial-gradient(center, shape size, start-color,...,last-color);
 ```
+</Example>
 
 ### CSS3 字体
 
@@ -586,13 +692,17 @@ background: radial-gradient(center, shape size, start-color,...,last-color);
 
 ### CSS3 转换和变形
 
+<Example>
 ```css
 transform	适用于2D或3D转换的元素
 
 transform-origin	允许您更改转化元素位置
 ```
+</Example>
 
 ### CSS3 过渡
+
+<Example>
 ```css
 transition	简写属性，用于在一个属性中设置四个过渡属性。	3
 transition-property	规定应用过渡的 CSS 属性的名称。	3
@@ -600,11 +710,13 @@ transition-duration	定义过渡效果花费的时间。默认是 0。	3
 transition-timing-function	规定过渡效果的时间曲线。默认是 "ease"。	3
 transition-delay	规定过渡效果何时开始。默认是 0。	3
 ```
+</Example>
 
 ### CSS3 动画
 
 要创建CSS3动画，你需要了解@keyframes规则。@keyframes规则是创建动画。 @keyframes规则内指定一个CSS样式和动画将逐步从目前的样式更改为新的样式。
 
+<Example>
 ```css
 @keyframes myfirst
 {
@@ -625,9 +737,11 @@ animation-direction	规定动画是否在下一周期逆向地播放。默认是
 animation-play-state	规定动画是否正在运行或暂停。默认是 "running"。	3
 
 ```
+</Example>
 
 ### CSS3 多列
 
+<Example>
 ```css
 column-count	指定元素应该被分割的列数。
 column-fill	指定如何填充列
@@ -641,14 +755,19 @@ column-width	指定列的宽度
 columns	设置 column-width 和 column-count 的简写
 ```
 
+</Example>
+
 ### CSS3 盒模型
  在 CSS3 中, 增加了一些新的用户界面特性来调整元素尺寸，框尺寸和外边框，主要包括以下用户界面属性：
 
+<Example>
 ```css
 resize：none | both | horizontal | vertical | inherit
 box-sizing: content-box | border-box | inherit
 outline:outline-color outline-style outline-width outine-offset
 ```
+
+</Example>
 resize属性指定一个元素是否应该由用户去调整大小。
 
 box-sizing 属性允许您以确切的方式定义适应某个区域的具体内容。
@@ -657,6 +776,7 @@ outline-offset 属性对轮廓进行偏移，并在超出边框边缘的位置�
 
 ### CSS3伸缩布局盒模型(弹性盒)
 
+<Example>
 ``` css
 display	指定 HTML 元素盒子类型。
 flex-direction	指定了弹性容器中子元素的排列方式
@@ -669,6 +789,10 @@ order	设置弹性盒子的子元素排列顺序。
 align-self	在弹性子元素上使用。覆盖容器的 align-items 属性。
 flex	设置弹性盒子的子元素如何分配空间。
 ```
+
+</Example>
+
+</Block>
 
 
 
