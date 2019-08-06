@@ -1,13 +1,13 @@
 ---
 home: true
-title: Hello, World.
-description: 不知道从哪里开始？我们准备了一些你可以用来开始构建的便捷指南和参考文档。
+title: 前端面试总结.
+description: 不知道从哪里开始？那就从这里开始吧。
 actionText: 开始出发
 actionLink: /zh/getting-started/
-footer: Open Source on [GitHub](https://github.com/sqrthree/vuepress-theme-api), Made by [@sqrthree](https://github.com/sqrthree), Power by [vuepress](https://github.com/vuejs/vuepress).
+footer: Open Source on [GitHub](https://github.com/berlinen/interview-highlights), Made by [@Berlin](https://github.com/berlinen/)
 ---
 
-## 1、2、3 很简单
+## 文档工具基于Vuepress
 
 ```bash
 # 安装 vuepress
@@ -32,11 +32,10 @@ VuePress 要求 [Node.js](http://nodejs.org/) 版本必须 >= 8。
 
 <Section>
 
-## 为 RESTful API 而生
+## 为 大厂前端 而生
 
-一个简洁易用的 VuePress 主题。
+不负如来不负卿。
 
-开箱即用，你需要做的只是安装它，然后写吧。
 
 <br>
 

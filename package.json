@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
+    "build:comment": "node ./builds/addComponents.js && vuepress build docs && node ./builds/delComponents.js",
     "deploy": "sh build.sh"
   },
   "repository": {
@@ -23,9 +24,12 @@
   },
   "homepage": "https://github.com/berlinen/Interview-highlights#readme",
   "devDependencies": {
+    "gitalk": "^1.5.0",
+    "md5": "^2.2.1",
     "vuepress": "^0.10.0"
   },
   "dependencies": {
-    "vuepress-theme-api": "^0.2.1"
+    "vuepress-theme-api": "^0.2.1",
+    "vuepress-plugin-yuque": "^0.6.0"
   }
 }
