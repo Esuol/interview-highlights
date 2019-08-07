@@ -1,0 +1,12 @@
+{
+  "name": "FrontEnd",
+  "short_name": "FrontEnd interview",
+  "icons": [
+
+  ],
+  "start_url": "/front-end/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#3eaf7c"
+}
+
