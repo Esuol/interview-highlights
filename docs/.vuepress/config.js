@@ -39,99 +39,28 @@ module.exports = {
         label: '简体中文',
       },
     },
-
-    // Assumes GitHub. Can also be a full GitLab url.
-    repo: 'sqrthree/vuepress-theme-api',
-    // Customising the header label
-    // Defaults to "GitHub"/"GitLab"/"Bitbucket" depending on `themeConfig.repo`
-    repoLabel: 'Contribute!',
-
-    // Optional options for generating "Edit this page" link
-
-    // if your docs are in a different repo from your main project:
-    docsRepo: 'sqrthree/vuepress-theme-api',
-    // if your docs are not at the root of the repo:
+    // 假定是 GitHub. 同时也可以是一个完整的 GitLab URL
+    repo: 'https://github.com/berlinen/interview-highlights',
+    // 自定义仓库链接文字。默认从 `themeConfig.repo` 中自动推断为
+    // "GitHub"/"GitLab"/"Bitbucket" 其中之一，或是 "Source"。
+    // 假如文档不是放在仓库的根目录下：
     docsDir: 'docs',
-    // if your docs are in a specific branch (defaults to 'master'):
+      // 假如文档放在一个特定的分支下：
     docsBranch: 'master',
-    // defaults to false, set to true to enable
+
+    repoLabel: '查看源码',
+    // 默认是 false, 设置为 true 来启用
     editLinks: true,
-    // custom text for edit link. Defaults to "Edit this page"
+    // 默认为 "Edit this page"
+    editLinkText: '帮助我改善此页面！',
     // editLinkText: 'Help us improve this page',
     lastUpdated: 'Last Updated', // string | boolean
+
     sidebarGroupOrder: [
       'getting-started',
       'configurations'
     ],
   },
-  serviceWorker: false,
-//   themeConfig: {
-//       repo: 'berlinen/interview-highlights',
-//       editLinks: true,
-//       docsDir: 'docs',
-//       editLinkText: '在 GitHub 上编辑此页',
-//       lastUpdated: '上次更新',
-//       nav: [
-//           {
-//               text: '个人主页',
-//               link: 'https://github.com/berlinen/'
-//           }
-//       ],
-//       sidebar: [
-//         {
-//           title: '开始',
-//           collapsable: false,
-//           children: [
-//               ['prepare/', 'Introduction']
-//           ]
-//        },
-//        {
-//         title: 'Html',
-//         collapsable: false,
-//         children: [
-//                 ['html/', 'html']
-//             ]
-//         },
-//         {
-//             title: 'Css',
-//             collapsable: false,
-//             children: [
-//                    'css/',
-//                    'css/selector',
-//                    'css/unit',
-//                    'css/advanced'
-//                 ]
-//         },
-//         {
-//             title: 'javaCript',
-//             collapsable: false,
-//             children: [
-//                 'js/process-one',
-//                 'js/process-two',
-//                 'js/es678',
-//                 'js/react',
-//                 'js/react-two',
-//                 'js/react-three',
-//                 'js/react-four',
-//                 'js/react-router',
-//                 'js/react-international',
-//                 'js/react-testing',
-//                 'js/react-redux',
-//                 'js/react-native',
-//                 // 'js/react-supported',
-//                 'js/vue'
-//                 ]
-//         },
-//         {
-//         title: 'others',
-//         collapsable: false,
-//         children: [
-//                 ['others/', '其他']
-//             ]
-//         }
-//     ]
-//   }
+  serviceWorker: false
+
 }
-/**
- *
- */
