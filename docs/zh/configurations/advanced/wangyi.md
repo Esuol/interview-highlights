@@ -271,6 +271,47 @@ a标签也是dom同样可以加click，可以通过js来做跳转
  当打包模块时，webpack 使用 enhanced-resolve 来解析文件路径
 
 ### JS异步解决方案的发展历程以及优缺点
+1.回调函数callback：
+事件发布订阅
+3.Promise
+genertor
+5.async/await
+
+### Http报文的请求会有几个部分
+
+GET /search?hl=zh-CN&source=hp&q=domety&aq=f&oq= HTTP/1.1
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+application/msword, application/x-silverlight, application/x-shockwave-flash, */*
+Referer: <a href="http://www.google.cn/">http://www.google.cn/</a>
+Accept-Language: zh-cn
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; TheWorld)
+Host: <a href="http://www.google.cn">www.google.cn</a>
+Connection: Keep-Alive
+Cookie: PREF=ID=80a06da87be9ae3c:U=f7167333e2c3b714:NW=1:TM=1261551909:LM=1261551917:S=ybYcq2wpfefs4V9g;
+NID=31=ojj8d-IygaEtSxLgaJmqSjVhCspkviJrB6omjamNrSm8lZhKy_yMfO2M4QMRKcH1g0iQv9u-2hfBW7bUFwVh7pGaRUb0RnHcJU37y-
+FxlRugatx63JLv7CWMD6UB_O_r
+
+### cookie放哪里，cookie能做的事情和存在的价值
+
+header 请求头
+
+
+### cookie和token都存放在header里面，为什么只劫持前者
+
+以上面的csrf攻击为例：
+
+cookie：用户点击了链接，cookie未失效，导致发起请求后后端以为是用户正常操作，于是进行扣款操作。
+token：用户点击链接，由于浏览器不会自动带上token，所以即使发了请求，后端的token验证不会通过，所以不会进行扣款操作。
+这是个人理解的为什么只劫持cookie不劫持token的原因。
+
+### React中Dom结构发生变化后内部经历了哪些变化
+
+diff算法对比虚拟dom与现在视图dom, 计算哪些节点需要重新渲染 算出最小操作集 然后到组件 render
+
+### key主要是解决哪一类的问题，为什么不建议用索引index（重绘）?
+
+循环渲染子元素 加个key值使diff算法更快, 使用index的话, 当数组增删的时候, dom元素对应index改变 会出现渲染的问题
 
 
 
